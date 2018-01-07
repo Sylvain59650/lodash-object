@@ -19,22 +19,35 @@ array.remove(function(n) { return n % 2 == 0; });
 usage
 
 Tout d'abord, installer lodash :
+<code>
 npm install lodash --save
+</code>
 
 puis installer cette extension
+<code>
 npm install lodash-object --save
+</code>
 
 puis dans votre projet, ajouter les références à lodash et à lodash-object:
+<code>
   <script src="./node_modules/lodash/lodash.min.js"></script>
+</code>
 
  pour étendre les fonctionnalités des tableaux 
+ <code> 
   <script src="./node_modules/lodash-object/dist/Array.js"></script>
+</code>
 
 pour étendre les fonctionnalités des chaines de caractères
+<code>
 <script src="./node_modules/lodash-object/dist/String.js"></script>
+</code>
 
 pour étendre les fonctionnalités mathématiques
+<code>
 <script src="./node_modules/lodash-object/dist/Math.js"></script>
+</code>
+
 
 <code>
 <html>
