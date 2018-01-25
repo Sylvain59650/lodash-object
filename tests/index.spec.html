@@ -1,0 +1,278 @@
+<html>
+
+<head>
+  <script src="../node_modules/lodash/lodash.min.js"></script>
+  <script src="../distrib/Array.min.js"></script>
+  <script src="../distrib/String.min.js"></script>
+  <script src="../distrib/Math.min.js"></script>
+</head>
+
+<body>
+  <script>
+    document.write("writen in camelcase".camelCase());
+    document.write("<br/>");
+    document.write("writen in capitalize".capitalize());
+
+    var arrayOfPoint = [{
+      x: 1,
+      y: 2
+    }, {
+      x: 3,
+      y: 4
+    }, {
+      x: 1,
+      y: 6
+    }];
+    var ints = [1, 2, 3, 4, 5];
+
+    //console.log([0, 1, false, 2, '', 3].compact());
+    // => [1, 2, 3]
+    //console.log(Math.add(5, 4));
+
+    console.log(_.head(arrayOfPoint), arrayOfPoint.first());
+    console.log(_.tail(arrayOfPoint), arrayOfPoint.tail());
+    console.log(_.concat(arrayOfPoint, 5), arrayOfPoint.concat(5));
+    console.log(_.concat(arrayOfPoint, 5, 6), arrayOfPoint.concat(5, 6));
+    console.log(_.difference(ints, 5, 6), ints.difference(5, 6));
+
+    console.log(_.differenceBy([{
+      'x': 2
+    }, {
+      'x': 1
+    }], [{
+      'x': 1
+    }], 'x'), [{
+      'x': 2
+    }, {
+      'x': 1
+    }].differenceBy([{
+      'x': 1
+    }], 'x'));
+
+
+
+    var users = [{
+      'user': 'barney',
+      'active': true
+    }, {
+      'user': 'fred',
+      'active': false
+    }, {
+      'user': 'pebbles',
+      'active': false
+    }];
+
+    console.log(_.findLastIndex(users, function(o) {
+      return o.user == 'pebbles';
+    }), users.findLastIndex(function(o) {
+      return o.user == 'pebbles';
+    }));
+    // => 2
+
+    // The `_.matches` iteratee shorthand.
+    console.log(_.findLastIndex(users, {
+      'user': 'barney',
+      'active': true
+    }), users.findLastIndex({
+      'user': 'barney',
+      'active': true
+    }));
+    // => 0
+
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.findLastIndex(users, ['active', false]), users.findLastIndex(['active', false]));
+    // => 2
+
+    // The `_.property` iteratee shorthand.
+    console.log(_.findLastIndex(users, 'active'), users.findLastIndex('active'));
+    // => 0
+
+    console.log("fill", [1, 2, 3, 4].fill(6, 0, 2));
+    console.log("fill", [1, 2, 3, 4].fill(6));
+
+
+    console.log("flattenDeep", [1, [2, [3, [4]], 5]].flattenDeep());
+    // => [1, 2, 3, 4, 5]
+
+    console.log("fromPairs", [
+      ['a', 1],
+      ['b', 2]
+    ].fromPairs());
+    // => { 'a': 1, 'b': 2 }
+
+
+    console.log("intersection", [2, 1].intersection([2, 3]));
+    // => [2]
+
+    console.log(_.join(['a', 'b', 'c'], '~'), ['a', 'b', 'c'].join('~'));
+    // => 'a~b~c'
+
+    console.log(_.sortedIndex([30, 50], 40), [30, 50].sortedIndex(40));
+    // => 1
+
+    var array = ["a", "b", "c", "a", "b", "c"];
+    var tt = array.pull("a");
+    console.log("pull", array);
+    // => ['b', 'b']
+
+
+    var array = [1, 2, 3, 4];
+    //var evens = _.remove(array, function(n) {return n % 2 == 0;});
+
+    console.log(array.remove(function(n) {
+      return n % 2 == 0;
+    }));
+    // => [1, 3]
+
+    // => [2, 4]
+
+    var array = ['a', 'b', 'c', 'd'];
+    var pulled = array.pullAt([1, 3]);
+
+    console.log(array);
+    // => ['a', 'c']
+
+    var arr = [1, 1, 2, 8, 7, 9, 7, 2, 6, 1, 4];
+    console.log(arr.sortedUniq());
+    console.log(arr);
+    // => [1, 2]
+
+
+    console.log([1.1, 1.2, 2.3, 2.4].sortedUniqBy(Math.floor));
+    // => [1.1, 2.3]
+
+    var arr1 = [1, 1, 2, 8];
+    var arr2 = [2, 7, 9, 7];
+    var arr3 = [6, 1, 4];
+    console.log("union", arr1.union(arr2, arr3));
+
+    console.log("without", arr1.without(1, 8));
+
+
+    console.log("xor", [2, 1].xor([2, 3]));
+    // => [1, 3]
+
+    console.log("xorBy", [2.1, 1.2].xorBy(Math.floor, [2.3, 3.4]));
+    // => [1.2, 3.4]
+
+    // The `_.property` iteratee shorthand.
+    console.log("xorBy", [{
+      'x': 1
+    }].xorBy('x', [{
+      'x': 2
+    }, {
+      'x': 1
+    }]));
+    // => [{ 'x': 2 }]
+
+
+    var arr4 = ['a', 'b'];
+    console.log("zip", _.zip(arr4, [1, 2]));
+    console.log("zip", arr4.zip([1, 2], [true, false]));
+    // => [['a', 1, true], ['b', 2, false]]
+
+    console.log("zipObject", ['a', 'b'].zipObject([1, 2]));
+    // => { 'a': 1, 'b': 2 }
+
+    console.log("zipObjectDeep", ['a.b[0].c', 'a.b[1].d'].zipObjectDeep([1, 2]));
+    // => { 'a': { 'b': [{ 'c': 1 }, { 'd': 2 }] } }
+
+
+    console.log("countBy", [6.1, 4.2, 6.3].countBy(Math.floor));
+    // => { '4': 1, '6': 2 }
+
+    // The `_.property` iteratee shorthand.
+    console.log("countBy", ['one', 'two', 'three'].countBy('length'));
+    // => { '3': 2, '5': 1 }
+
+
+    console.log("fin");
+
+
+    console.log("camelCase", "Foo Bar".camelCase());
+
+
+    console.log("words", "fred, barney, & pebbles".words());
+    // => ['fred', 'barney', 'pebbles']
+
+    console.log("words", "fred, barney, & pebbles".words(/[^, ]+/g));
+    // => ['fred', 'barney', '&', 'pebbles']
+
+
+    console.log(Math.add(6, 4));
+    console.log(Math.sum([6, 4]));
+
+
+    console.log(Math.random(2, 10));
+
+    [1, 2].forEach(function(value) {
+      console.log(value);
+    });
+    // => Logs `1` then `2`.
+
+
+
+    console.log("every", [true, 1, null, 'yes'].every(Boolean));
+    // => false
+
+    var users = [{
+      'user': 'barney',
+      'age': 36,
+      'active': false
+    }, {
+      'user': 'fred',
+      'age': 40,
+      'active': false
+    }];
+
+    // The `_.matches` iteratee shorthand.
+    console.log("every", users.every({
+      'user': 'barney',
+      'active': false
+    }));
+    // => false
+
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log("every", users.every(['active', false]));
+    // => true
+
+    // The `_.property` iteratee shorthand.
+    console.log("every", users.every('active'));
+    // => false
+
+    var users = [{
+      'user': 'fred',
+      'age': 48
+    }, {
+      'user': 'barney',
+      'age': 36
+    }, {
+      'user': 'fred',
+      'age': 40
+    }, {
+      'user': 'barney',
+      'age': 34
+    }];
+    debugger;
+    users = users.sortBy([function(o) {
+      return o.user;
+    }]);
+    // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+
+    users = users.sortBy(['user', 'age']);
+    // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+
+    users = users.filter(function(item) {
+      return item.age >= 36;
+    });
+
+    users = users.filter((item) => {
+      return item.age < 48;
+    });
+
+    console.log();
+  </script>
+
+</body>
+
+</html>
