@@ -30,7 +30,7 @@ Example
 
 ## compact
 
-_.compact(array)
+    Array#compact(array)
 
 
 
@@ -45,12 +45,12 @@ Returns
 Example
 	
 
-    _.compact([0, 1, false, 2, '', 3]); 
+    [0, 1, false, 2, '', 3].compact(); 
     // => [1, 2, 3]
 
 ## concat
 
-_.concat([values])
+    Array#concat([values])
 
 
 
@@ -69,25 +69,25 @@ Returns
 Example
 	
 
-    var array = [1];
-    var other = _.concat(2, [3], [[4]]);
+    var myArray = [1];
+    var other = myArray.concat(2, [3], [[4]]);
  
     console.log(other);
     // => [1, 2, 3, [4]]
  
-    console.log(array);
+    console.log(myArray);
     // => [1]
 
 
 ## difference
 
-_.difference([values])
+    Array#difference([values])
 
 
 
 Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
 
-Note: Unlike _.pullAll, this method returns a new array.
+Note: Unlike Array#pullAll, this method returns a new array.
 
 
 
@@ -102,19 +102,19 @@ Returns
 Example
 	
 
-    _.difference([2, 1], [2, 3]);
+    [2, 1].difference([2, 3]);
     // => [1]
 
 ## differenceBy
 
-_.differenceBy([values], [iteratee=_.identity])
+Array#differenceBy([values], [iteratee=_.identity])
 
 
 
-This method is like _.difference except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
+This method is like Array#difference except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
 (value).
 
-Note: Unlike _.pullAllBy, this method returns a new array.
+Note: Unlike Array#pullAllBy, this method returns a new array.
 
 
 
@@ -130,22 +130,22 @@ Returns
 Example
 	
 
-    _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+    [2.1, 1.2].differenceBy([2.3, 3.4], Math.floor);
     // => [1.2]
  
     // The `_.property` iteratee shorthand.
-    _.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x');
+    [{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }].differenceBy('x');
     // => [{ 'x': 2 }]
 
 ## differenceWith
 
-    _.differenceWith([values], [comparator])
+    Array#differenceWith([values], [comparator])
 
 
 
-This method is like _.difference except that it accepts comparator which is invoked to compare elements of array to values. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#difference except that it accepts comparator which is invoked to compare elements of array to values. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
 
-Note: Unlike _.pullAllWith, this method returns a new array.
+Note: Unlike Array#pullAllWith, this method returns a new array.
 
 
 
@@ -164,13 +164,13 @@ Example
 
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
  
-    _.differenceWith(objects, [{ 'x': 1, 'y': 2 }], _.isEqual);
+    objects.differenceWith([{ 'x': 1, 'y': 2 }], _.isEqual);
     // => [{ 'x': 2, 'y': 1 }]
 
 
 ## drop
 
-_.drop([n=1])
+Array#drop([n=1])
 
 
 
@@ -190,22 +190,22 @@ Returns
 Example
 	
 
-    _.drop([1, 2, 3]);
+    [1, 2, 3].drop();
     // => [2, 3]
  
-    _.drop([1, 2, 3], 2);
+    [1, 2, 3].drop(2);
     // => [3]
  
-    _.drop([1, 2, 3], 5);
+    [1, 2, 3].drop(5);
     // => []
  
-    _.drop([1, 2, 3], 0);
+    [1, 2, 3].drop(0);
     // => [1, 2, 3]
 
 
 ## dropRight
 
-_.dropRight([n=1])
+Array#dropRight([n=1])
 
 
 
@@ -225,21 +225,21 @@ Returns
 Example
 	
 
-    _.dropRight([1, 2, 3]);
+    [1, 2, 3].dropRight();
     // => [1, 2]
  
-    _.dropRight([1, 2, 3], 2);
+    [1, 2, 3].dropRight(2);
     // => [1]
  
-    _.dropRight([1, 2, 3], 5);
+    [1, 2, 3].dropRight(5);
     // => []
  
-    _.dropRight([1, 2, 3], 0);
+    [1, 2, 3].dropRight(0);
     // => [1, 2, 3]
 
 ## dropRightWhile
 
-    _.dropRightWhile([predicate=_.identity])
+    Array#dropRightWhile([predicate=_.identity])
 
 
 
@@ -265,19 +265,19 @@ Example
     { 'user': 'pebbles', 'active': false }
     ];
     
-    _.dropRightWhile(users, function(o) { return !o.active; });
+    users.dropRightWhile(function(o) { return !o.active; });
     // => objects for ['barney']
     
     // The `_.matches` iteratee shorthand.
-    _.dropRightWhile(users, { 'user': 'pebbles', 'active': false });
+    users.dropRightWhile({ 'user': 'pebbles', 'active': false });
     // => objects for ['barney', 'fred']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.dropRightWhile(users, ['active', false]);
+    users.dropRightWhile(['active', false]);
     // => objects for ['barney']
     
     // The `_.property` iteratee shorthand.
-    _.dropRightWhile(users, 'active');
+    users.dropRightWhile('active');
     // => objects for ['barney', 'fred', 'pebbles']
 
 
@@ -309,24 +309,24 @@ Example
     { 'user': 'pebbles', 'active': true }
     ];
     
-    _.dropWhile(users, function(o) { return !o.active; });
+    users.dropWhile(function(o) { return !o.active; });
     // => objects for ['pebbles']
     
     // The `_.matches` iteratee shorthand.
-    _.dropWhile(users, { 'user': 'barney', 'active': false });
+    users.dropWhile({ 'user': 'barney', 'active': false });
     // => objects for ['fred', 'pebbles']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.dropWhile(users, ['active', false]);
+    users.dropWhile(['active', false]);
     // => objects for ['pebbles']
     
     // The `_.property` iteratee shorthand.
-    _.dropWhile(users, 'active');
+    users.dropWhile('active');
     // => objects for ['barney', 'fred', 'pebbles']
 
 ## fill
 
-    _.fill(value, [start=0], [end=array.length])
+    Array#fill(value, [start=0], [end=array.length])
 
 
 
@@ -348,26 +348,24 @@ Returns
 
 Example
 	
-
-    var array = [1, 2, 3];
-    
-    _.fill('a');
+    var myArray = [1, 2, 3];    
+    myArray.fill('a');
     console.log(array);
     // => ['a', 'a', 'a']
     
-    _.fill(Array(3), 2);
+    (new Array(3)).fill(2);
     // => [2, 2, 2]
     
-    _.fill([4, 6, 8, 10], '*', 1, 3);
+    [4, 6, 8, 10].fill( '*', 1, 3);
     // => [4, '*', '*', 10]
 
 ## findIndex
 
-    _.findIndex([predicate=_.identity], [fromIndex=0])
+    Array#findIndex([predicate=_.identity], [fromIndex=0])
 
 
 
-This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
+This method is like Array#find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
 
 
 
@@ -390,29 +388,29 @@ Example
     { 'user': 'pebbles', 'active': true }
     ];
     
-    _.findIndex(users, function(o) { return o.user == 'barney'; });
+    users.findIndex(function(o) { return o.user == 'barney'; });
     // => 0
     
     // The `_.matches` iteratee shorthand.
-    _.findIndex(users, { 'user': 'fred', 'active': false });
+    users.findIndex({ 'user': 'fred', 'active': false });
     // => 1
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.findIndex(users, ['active', false]);
+    users.findIndex(['active', false]);
     // => 0
     
     // The `_.property` iteratee shorthand.
-    _.findIndex(users, 'active');
+    users.findIndex('active');
     // => 2
 
 
 ## findLastIndex
 
-    _.findLastIndex([predicate=_.identity],[fromIndex=array.length-1])
+    Array#findLastIndex([predicate=_.identity],[fromIndex=array.length-1])
 
 
 
-This method is like _.findIndex except that it iterates over elements of collection from right to left.
+This method is like Array#findIndex except that it iterates over elements of collection from right to left.
 
 
 
@@ -435,25 +433,25 @@ Example
     { 'user': 'pebbles', 'active': false }
     ];
     
-    _.findLastIndex(users, function(o) { return o.user == 'pebbles'; });
+    users.findLastIndex(function(o) { return o.user == 'pebbles'; });
     // => 2
     
     // The `_.matches` iteratee shorthand.
-    _.findLastIndex(users, { 'user': 'barney', 'active': true });
+    users.findLastIndex({ 'user': 'barney', 'active': true });
     // => 0
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.findLastIndex(users, ['active', false]);
+    users.findLastIndex(['active', false]);
     // => 2
     
     // The `_.property` iteratee shorthand.
-    _.findLastIndex(users, 'active');
+    users.findLastIndex('active');
     // => 0
 
 
 ## flatten
 
-    _.flatten(array)
+    Array#flatten()
 
 
 
@@ -463,7 +461,7 @@ Flattens array a single level deep.
 
 Arguments
 
-    array (Array): The array to flatten.
+    None
 
 Returns
 
@@ -472,12 +470,12 @@ Returns
 Example
 	
 
-    _.flatten([1, [2, [3, [4]], 5]]);
+    [1, [2, [3, [4]], 5]].flatten();
     // => [1, 2, [3, [4]], 5]
 
 ## flattenDeep
 
-    _.flattenDeep(array)
+    Array#flattenDeep()
 
 
 
@@ -487,7 +485,7 @@ Recursively flattens array.
 
 Arguments
 
-    array (Array): The array to flatten.
+    None.
 
 Returns
 
@@ -496,12 +494,12 @@ Returns
 Example
 	
 
-    _.flattenDeep([1, [2, [3, [4]], 5]]);
+    [1, [2, [3, [4]], 5]].flattenDeep();
     // => [1, 2, 3, 4, 5]
 
+# flattenDepth
 
-_.flattenDepth([depth=1])
-
+    Array#flattenDepth([depth=1])
 
 
 Recursively flatten array up to depth times.
@@ -520,18 +518,18 @@ Returns
 Example
 	
 
-    var array = [1, [2, [3, [4]], 5]];
+    var myArray = [1, [2, [3, [4]], 5]];
     
-    _.flattenDepth(1);
+    myArray.flattenDepth(1);
     // => [1, 2, [3, [4]], 5]
     
-    _.flattenDepth(2);
+    myArray.flattenDepth(2);
     // => [1, 2, 3, [4], 5]
 
 
 ## fromPairs
 
-    _.fromPairs(pairs)
+    Array#fromPairs(pairs)
 
 
 
@@ -550,13 +548,13 @@ Returns
 Example
 	
 
-    _.fromPairs([['a', 1], ['b', 2]]);
+    [['a', 1], ['b', 2]].fromPairs();
     // => { 'a': 1, 'b': 2 }
 
 
 ## head
 
-    _.head(array)
+    Array#head(array)
 
 
 
@@ -568,7 +566,7 @@ Aliases
 
 ## first
 
-    _.first
+    Array#first
 
     
 
@@ -579,15 +577,15 @@ Returns
 Example
 	
 
-_.head([1, 2, 3]);
-// => 1
- 
-_.head([]);
-// => undefined
+    [1, 2, 3].head();
+    // => 1
+    
+    [].head();
+    // => undefined
 
 ## indexOf
 
-    _.indexOf(value, [fromIndex=0])
+    Array#indexOf(value, [fromIndex=0])
 
 
 
@@ -608,17 +606,17 @@ Returns
 Example
 	
 
-_.indexOf([1, 2, 1, 2], 2);
-// => 1
- 
-// Search from the `fromIndex`.
-_.indexOf([1, 2, 1, 2], 2, 2);
-// => 3
+    [1, 2, 1, 2].indexOf(2);
+    // => 1
+    
+    // Search from the `fromIndex`.
+    [1, 2, 1, 2].indexOf( 2, 2);
+    // => 3
 
 
 ## initial
 
-    _.initial(array)
+    Array#initial(array)
 
 
 
@@ -637,13 +635,13 @@ Returns
 Example
 	
 
-_.initial([1, 2, 3]);
-// => [1, 2]
+    [1, 2, 3].initial();
+    // => [1, 2]
 
 
 ## intersection
 
-    _.intersection([arrays])
+    Array#intersection([arrays])
 
 
 
@@ -662,16 +660,16 @@ Returns
 Example
 	
 
-    _.intersection([2, 1], [2, 3]);
+    [2, 1].intersection([2, 3]);
     // => [2]
 
 ## intersectionBy
 
-    _.intersectionBy([arrays], [iteratee=_.identity])
+    Array#intersectionBy([arrays], [iteratee=_.identity])
 
 
 
-This method is like _.intersection except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
+This method is like Array#intersection except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
 (value).
 
 
@@ -688,21 +686,21 @@ Returns
 Example
 	
 
-    _.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+    [2.1, 1.2].intersectionBy([2.3, 3.4], Math.floor);
     // => [2.1]
  
-// The `_.property` iteratee shorthand.
-_.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
-// => [{ 'x': 1 }]
+    // The `_.property` iteratee shorthand.
+    [{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }].intersectionBy('x');
+    // => [{ 'x': 1 }]
 
 
 ## intersectionWith
 
-    _.intersectionWith([arrays], [comparator])
+    Array#intersectionWith([arrays], [comparator])
 
 
 
-This method is like _.intersection except that it accepts comparator which is invoked to compare elements of arrays. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#intersection except that it accepts comparator which is invoked to compare elements of arrays. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
@@ -721,12 +719,12 @@ Example
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
     var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
  
-    _.intersectionWith(objects, others, _.isEqual);
+    objects.intersectionWith(others, _.isEqual);
     // => [{ 'x': 1, 'y': 2 }]
 
 ## join
 
-    _.join([separator=','])
+    Array#join([separator=','])
 
 Converts all elements in array into a string separated by separator.
 
@@ -744,12 +742,12 @@ Returns
 Example
 	
 
-    _.join(['a', 'b', 'c'], '~');
+    ['a', 'b', 'c'].join('~');
     // => 'a~b~c'
 
 ## last
 
-_.lastlast(array)
+Array#lastlast(array)
 
 
 
@@ -768,16 +766,16 @@ Returns
 Example
 	
 
-    _.last([1, 2, 3]);
+    [1, 2, 3].last();
     // => 3
 
 ## lastIndexOf
 
-    _.lastIndexOf(value, [fromIndex=array.length-1])
+    Array#lastIndexOf(value, [fromIndex=array.length-1])
 
 
 
-This method is like _.indexOf except that it iterates over elements of array from right to left.
+This method is like Array#indexOf except that it iterates over elements of array from right to left.
 
 
 
@@ -794,16 +792,16 @@ Returns
 Example
 	
 
-    _.lastIndexOf([1, 2, 1, 2], 2);
+    [1, 2, 1, 2].lastIndexOf(2);
     // => 3
     
     // Search from the `fromIndex`.
-    _.lastIndexOf([1, 2, 1, 2], 2, 2);
+    [1, 2, 1, 2].lastIndexOf(2, 2);
     // => 1
 
 ## nth
 
-    _.nth([n=0])
+    Array#nth([n=0])
 
 
 
@@ -823,23 +821,23 @@ Returns
 Example
 	
 
-    var array = ['a', 'b', 'c', 'd'];
+    var myArray = ['a', 'b', 'c', 'd'];
     
-    _.nth(1);
+    myArray.nth(1);
     // => 'b'
     
-    _.nth(-2);
+    myArray.nth(-2);
     // => 'c';
 
 ## pull
 
-    _.pull([values])
+    Array#pull([values])
 
 
 
 Removes all given values from array using SameValueZero for equality comparisons.
 
-Note: Unlike _.without, this method mutates array. Use _.remove to remove elements from an array by predicate.
+Note: Unlike Array#without, this method mutates array. Use Array#remove to remove elements from an array by predicate.
 
 
 
@@ -855,21 +853,21 @@ Returns
 Example
 	
 
-    var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+    var myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
     
-    _.pull('a', 'c');
+    myArray.pull('a', 'c');
     console.log(array);
     // => ['b', 'b']
 
 ## pullAll
 
-    _.pullAll(values)
+    Array#pullAll(values)
 
 
 
-This method is like _.pull except that it accepts an array of values to remove.
+This method is like Array#pull except that it accepts an array of values to remove.
 
-Note: Unlike _.difference, this method mutates array.
+Note: Unlike Array#difference, this method mutates array.
 
 
 
@@ -885,20 +883,20 @@ Returns
 Example
 	
 
-    var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+    var myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
 
-    _.pullAll(['a', 'c']);
+    myArray.pullAll(['a', 'c']);
     console.log(array);
     // => ['b', 'b']
 
 ## pullAllBy
-    _.pullAllBy(values, [iteratee=_.identity])
+    Array#pullAllBy(values, [iteratee=_.identity])
 
 
 
-This method is like _.pullAll except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The iteratee is invoked with one argument: (value).
+This method is like Array#pullAll except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The iteratee is invoked with one argument: (value).
 
-Note: Unlike _.differenceBy, this method mutates array.
+Note: Unlike Array#differenceBy, this method mutates array.
 
 
 
@@ -915,21 +913,21 @@ Returns
 Example
 	
 
-    var array = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
+    var myArray = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
     
-    _.pullAllBy([{ 'x': 1 }, { 'x': 3 }], 'x');
+    myArray.pullAllBy([{ 'x': 1 }, { 'x': 3 }], 'x');
     console.log(array);
     // => [{ 'x': 2 }]
 
 ## pullAllWith
 
-    _.pullAllWith(values, [comparator])
+    Array#pullAllWith(values, [comparator])
 
 
 
-This method is like _.pullAll except that it accepts comparator which is invoked to compare elements of array to values. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#pullAll except that it accepts comparator which is invoked to compare elements of array to values. The comparator is invoked with two arguments: (arrVal, othVal).
 
-Note: Unlike _.differenceWith, this method mutates array.
+Note: Unlike Array#differenceWith, this method mutates array.
 
 
 
@@ -946,23 +944,23 @@ Returns
 Example
 	
 
-    var array = [{ 'x': 1, 'y': 2 }, { 'x': 3, 'y': 4 }, { 'x': 5, 'y': 6 }];
+    var myArray = [{ 'x': 1, 'y': 2 }, { 'x': 3, 'y': 4 }, { 'x': 5, 'y': 6 }];
  
 
 
-    _.pullAllWith([{ 'x': 3, 'y': 4 }], _.isEqual);
+    myArray.pullAllWith([{ 'x': 3, 'y': 4 }], _.isEqual);
     console.log(array);
     // => [{ 'x': 1, 'y': 2 }, { 'x': 5, 'y': 6 }]
 
  ## pullAt
 
-    _.pullAt([indexes])
+    Array#pullAt([indexes])
 
 
 
 Removes elements from array corresponding to indexes and returns an array of removed elements.
 
-Note: Unlike _.at, this method mutates array.
+Note: Unlike Array#at, this method mutates array.
 
 
 
@@ -978,8 +976,8 @@ Returns
 Example
 	
 
-    var array = ['a', 'b', 'c', 'd'];
-    var pulled = _.pullAt([1, 3]);
+    var myArray = ['a', 'b', 'c', 'd'];
+    var pulled = myArray.pullAt([1, 3]);
     
     console.log(array);
     // => ['a', 'c']
@@ -989,13 +987,13 @@ Example
 
  ## remove
 
-    _.remove([predicate=_.identity])
+    Array#remove([predicate=_.identity])
 
 
 
 Removes all elements from array that predicate returns truthy for and returns an array of the removed elements. The predicate is invoked with three arguments: (value, index, array).
 
-Note: Unlike _.filter, this method mutates array. Use _.pull to pull elements from an array by value.
+Note: Unlike Array#filter, this method mutates array. Use Array#pull to pull elements from an array by value.
 
 
 
@@ -1011,8 +1009,8 @@ Returns
 Example
 	
 
-    var array = [1, 2, 3, 4];
-    var evens = _.remove(function(n) {
+    var myArray = [1, 2, 3, 4];
+    var evens = myArray.remove(function(n) {
     return n % 2 == 0;
     });
     
@@ -1024,7 +1022,7 @@ Example
 
  ## reverse
 
-    _.reverse(array)
+    Array#reverse(array)
 
 
 
@@ -1045,9 +1043,9 @@ Returns
 Example
 	
 
-    var array = [1, 2, 3];
+    var myArray = [1, 2, 3];
     
-    _.reverse(array);
+    myArray.reverse(array);
     // => [3, 2, 1]
     
     console.log(array);
@@ -1055,7 +1053,7 @@ Example
 
 ## slice
 
-    _.slice([start=0], [end=array.length])
+    Array#slice([start=0], [end=array.length])
 
 
 
@@ -1076,7 +1074,7 @@ Returns
     (Array): Returns the slice of array.
 
 ## sortedIndex
-    _.sortedIndex(value)
+    Array#sortedIndex(value)
 
 
 
@@ -1096,16 +1094,16 @@ Returns
 Example
 	
 
-    _.sortedIndex([30, 50], 40);
+    [30, 50].sortedIndex(40);
     // => 1
 
  ## sortedIndexBy
 
-    _.sortedIndexBy(value, [iteratee=_.identity])
+    Array#sortedIndexBy(value, [iteratee=_.identity])
 
 
 
-This method is like _.sortedIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
+This method is like Array#sortedIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
 
 
 
@@ -1124,20 +1122,20 @@ Example
 
     var objects = [{ 'x': 4 }, { 'x': 5 }];
     
-    _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
+    objects.sortedIndexBy({ 'x': 4 }, function(o) { return o.x; });
     // => 0
  
     // The `_.property` iteratee shorthand.
-    _.sortedIndexBy(objects, { 'x': 4 }, 'x');
+    objects.sortedIndexBy( { 'x': 4 }, 'x');
     // => 0
 
 
 ## sortedIndexOf
-    _.sortedIndexOf(value)
+    Array#sortedIndexOf(value)
 
 
 
-This method is like _.indexOf except that it performs a binary search on a sorted array.
+This method is like Array#indexOf except that it performs a binary search on a sorted array.
 
 
 
@@ -1153,16 +1151,16 @@ Returns
 Example
 	
 
-    _.sortedIndexOf([4, 5, 5, 5, 6], 5);
+    [4, 5, 5, 5, 6].sortedIndexOf(5);
     // => 1
 
  ## sortedLastIndex
 
-    _.sortedLastIndex(value)
+    Array#sortedLastIndex(value)
 
 
 
-This method is like _.sortedIndex except that it returns the highest index at which value should be inserted into array in order to maintain its sort order.
+This method is like Array#sortedIndex except that it returns the highest index at which value should be inserted into array in order to maintain its sort order.
 
 
 
@@ -1178,16 +1176,16 @@ Returns
 Example
 	
 
-    _.sortedLastIndex([4, 5, 5, 5, 6], 5);
+    [4, 5, 5, 5, 6].sortedLastIndex(5);
     // => 4
 
  ## sortedLastIndexBy
 
-    _.sortedLastIndexBy(value, [iteratee=_.identity])
+    Array#sortedLastIndexBy(value, [iteratee=_.identity])
 
 
 
-This method is like _.sortedLastIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
+This method is like Array#sortedLastIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
 
 
 
@@ -1206,19 +1204,19 @@ Example
 
     var objects = [{ 'x': 4 }, { 'x': 5 }];
     
-    _.sortedLastIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
+    objects.sortedLastIndexBy({ 'x': 4 }, function(o) { return o.x; });
     // => 1
     
     // The `_.property` iteratee shorthand.
-    _.sortedLastIndexBy(objects, { 'x': 4 }, 'x');
+    objects.sortedLastIndexBy({ 'x': 4 }, 'x');
     // => 1
 
 ## sortedLastIndexOf
-    _.sortedLastIndexOf(value)
+    Array#sortedLastIndexOf(value)
 
 
 
-This method is like _.lastIndexOf except that it performs a binary search on a sorted array.
+This method is like Array#lastIndexOf except that it performs a binary search on a sorted array.
 
 
 
@@ -1234,16 +1232,16 @@ Returns
 Example
 	
 
-    _.sortedLastIndexOf([4, 5, 5, 5, 6], 5);
+    [4, 5, 5, 5, 6].sortedLastIndexOf(5);
     // => 3
 
  ## sortedUniq
 
-    _.sortedUniq(array)
+    Array#sortedUniq(array)
 
 
 
-This method is like _.uniq except that it's designed and optimized for sorted arrays.
+This method is like Array#uniq except that it's designed and optimized for sorted arrays.
 
 
 
@@ -1258,16 +1256,16 @@ Returns
 Example
 	
 
-    _.sortedUniq([1, 1, 2]);
+    [1, 1, 2].sortedUniq();
     // => [1, 2]
 
 # sortedUniqBy
 
-    _.sortedUniqBy([iteratee])
+    Array#sortedUniqBy([iteratee])
 
 
 
-This method is like _.uniqBy except that it's designed and optimized for sorted arrays.
+This method is like Array#uniqBy except that it's designed and optimized for sorted arrays.
 
 
 
@@ -1283,12 +1281,12 @@ Returns
 Example
 	
 
-    _.sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor);
+    [1.1, 1.2, 2.3, 2.4].sortedUniqBy(Math.floor);
     // => [1.1, 2.3]
 
  ## tail
 
-    _.tail(array)
+    Array#tail(array)
 
 
 
@@ -1307,12 +1305,12 @@ Returns
 Example
 	
 
-    _.tail([1, 2, 3]);
+    [1, 2, 3].tail();
     // => [2, 3]
 
 ## take
 
-    _.take([n=1])
+    Array#take([n=1])
 
 
 
@@ -1332,21 +1330,21 @@ Returns
 Example
 	
 
-    _.take([1, 2, 3]);
+    [1, 2, 3].take();
     // => [1]
     
-    _.take([1, 2, 3], 2);
+    [1, 2, 3].take(2);
     // => [1, 2]
     
-    _.take([1, 2, 3], 5);
+    [1, 2, 3].take(5);
     // => [1, 2, 3]
     
-    _.take([1, 2, 3], 0);
+    [1, 2, 3].take( 0);
     // => []
 
  ## takeRight
 
-    _.takeRight([n=1])
+    Array#takeRight([n=1])
 
 
 
@@ -1366,21 +1364,21 @@ Returns
 Example
 	
 
-    _.takeRight([1, 2, 3]);
+    [1, 2, 3].takeRight();
     // => [3]
     
-    _.takeRight([1, 2, 3], 2);
+    [1, 2, 3].takeRight(2);
     // => [2, 3]
     
-    _.takeRight([1, 2, 3], 5);
+    [1, 2, 3].takeRight(5);
     // => [1, 2, 3]
     
-    _.takeRight([1, 2, 3], 0);
+    [1, 2, 3].takeRight(0);
     // => []
 
  ## takeRightWhile
 
-    _.takeRightWhile([predicate=_.identity])
+    Array#takeRightWhile([predicate=_.identity])
 
 
 
@@ -1406,23 +1404,23 @@ Example
     { 'user': 'pebbles', 'active': false }
     ];
     
-    _.takeRightWhile(users, function(o) { return !o.active; });
+    users.takeRightWhile(function(o) { return !o.active; });
     // => objects for ['fred', 'pebbles']
     
     // The `_.matches` iteratee shorthand.
-    _.takeRightWhile(users, { 'user': 'pebbles', 'active': false });
+    users.takeRightWhile({ 'user': 'pebbles', 'active': false });
     // => objects for ['pebbles']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.takeRightWhile(users, ['active', false]);
+    users.takeRightWhile(['active', false]);
     // => objects for ['fred', 'pebbles']
     
     // The `_.property` iteratee shorthand.
-    _.takeRightWhile(users, 'active');
+    users.takeRightWhile('active');
     // => []
 
 ## takeWhile
-    _.takeWhile([predicate=_.identity])
+    Array#takeWhile([predicate=_.identity])
 
 
 
@@ -1448,24 +1446,24 @@ Example
     { 'user': 'pebbles', 'active': true }
     ];
     
-    _.takeWhile(users, function(o) { return !o.active; });
+    users.takeWhile(function(o) { return !o.active; });
     // => objects for ['barney', 'fred']
     
     // The `_.matches` iteratee shorthand.
-    _.takeWhile(users, { 'user': 'barney', 'active': false });
+    users.takeWhile({ 'user': 'barney', 'active': false });
     // => objects for ['barney']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.takeWhile(users, ['active', false]);
+    users.takeWhile(['active', false]);
     // => objects for ['barney', 'fred']
     
     // The `_.property` iteratee shorthand.
-    _.takeWhile(users, 'active');
+    users.takeWhile('active');
     // => []
 
  ## union
 
-    _.union([arrays])
+    Array#union([arrays])
 
 
 
@@ -1484,15 +1482,15 @@ Returns
 Example
 	
 
-    _.union([2], [1, 2]);
+    [2].union([1, 2]);
     // => [2, 1]
 
 # unionBy
-    _.unionBy([arrays], [iteratee=_.identity])
+    Array#unionBy([arrays], [iteratee=_.identity])
 
 
 
-This method is like _.union except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed. Result values are chosen from the first array in which the value occurs. The iteratee is invoked with one argument:
+This method is like Array#union except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed. Result values are chosen from the first array in which the value occurs. The iteratee is invoked with one argument:
 (value).
 
 
@@ -1509,21 +1507,21 @@ Returns
 Example
 	
 
-    _.unionBy([2.1], [1.2, 2.3], Math.floor);
+    [2.1].unionBy([1.2, 2.3], Math.floor);
     // => [2.1, 1.2]
     
     // The `_.property` iteratee shorthand.
-    _.unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+    [{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }].unionBy('x');
     // => [{ 'x': 1 }, { 'x': 2 }]
 
 
  ## unionWith
 
-    _.unionWith([arrays], [comparator])
+    Array#unionWith([arrays], [comparator])
 
 
 
-This method is like _.union except that it accepts comparator which is invoked to compare elements of arrays. Result values are chosen from the first array in which the value occurs. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#union except that it accepts comparator which is invoked to compare elements of arrays. Result values are chosen from the first array in which the value occurs. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
@@ -1542,12 +1540,12 @@ Example
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
     var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
     
-    _.unionWith(objects, others, _.isEqual);
+    objects.unionWith(others, _.isEqual);
     // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
 
  ## uniq
 
-    _.uniq(array)
+    Array#uniq(array)
 
 
 
@@ -1566,16 +1564,16 @@ Returns
 Example
 	
 
-    _.uniq([2, 1, 2]);
+    [2, 1, 2].uniq();
     // => [2, 1]
 
  ## uniqBy
 
-    _.uniqBy([iteratee=_.identity])
+    Array#uniqBy([iteratee=_.identity])
 
 
 
-This method is like _.uniq except that it accepts iteratee which is invoked for each element in array to generate the criterion by which uniqueness is computed. The order of result values is determined by the order they occur in the array. The iteratee is invoked with one argument:
+This method is like Array#uniq except that it accepts iteratee which is invoked for each element in array to generate the criterion by which uniqueness is computed. The order of result values is determined by the order they occur in the array. The iteratee is invoked with one argument:
 (value).
 
 
@@ -1592,19 +1590,19 @@ Returns
 Example
 	
 
-    _.uniqBy([2.1, 1.2, 2.3], Math.floor);
+    [2.1, 1.2, 2.3].uniqBy(Math.floor);
     // => [2.1, 1.2]
     
     // The `_.property` iteratee shorthand.
-    _.uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+    [{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }].uniqBy('x');
     // => [{ 'x': 1 }, { 'x': 2 }]
 
 ## uniqWith
-    _.uniqWith([comparator])
+    Array#uniqWith([comparator])
 
 
 
-This method is like _.uniq except that it accepts comparator which is invoked to compare elements of array. The order of result values is determined by the order they occur in the array.The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#uniq except that it accepts comparator which is invoked to compare elements of array. The order of result values is determined by the order they occur in the array.The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
@@ -1622,16 +1620,16 @@ Example
 
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
     
-    _.uniqWith(objects, _.isEqual);
+    objects.uniqWith(_.isEqual);
     // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
 
  ## unzip
 
-    _.unzip(array)
+    Array#unzip(array)
 
 
 
-This method is like _.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
+This method is like Array#zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
 
 
 
@@ -1654,11 +1652,11 @@ Example
 
 ## unzipWith
 
-    _.unzipWith([iteratee=_.identity])
+    Array#unzipWith([iteratee=_.identity])
 
 
 
-This method is like _.unzip except that it accepts iteratee to specify how regrouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
+This method is like Array#unzip except that it accepts iteratee to specify how regrouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
 
 
 
@@ -1682,13 +1680,13 @@ Example
 
  ## without
 
-    _.without([values])
+    Array#without([values])
 
 
 
 Creates an array excluding all given values using SameValueZero for equality comparisons.
 
-Note: Unlike _.pull, this method returns a new array.
+Note: Unlike Array#pull, this method returns a new array.
 
 
 
@@ -1704,12 +1702,12 @@ Returns
 Example
 	
 
-    _.without([2, 1, 2, 3], 1, 2);
+    [2, 1, 2, 3].without(1, 2);
     // => [3]
 
  ## xor
 
-    _.xor([arrays])
+    Array#xor([arrays])
 
 
 
@@ -1728,15 +1726,15 @@ Returns
 Example
 	
 
-    _.xor([2, 1], [2, 3]);
+    [2, 1].xor(, [2, 3]);
     // => [1, 3]
 
 ## xorBy
-    _.xorBy([arrays], [iteratee=_.identity])
+    Array#xorBy([arrays], [iteratee=_.identity])
 
 
 
-This method is like _.xor except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which by which they're compared. The order of result values is determined by the order they occur in the arrays. The iteratee is invoked with one argument: (value).
+This method is like Array#xor except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which by which they're compared. The order of result values is determined by the order they occur in the arrays. The iteratee is invoked with one argument: (value).
 
 
 
@@ -1761,11 +1759,11 @@ Example
 
  ## xorWith
 
-    _.xorWith([arrays], [comparator])
+    Array#xorWith([arrays], [comparator])
 
 
 
-This method is like _.xor except that it accepts comparator which is invoked to compare elements of arrays. The order of result values is determined by the order they occur in the arrays. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like Array#xor except that it accepts comparator which is invoked to compare elements of arrays. The order of result values is determined by the order they occur in the arrays. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
@@ -1789,7 +1787,7 @@ Example
 
  ## zip
 
-    _.zip([arrays])
+    Array#zip([arrays])
 
 
 
@@ -1812,11 +1810,11 @@ Example
     // => [['a', 1, true], ['b', 2, false]]
 
 ## zipObject
-    _.zipObject([props=[]], [values=[]])
+    Array#zipObject([props=[]], [values=[]])
 
 
 
-This method is like _.fromPairs except that it accepts two arrays, one of property identifiers and one of corresponding values.
+This method is like Array#fromPairs except that it accepts two arrays, one of property identifiers and one of corresponding values.
 
 
 
@@ -1832,16 +1830,16 @@ Returns
 Example
 	
 
-    _.zipObject(['a', 'b'], [1, 2]);
+    ['a', 'b'].zipObject([1, 2]);
     // => { 'a': 1, 'b': 2 }
 
 ## zipObjectDeep
 
-    _.zipObjectDeep([props=[]], [values=[]])
+    Array#zipObjectDeep([props=[]], [values=[]])
 
 
 
-This method is like _.zipObject except that it supports property paths.
+This method is like Array#zipObject except that it supports property paths.
 
 
 
@@ -1862,11 +1860,11 @@ Example
 
  ## zipWith
 
-    _.zipWith([arrays], [iteratee=_.identity])
+    Array#zipWith([arrays], [iteratee=_.identity])
 
 
 
-This method is like _.zip except that it accepts iteratee to specify how grouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
+This method is like Array#zip except that it accepts iteratee to specify how grouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
 
 
 
@@ -1882,7 +1880,7 @@ Returns
 Example
 	
 
-    _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
+    Array#zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
     return a + b + c;
     });
     // => [111, 222]
@@ -1890,7 +1888,7 @@ Example
 
 ## countBy
 
-    _.countBy(collection, [iteratee=_.identity])
+    Array#countBy(collection, [iteratee=_.identity])
 
 
 
@@ -1910,15 +1908,15 @@ Returns
 Example
 	
 
-    _.countBy([6.1, 4.2, 6.3], Math.floor);
+    [6.1, 4.2, 6.3].countBy(Math.floor);
     // => { '4': 1, '6': 2 }
     
     // The `_.property` iteratee shorthand.
-    _.countBy(['one', 'two', 'three'], 'length');
+    ['one', 'two', 'three'].countBy('length');
     // => { '3': 2, '5': 1 }
 
 ## every
-    _.every(collection, [predicate=_.identity])
+    Array#every(collection, [predicate=_.identity])
 
 
 
@@ -1949,25 +1947,25 @@ Example
     ];
     
     // The `_.matches` iteratee shorthand.
-    _.every(users, { 'user': 'barney', 'active': false });
+    users.every({ 'user': 'barney', 'active': false });
     // => false
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.every(users, ['active', false]);
+    users.every(['active', false]);
     // => true
     
     // The `_.property` iteratee shorthand.
-    _.every(users, 'active');
+    users.every('active');
     // => false
 
 ## filter
-    _.filter(collection, [predicate=_.identity])
+    Array#filter(collection, [predicate=_.identity])
 
 
 
 Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
-Note: Unlike _.remove, this method returns a new array.
+Note: Unlike Array#remove, this method returns a new array.
 
 
 
@@ -1988,23 +1986,23 @@ Example
     { 'user': 'fred',   'age': 40, 'active': false }
     ];
     
-    _.filter(users, function(o) { return !o.active; });
+    users.filter(function(o) { return !o.active; });
     // => objects for ['fred']
     
     // The `_.matches` iteratee shorthand.
-    _.filter(users, { 'age': 36, 'active': true });
+    users.filter({ 'age': 36, 'active': true });
     // => objects for ['barney']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.filter(users, ['active', false]);
+    users.filter(['active', false]);
     // => objects for ['fred']
     
     // The `_.property` iteratee shorthand.
-    _.filter(users, 'active');
+    users.filter('active');
     // => objects for ['barney']
 
 ## find
-    _.find(collection, [predicate=_.identity], [fromIndex=0])
+    Array#find(collection, [predicate=_.identity], [fromIndex=0])
 
 
 
@@ -2031,28 +2029,28 @@ Example
     { 'user': 'pebbles', 'age': 1,  'active': true }
     ];
     
-    _.find(users, function(o) { return o.age < 40; });
+    users.find(function(o) { return o.age < 40; });
     // => object for 'barney'
     
     // The `_.matches` iteratee shorthand.
-    _.find(users, { 'age': 1, 'active': true });
+    users.find({ 'age': 1, 'active': true });
     // => object for 'pebbles'
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.find(users, ['active', false]);
+    users.find(['active', false]);
     // => object for 'fred'
     
     // The `_.property` iteratee shorthand.
-    _.find(users, 'active');
+    users.find('active');
     // => object for 'barney'
 
 
 ## findLast
-    _.findLast(collection, [predicate=_.identity], [fromIndex=collection.length-1])
+    Array#findLast(collection, [predicate=_.identity], [fromIndex=collection.length-1])
 
 
 
-This method is like _.find except that it iterates over elements of collection from right to left.
+This method is like Array#find except that it iterates over elements of collection from right to left.
 
 
 
@@ -2069,14 +2067,14 @@ Returns
 Example
 	
 
-    _.findLast([1, 2, 3, 4], function(n) {
+    [1, 2, 3, 4].findLast(function(n) {
     return n % 2 == 1;
     });
     // => 3
 
  ## flatMap
 
-    _.flatMap(collection, [iteratee=_.identity])
+    Array#flatMap(collection, [iteratee=_.identity])
 
 
 
@@ -2100,16 +2098,16 @@ Example
     return [n, n];
     }
     
-    _.flatMap([1, 2], duplicate);
+    [1, 2].flatMap(duplicate);
     // => [1, 1, 2, 2]
 
  ## flatMapDeep
 
-    _.flatMapDeep(collection, [iteratee=_.identity])
+    Array#flatMapDeep(collection, [iteratee=_.identity])
 
 
 
-This method is like _.flatMap except that it recursively flattens the mapped results.
+This method is like Array#flatMap except that it recursively flattens the mapped results.
 
 
 
@@ -2129,15 +2127,15 @@ Example
     return [[[n, n]]];
     }
     
-    _.flatMapDeep([1, 2], duplicate);
+    [1, 2].flatMapDeep(duplicate);
     // => [1, 1, 2, 2]
 
 # flatMapDepth
-    _.flatMapDepth(collection, [iteratee=_.identity], [depth=1])
+    Array#flatMapDepth(collection, [iteratee=_.identity], [depth=1])
 
 
 
-This method is like _.flatMap except that it recursively flattens the mapped results up to depth times.
+This method is like Array#flatMap except that it recursively flattens the mapped results up to depth times.
 
 
 
@@ -2158,17 +2156,17 @@ Example
     return [[[n, n]]];
     }
     
-    _.flatMapDepth([1, 2], duplicate, 2);
+    [1, 2].flatMapDepth(duplicate, 2);
     // => [[1, 1], [2, 2]]
 
 # forEach
-    _.forEach(collection, [iteratee=_.identity])
+    Array#forEach(collection, [iteratee=_.identity])
 
 
 
 Iterates over elements of collection and invokes iteratee for each element. The iteratee is invoked with three arguments: (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
 
-Note: As with other "Collections" methods, objects with a "length" property are iterated like arrays. To avoid this behavior use _.forIn or _.forOwn for object iteration.
+Note: As with other "Collections" methods, objects with a "length" property are iterated like arrays. To avoid this behavior use Array#forIn or Array#forOwn for object iteration.
 
 
 
@@ -2176,7 +2174,7 @@ Aliases
 
  ## each
 
-_.each
+Array#each
 Arguments
 
     collection (Array|Object): The collection to iterate over.
@@ -2189,7 +2187,7 @@ Returns
 Example
 	
 
-    _.forEach([1, 2], function(value) {
+    [1, 2].forEach(function(value) {
     console.log(value);
     });
     // => Logs `1` then `2`.
@@ -2200,11 +2198,11 @@ Example
     // => Logs 'a' then 'b' (iteration order is not guaranteed).
 
 ## forEachRight
-    _.forEachRight(collection, [iteratee=_.identity])
+    Array#forEachRight(collection, [iteratee=_.identity])
 
 
 
-This method is like _.forEach except that it iterates over elements of collection from right to left.
+This method is like Array#forEach except that it iterates over elements of collection from right to left.
 
 
 
@@ -2212,7 +2210,7 @@ Aliases
 
  ## eachRight
 
-_.eachRight
+    Array#eachRight
 Arguments
 
     collection (Array|Object): The collection to iterate over.
@@ -2225,14 +2223,14 @@ Returns
 Example
 	
 
-    _.forEachRight([1, 2], function(value) {
+    [1, 2].forEachRight(function(value) {
     console.log(value);
     });
     // => Logs `2` then `1`.
 
  ## groupBy
 
-    _.groupBy(collection, [iteratee=_.identity])
+    Array#groupBy(collection, [iteratee=_.identity])
 
 
 
@@ -2252,15 +2250,15 @@ Returns
 Example
 	
 
-    _.groupBy([6.1, 4.2, 6.3], Math.floor);
+    [6.1, 4.2, 6.3].groupBy(Math.floor);
     // => { '4': [4.2], '6': [6.1, 6.3] }
     
     // The `_.property` iteratee shorthand.
-    _.groupBy(['one', 'two', 'three'], 'length');
+    ['one', 'two', 'three'].groupBy('length');
     // => { '3': ['one', 'two'], '5': ['three'] }
 
 ## includes
-    _.includes(collection, value, [fromIndex=0])
+    Array#includes(collection, value, [fromIndex=0])
 
 
 
@@ -2281,10 +2279,10 @@ Returns
 Example
 	
 
-    _.includes([1, 2, 3], 1);
+    [1, 2, 3].includes( 1);
     // => true
     
-    _.includes([1, 2, 3], 1, 2);
+    [1, 2, 3].includes(1, 2);
     // => false
     
     _.includes({ 'a': 1, 'b': 2 }, 1);
@@ -2295,7 +2293,7 @@ Example
 
  ## invokeMap
 
-    _.invokeMap(collection, path, [args])
+    Array#invokeMap(collection, path, [args])
 
 
 
@@ -2316,15 +2314,15 @@ Returns
 Example
 	
 
-    _.invokeMap([[5, 1, 7], [3, 2, 1]], 'sort');
+    [[5, 1, 7], [3, 2, 1]].invokeMap('sort');
     // => [[1, 5, 7], [1, 2, 3]]
     
-    _.invokeMap([123, 456], String.prototype.split, '');
+    [123, 456].invokeMap(String.prototype.split, '');
     // => [['1', '2', '3'], ['4', '5', '6']]
 
  ## keyBy
 
-    _.keyBy(collection, [iteratee=_.identity])
+    Array#keyBy(collection, [iteratee=_.identity])
 
 
 
@@ -2344,29 +2342,29 @@ Returns
 Example
 	
 
-    var array = [
+    var myArray = [
     { 'dir': 'left', 'code': 97 },
     { 'dir': 'right', 'code': 100 }
     ];
     
-    _.keyBy(function(o) {
+    myArray.keyBy(function(o) {
     return String.fromCharCode(o.code);
     });
     // => { 'a': { 'dir': 'left', 'code': 97 }, 'd': { 'dir': 'right', 'code': 100 } }
     
-    _.keyBy('dir');
+    myArray.keyBy('dir');
     // => { 'left': { 'dir': 'left', 'code': 97 }, 'right': { 'dir': 'right', 'code': 100 } }
 
 ## map
 
-    _.map(collection, [iteratee=_.identity])
+    Array#map(collection, [iteratee=_.identity])
 
 
 
 Creates an array of values by running each element in collection thru iteratee. The iteratee is invoked with three arguments:
 (value, index|key, collection).
 
-Many lodash methods are guarded to work as iteratees for methods like _.every, _.filter, _.map, _.mapValues, _.reject, and _.some.
+Many lodash methods are guarded to work as iteratees for methods like Array#every, Array#filter, Array#map, Array#mapValues, Array#reject, and Array#some.
 
 The guarded methods are:
 ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, random, range, rangeRight, repeat, sampleSize, slice, some, sortBy, split, take, takeRight, template, trim, trimEnd, trimStart, and words
@@ -2389,7 +2387,7 @@ Example
     return n * n;
     }
     
-    _.map([4, 8], square);
+    [4, 8].map(square);
     // => [16, 64]
     
     _.map({ 'a': 4, 'b': 8 }, square);
@@ -2401,16 +2399,16 @@ Example
     ];
     
     // The `_.property` iteratee shorthand.
-    _.map(users, 'user');
+    _.map('user');
     // => ['barney', 'fred']
 
  ## orderBy
 
-    _.orderBy(collection, [iteratees=[_.identity]], [orders])
+    Array#orderBy(collection, [iteratees=[_.identity]], [orders])
 
 
 
-This method is like _.sortBy except that it allows specifying the sort orders of the iteratees to sort by. If orders is unspecified, all values are sorted in ascending order. Otherwise, specify an order of "desc" for descending or "asc" for ascending sort order of corresponding values.
+This method is like Array#sortBy except that it allows specifying the sort orders of the iteratees to sort by. If orders is unspecified, all values are sorted in ascending order. Otherwise, specify an order of "desc" for descending or "asc" for ascending sort order of corresponding values.
 
 
 
@@ -2435,13 +2433,13 @@ Example
     ];
     
     // Sort by `user` in ascending order and by `age` in descending order.
-    _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
+    users.orderBy(['user', 'age'], ['asc', 'desc']);
     // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
 
 
  ## partition
 
-    _.partition(collection, [predicate=_.identity])
+    Array#partition(collection, [predicate=_.identity])
 
 
 
@@ -2467,31 +2465,31 @@ Example
     { 'user': 'pebbles', 'age': 1,  'active': false }
     ];
     
-    _.partition(users, function(o) { return o.active; });
+   users.partition(function(o) { return o.active; });
     // => objects for [['fred'], ['barney', 'pebbles']]
     
     // The `_.matches` iteratee shorthand.
-    _.partition(users, { 'age': 1, 'active': false });
+    users.partition({ 'age': 1, 'active': false });
     // => objects for [['pebbles'], ['barney', 'fred']]
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.partition(users, ['active', false]);
+    users.partition(['active', false]);
     // => objects for [['barney', 'pebbles'], ['fred']]
     
     // The `_.property` iteratee shorthand.
-    _.partition(users, 'active');
+    users.partition('active');
     // => objects for [['fred'], ['barney', 'pebbles']]
 
  ## reduce
 
-    _.reduce(collection, [iteratee=_.identity], [accumulator])
+    Array#reduce(collection, [iteratee=_.identity], [accumulator])
 
 
 
 Reduces collection to a value which is the accumulated result of running each element in collection thru iteratee, where each successive invocation is supplied the return value of the previous. If accumulator is not given, the first element of collection is used as the initial value. The iteratee is invoked with four arguments:
 (accumulator, value, index|key, collection).
 
-Many lodash methods are guarded to work as iteratees for methods like _.reduce, _.reduceRight, and _.transform.
+Many lodash methods are guarded to work as iteratees for methods like Array#reduce, Array#reduceRight, and Array#transform.
 
 The guarded methods are:
 assign, defaults, defaultsDeep, includes, merge, orderBy, and sortBy
@@ -2511,7 +2509,7 @@ Returns
 Example
 	
 
-    _.reduce([1, 2], function(sum, n) {
+    [1, 2].reduce(function(sum, n) {
     return sum + n;
     }, 0);
     // => 3
@@ -2524,11 +2522,11 @@ Example
 
  ## reduceRight
 
-    _.reduceRight(collection, [iteratee=_.identity], [accumulator])
+    Array#reduceRight(collection, [iteratee=_.identity], [accumulator])
 
 
 
-This method is like _.reduce except that it iterates over elements of collection from right to left.
+This method is like Array#reduce except that it iterates over elements of collection from right to left.
 
 
 
@@ -2545,9 +2543,9 @@ Returns
 Example
 	
 
-    var array = [[0, 1], [2, 3], [4, 5]];
+    var myArray = [[0, 1], [2, 3], [4, 5]];
     
-    _.reduceRight(function(flattened, other) {
+    myArray.reduceRight(function(flattened, other) {
     return flattened.concat(other);
     }, []);
     // => [4, 5, 2, 3, 0, 1]
@@ -2555,11 +2553,11 @@ Example
 
  ## reject
 
-    _.reject(collection, [predicate=_.identity])
+    Array#reject(collection, [predicate=_.identity])
 
 
 
-The opposite of _.filter; this method returns the elements of collection that predicate does not return truthy for.
+The opposite of Array#filter; this method returns the elements of collection that predicate does not return truthy for.
 
 
 
@@ -2580,24 +2578,24 @@ Example
     { 'user': 'fred',   'age': 40, 'active': true }
     ];
     
-    _.reject(users, function(o) { return !o.active; });
+    users.reject(function(o) { return !o.active; });
     // => objects for ['fred']
     
     // The `_.matches` iteratee shorthand.
-    _.reject(users, { 'age': 40, 'active': true });
+    users.reject({ 'age': 40, 'active': true });
     // => objects for ['barney']
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.reject(users, ['active', false]);
+    users.reject(['active', false]);
     // => objects for ['fred']
     
     // The `_.property` iteratee shorthand.
-    _.reject(users, 'active');
+    users.reject('active');
     // => objects for ['barney']
 
  ## sample
 
-    _.sample(collection)
+    Array#sample(collection)
 
 
 
@@ -2616,12 +2614,12 @@ Returns
 Example
 	
 
-    _.sample([1, 2, 3, 4]);
+    [1, 2, 3, 4].sample();
     // => 2
 
 ## sampleSize
 
-    _.sampleSize(collection, [n=1])
+    Array#sampleSize(collection, [n=1])
 
 
 
@@ -2642,16 +2640,16 @@ Example
 	
 
 
-    _.sampleSize([1, 2, 3], 2);
+    [1, 2, 3].sampleSize(2);
     // => [3, 1]
     
-    _.sampleSize([1, 2, 3], 4);
+    [1, 2, 3].sampleSize(4);
     // => [2, 3, 1]
 
 
  ## shuffle
 
-    _.shuffle(collection)
+    Array#shuffle(collection)
 
 
 
@@ -2670,12 +2668,12 @@ Returns
 Example
 	
 
-    _.shuffle([1, 2, 3, 4]);
+    [1, 2, 3, 4].shuffle();
     // => [4, 1, 3, 2]
 
  ## size
 
-    _.size(collection)
+    Array#size(collection)
 
 
 
@@ -2694,18 +2692,12 @@ Returns
 Example
 	
 
-    _.size([1, 2, 3]);
+    [1, 2, 3].size();
     // => 3
-    
-    _.size({ 'a': 1, 'b': 2 });
-    // => 2
-    
-    _.size('pebbles');
-    // => 7
-
+       
  ## some
 
-    _.some(collection, [predicate=_.identity])
+    Array#some(collection, [predicate=_.identity])
 
 
 
@@ -2725,7 +2717,7 @@ Returns
 Example
 	
 
-    _.some([null, 0, 'yes', false], Boolean);
+    [null, 0, 'yes', false].some(Boolean);
     // => true
     
     var users = [
@@ -2734,21 +2726,21 @@ Example
     ];
     
     // The `_.matches` iteratee shorthand.
-    _.some(users, { 'user': 'barney', 'active': false });
+    users.some({ 'user': 'barney', 'active': false });
     // => false
     
     // The `_.matchesProperty` iteratee shorthand.
-    _.some(users, ['active', false]);
+    users.some(['active', false]);
     // => true
     
     // The `_.property` iteratee shorthand.
-    _.some(users, 'active');
+    users.some('active');
     // => true
 
 
  ## sortBy
 
-    _.sortBy(collection, [iteratees=[_.identity]])
+    Array#sortBy(collection, [iteratees=[_.identity]])
 
 
 
@@ -2775,10 +2767,10 @@ Example
     { 'user': 'barney', 'age': 34 }
     ];
     
-    _.sortBy(users, [function(o) { return o.user; }]);
+    users.sortBy([function(o) { return o.user; }]);
     // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
     
-    _.sortBy(users, ['user', 'age']);
+    users.sortBy(['user', 'age']);
     // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
 
 
@@ -2787,7 +2779,7 @@ Example
 String Methods
  ## camelCase
 
-    _.camelCase([string=''])
+    String#camelCase([string=''])
 
 
 
@@ -2806,18 +2798,18 @@ Returns
 Example
 	
 
-    _.camelCase('Foo Bar');
+    'Foo Bar'.camelCase();
     // => 'fooBar'
     
-    _.camelCase('--foo-bar--');
+    '--foo-bar--'.camelCase();
     // => 'fooBar'
     
-    _.camelCase('__FOO_BAR__');
+    '__FOO_BAR__'.camelCase();
     // => 'fooBar'
 
  ## capitalize
 
-    _.capitalize([string=''])
+    String#capitalize([string=''])
 
 
 
@@ -2836,11 +2828,11 @@ Returns
 Example
 	
 
-    _.capitalize('FRED');
+    'FRED'.capitalize();
     // => 'Fred'
 
 ## deburr
-    _.deburr([string=''])
+    String#deburr([string=''])
 
 
 
@@ -2854,17 +2846,17 @@ Arguments
 
 Returns
 
-(string): Returns the deburred string.
+    (string): Returns the deburred string.
 
 Example
 	
 
 
-    _.deburr('déjà vu');
+    'déjà vu'.deburr();
     // => 'deja vu'
 
  ## endsWith
-    _.endsWith([string=''], [target], [position=string.length])
+    String#endsWith([string=''], [target], [position=string.length])
 
 
 
@@ -2885,18 +2877,18 @@ Returns
 Example
 	
 
-    _.endsWith('abc', 'c');
+    'abc'.endsWith('c');
     // => true
     
-    _.endsWith('abc', 'b');
+    'abc'.endsWith('b');
     // => false
     
-    _.endsWith('abc', 'b', 2);
+    'abc'.endsWith('b', 2);
     // => true
 
  ## escape
 
-    _.escape([string=''])
+    String#escape([string=''])
 
 
 
@@ -2921,12 +2913,12 @@ Returns
 Example
 	
 
-    _.escape('fred, barney, & pebbles');
+    'fred, barney, & pebbles'.escape();
     // => 'fred, barney, &amp; pebbles'
 
  ## escapeRegExp
 
-    _.escapeRegExp([string=''])
+    String#escapeRegExp([string=''])
 
 
 
@@ -2945,13 +2937,13 @@ Returns
 Example
 	
 
-    _.escapeRegExp('[lodash](https://lodash.com/)');
+    '[lodash](https://lodash.com/)'.escapeRegExp();
     // => '\[lodash\]\(https://lodash\.com/\)'
 
 
  ## kebabCase
 
-    _.kebabCase([string=''])
+    String#kebabCase([string=''])
 
 
 
@@ -2970,18 +2962,18 @@ Returns
 Example
 	
 
-    _.kebabCase('Foo Bar');
+    'Foo Bar'.kebabCase();
     // => 'foo-bar'
     
-    _.kebabCase('fooBar');
+    'fooBar'.kebabCase();
     // => 'foo-bar'
     
-    _.kebabCase('__FOO_BAR__');
+    '__FOO_BAR__'.kebabCase();
     // => 'foo-bar'
 
  ## lowerCase
 
-    _.lowerCase([string=''])
+    String#lowerCase([string=''])
 
 
 
@@ -3000,18 +2992,18 @@ Returns
 Example
 	
 
-    _.lowerCase('--Foo-Bar--');
+    '--Foo-Bar--'.lowerCase();
     // => 'foo bar'
     
-    _.lowerCase('fooBar');
+    'fooBar'.lowerCase();
     // => 'foo bar'
     
-    _.lowerCase('__FOO_BAR__');
+    '__FOO_BAR__'.lowerCase();
     // => 'foo bar'
 
 ## lowerFirst
 
-    _.lowerFirst([string=''])
+    String#lowerFirst([string=''])
 
 
 
@@ -3030,16 +3022,16 @@ Returns
 Example
 	
 
-    _.lowerFirst('Fred');
+    'Fred'.lowerFirst();
     // => 'fred'
     
-    _.lowerFirst('FRED');
+    'FRED'.lowerFirst();
     // => 'fRED'
 
 
  ## pad
 
-    _.pad([string=''], [length=0], [chars=' '])
+    String#pad([string=''], [length=0], [chars=' '])
 
 
 
@@ -3060,18 +3052,18 @@ Returns
 Example
 	
 
-    _.pad('abc', 8);
+    'abc'.pad(, 8);
     // => '  abc   '
     
-    _.pad('abc', 8, '_-');
+    'abc'.pad( 8, '_-');
     // => '_-abc_-_'
     
-    _.pad('abc', 3);
+    'abc'.pad( 3);
     // => 'abc'
 
  ## padEnd
 
-    _.padEnd([string=''], [length=0], [chars=' '])
+    String#padEnd([string=''], [length=0], [chars=' '])
 
 
 
@@ -3092,18 +3084,18 @@ Returns
 Example
 	
 
-    _.padEnd('abc', 6);
+    'abc'.padEnd(6);
     // => 'abc   '
     
-    _.padEnd('abc', 6, '_-');
+    'abc'.padEnd(6, '_-');
     // => 'abc_-_'
     
-    _.padEnd('abc', 3);
+    'abc'.padEnd(3);
     // => 'abc'
 
  ## padStart
 
-    _.padStart([string=''], [length=0], [chars=' '])
+    String#padStart([string=''], [length=0], [chars=' '])
 
 
 
@@ -3124,19 +3116,19 @@ Returns
 Example
 	
 
-    _.padStart('abc', 6);
+    'abc'.padStart(6);
     // => '   abc'
     
-    _.padStart('abc', 6, '_-');
+    'abc'.padStart(6, '_-');
     // => '_-_abc'
     
-    _.padStart('abc', 3);
+    'abc'.padStart(3);
     // => 'abc'
 
 
  ## parseInt
 
-    _.parseInt(string, [radix=10])
+    String#parseInt(string, [radix=10])
 
 
 
@@ -3165,7 +3157,7 @@ Example
     // => [6, 8, 10]
 
 # repeat
-    _.repeat([string=''], [n=1])
+    String#repeat([string=''], [n=1])
 
 
 
@@ -3185,18 +3177,18 @@ Returns
 Example
 	
 
-    _.repeat('*', 3);
+    '*'.repeat(3);
     // => '***'
     
-    _.repeat('abc', 2);
+    'abc'.repeat(2);
     // => 'abcabc'
     
-    _.repeat('abc', 0);
+    'abc'.repeat(0);
     // => ''
 
  ## replace
 
-    _.replace([string=''], pattern, replacement)
+    String#replace([string=''], pattern, replacement)
 
 
 
@@ -3219,13 +3211,13 @@ Returns
 Example
 	
 
-    _.replace('Hi Fred', 'Fred', 'Barney');
+    'Hi Fred'.replace('Fred', 'Barney');
     // => 'Hi Barney'
 
 
  ## snakeCase
 
-    _.snakeCase([string=''])
+    String#snakeCase([string=''])
 
 
 
@@ -3244,17 +3236,17 @@ Returns
 Example
 	
 
-    _.snakeCase('Foo Bar');
+    'Foo Bar'.snakeCase();
     // => 'foo_bar'
     
-    _.snakeCase('fooBar');
+    'fooBar'.snakeCase();
     // => 'foo_bar'
     
-    _.snakeCase('--FOO-BAR--');
+    '--FOO-BAR--'.snakeCase();
     // => 'foo_bar'
 
 ## split
-    _.split([string=''], separator, [limit])
+    String#split([string=''], separator, [limit])
 
 
 
@@ -3277,12 +3269,12 @@ Returns
 Example
 	
 
-    _.split('a-b-c', '-', 2);
+    'a-b-c'.split('-', 2);
     // => ['a', 'b']
 
  ## startCase
 
-    _.startCase([string=''])
+    String#startCase([string=''])
 
 
 
@@ -3300,18 +3292,18 @@ Returns
 Example
 	
 
-    _.startCase('--foo-bar--');
+    '--foo-bar--'.startCase();
     // => 'Foo Bar'
     
-    _.startCase('fooBar');
+    'fooBar'.startCase();
     // => 'Foo Bar'
     
-    _.startCase('__FOO_BAR__');
+    '__FOO_BAR__'.startCase();
     // => 'FOO BAR'
 
  ## startsWith
 
-    _.startsWith([string=''], [target], [position=0])
+    String#startsWith([string=''], [target], [position=0])
 
 
 
@@ -3332,18 +3324,18 @@ Returns
 Example
 	
 
-    _.startsWith('abc', 'a');
+    'abc'.startsWith('a');
     // => true
     
-    _.startsWith('abc', 'b');
+    'abc'.startsWith('b');
     // => false
     
-    _.startsWith('abc', 'b', 1);
+    'abc'.startsWith('b', 1);
     // => true
 
  ## template
 
-    _.template([string=''], [options={}])
+    String#template([string=''], [options={}])
 
 
 
@@ -3386,7 +3378,7 @@ compiled({ 'value': '<script>' });
 // => '<b>&lt;script&gt;</b>'
  
 // Use the "evaluate" delimiter to execute JavaScript and generate HTML.
-var compiled = _.template('<% _.forEach(users, function(user) { %><li><%- user %></li><% }); %>');
+var compiled = _.template('<% _.forEach(function(user) { %><li><%- user %></li><% }); %>');
 compiled({ 'users': ['fred', 'barney'] });
 // => '<li>fred</li><li>barney</li>'
  
@@ -3407,7 +3399,7 @@ compiled({ 'value': 'ignored' });
 // => '<%- value %>'
  
 // Use the `imports` option to import `jQuery` as `jq`.
-var text = '<% jq.each(users, function(user) { %><li><%- user %></li><% }); %>';
+var text = '<% jq.each(function(user) { %><li><%- user %></li><% }); %>';
 var compiled = _.template(text, { 'imports': { 'jq': jQuery } });
 compiled({ 'users': ['fred', 'barney'] });
 // => '<li>fred</li><li>barney</li>'
@@ -3442,7 +3434,7 @@ fs.writeFileSync(path.join(process.cwd(), 'jst.js'), '\
 
  ## toLower
 
-    _.toLower([string=''])
+    String#toLower([string=''])
 
 
 
@@ -3461,18 +3453,18 @@ Returns
 Example
 	
 
-    _.toLower('--Foo-Bar--');
+    '--Foo-Bar--'.toLower();
     // => '--foo-bar--'
     
-    _.toLower('fooBar');
+    'fooBar'.toLower();
     // => 'foobar'
     
-    _.toLower('__FOO_BAR__');
+    '__FOO_BAR__'.toLower();
     // => '__foo_bar__'
 
 ## toUpper
 
-    _.toUpper([string=''])
+    String#toUpper([string=''])
 
 
 
@@ -3491,19 +3483,19 @@ Returns
 Example
 	
 
-_.toUpper('--foo-bar--');
-// => '--FOO-BAR--'
- 
-_.toUpper('fooBar');
-// => 'FOOBAR'
- 
-_.toUpper('__foo_bar__');
-// => '__FOO_BAR__'
+    '--foo-bar--'.toUpper();
+    // => '--FOO-BAR--'
+    
+    'fooBar'.toUpper();
+    // => 'FOOBAR'
+    
+    '__foo_bar__'.toUpper();
+    // => '__FOO_BAR__'
 
 
  ## trim
 
-    _.trim([string=''], [chars=whitespace])
+    String#trim([string=''], [chars=whitespace])
 
 
 
@@ -3523,18 +3515,18 @@ Returns
 Example
 	
 
-    _.trim('  abc  ');
+    '  abc  '.trim();
     // => 'abc'
     
-    _.trim('-_-abc-_-', '_-');
+    '-_-abc-_-'.trim('_-');
     // => 'abc'
     
-    _.map(['  foo  ', '  bar  '], _.trim);
+    ['  foo  ', '  bar  '].map(_.trim);
     // => ['foo', 'bar']
 
  ## trimEnd
 
-    _.trimEnd([string=''], [chars=whitespace])
+    String#trimEnd([string=''], [chars=whitespace])
 
 
 
@@ -3554,15 +3546,15 @@ Returns
 Example
 	
 
-    _.trimEnd('  abc  ');
+    '  abc  '.trimEnd();
     // => '  abc'
     
-    _.trimEnd('-_-abc-_-', '_-');
+    '-_-abc-_-'.trimEnd('_-');
     // => '-_-abc'
 
  ## trimStart
 
-    _.trimStart([string=''], [chars=whitespace])
+    String#trimStart([string=''], [chars=whitespace])
 
 
 
@@ -3582,15 +3574,15 @@ Returns
 Example
 	
 
-    _.trimStart('  abc  ');
+    '  abc  '.trimStart();
     // => 'abc  '
     
-    _.trimStart('-_-abc-_-', '_-');
+    '-_-abc-_-'.trimStart( '_-');
     // => 'abc-_-'
 
  ## truncate
 
-    _.truncate([string=''], [options={}])
+    String#truncate([string=''], [options={}])
 
 
 
@@ -3613,22 +3605,22 @@ Returns
 Example
 	
 
-    _.truncate('hi-diddly-ho there, neighborino');
+    'hi-diddly-ho there, neighborino'.truncate();
     // => 'hi-diddly-ho there, neighbo...'
     
-    _.truncate('hi-diddly-ho there, neighborino', {
+    'hi-diddly-ho there, neighborino'.truncate( {
     'length': 24,
     'separator': ' '
     });
     // => 'hi-diddly-ho there,...'
     
-    _.truncate('hi-diddly-ho there, neighborino', {
+    'hi-diddly-ho there, neighborino'.truncate({
     'length': 24,
     'separator': /,? +/
     });
     // => 'hi-diddly-ho there...'
     
-    _.truncate('hi-diddly-ho there, neighborino', {
+    'hi-diddly-ho there, neighborino'.truncate({
     'omission': ' [...]'
     });
     // => 'hi-diddly-ho there, neig [...]'
@@ -3636,11 +3628,11 @@ Example
 
  ## unescape
 
-    _.unescape([string=''])
+    String#unescape([string=''])
 
 
 
-The inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, and &#39; in string to their corresponding characters.
+The inverse of String#escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, and &#39; in string to their corresponding characters.
 
 Note: No other HTML entities are unescaped. To unescape additional HTML entities use a third-party library like he.
 
@@ -3656,12 +3648,12 @@ Returns
 Example
 	
 
-    _.unescape('fred, barney, &amp; pebbles');
+    'fred, barney, &amp; pebbles'.unescape();
     // => 'fred, barney, & pebbles'
 
 
  ## upperCase
-    _.upperCase([string=''])
+    String#upperCase([string=''])
 
 
 
@@ -3680,18 +3672,18 @@ Returns
 Example
 	
 
-    _.upperCase('--foo-bar');
+    '--foo-bar'.upperCase();
     // => 'FOO BAR'
     
-    _.upperCase('fooBar');
+    'fooBar'.upperCase();
     // => 'FOO BAR'
     
-    _.upperCase('__foo_bar__');
+    '__foo_bar__'.upperCase();
     // => 'FOO BAR'
 
  ## upperFirst
 
-    _.upperFirst([string=''])
+    String#upperFirst([string=''])
 
 
 
@@ -3710,15 +3702,15 @@ Returns
 Example
 	
 
-    _.upperFirst('fred');
+    'fred'.upperFirst();
     // => 'Fred'
     
-    _.upperFirst('FRED');
+    'FRED'.upperFirst();
     // => 'FRED'
 
 ## words
 
-    _.words([string=''], [pattern])
+    String#words([string=''], [pattern])
 
 
 
@@ -3738,9 +3730,9 @@ Returns
 Example
 	
 
-    _.words('fred, barney, & pebbles');
+    'fred, barney, & pebbles'.words();
     // => ['fred', 'barney', 'pebbles']
     
-    _.words('fred, barney, & pebbles', /[^, ]+/g);
+    'fred, barney, & pebbles'.words( /[^, ]+/g);
     // => ['fred', 'barney', '&', 'pebbles']
 
