@@ -176,7 +176,7 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [padEnd](docs/String.md#padEnd)
  - [padStart](docs/String.md#padStart)
  - [repeat](docs/String.md#repeat)
- - [replace](#)(docs/String.md#replace)
+ - [replace](docs/String.md#replace)
  - [snakeCase](docs/String.md#snakeCase)
  - [split](docs/String.md#split)
  - [startCase](docs/String.md#startCase)
