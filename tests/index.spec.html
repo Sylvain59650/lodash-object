@@ -168,7 +168,7 @@
 
     var arr4 = ['a', 'b'];
     console.log("zip", _.zip(arr4, [1, 2]));
-    console.log("zip", arr4.zip([1, 2], [true, false]));
+    console.log("zip", Array.zip(arr4, [1, 2], [true, false]));
     // => [['a', 1, true], ['b', 2, false]]
 
     console.log("zipObject", ['a', 'b'].zipObject([1, 2]));
@@ -253,7 +253,7 @@
       'user': 'barney',
       'age': 34
     }];
-    debugger;
+
     users = users.sortBy([function(o) {
       return o.user;
     }]);

@@ -93,7 +93,7 @@ Note: Unlike Array#pullAll, this method returns a new array.
 
 Arguments
 
-   [values] (...Array): The values to exclude.
+    [values] (...Array): The values to exclude.
 
 Returns
 
@@ -107,7 +107,7 @@ Example
 
 ## differenceBy
 
-Array#differenceBy([values], [iteratee=_.identity])
+    Array#differenceBy([values], [iteratee=_.identity])
 
 
 
@@ -170,7 +170,7 @@ Example
 
 ## drop
 
-Array#drop([n=1])
+    Array#drop([n=1])
 
 
 
@@ -205,7 +205,7 @@ Example
 
 ## dropRight
 
-Array#dropRight([n=1])
+    Array#dropRight([n=1])
 
 
 
@@ -283,7 +283,7 @@ Example
 
 ## dropWhile
 
-    _.dropWhile([predicate=_.identity])
+    Array#dropWhile([predicate=_.identity])
 
 
 
@@ -552,18 +552,6 @@ Example
     // => { 'a': 1, 'b': 2 }
 
 
-## head
-
-    Array#head(array)
-
-
-
-Gets the first element of array.
-
-
-
-Aliases
-
 ## first
 
     Array#first
@@ -577,10 +565,10 @@ Returns
 Example
 	
 
-    [1, 2, 3].head();
+    [1, 2, 3].first();
     // => 1
     
-    [].head();
+    [].first();
     // => undefined
 
 ## indexOf
@@ -747,7 +735,7 @@ Example
 
 ## last
 
-Array#lastlast(array)
+    Array#last()
 
 
 
@@ -757,6 +745,7 @@ Gets the last element of array.
 
 Arguments
 
+    None.
     
 
 Returns
@@ -843,7 +832,6 @@ Note: Unlike Array#without, this method mutates array. Use Array#remove to remov
 
 Arguments
 
-    array (Array): The array to modify.
     [values] (...*): The values to remove.
 
 Returns
@@ -856,8 +844,7 @@ Example
     var myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
     
     myArray.pull('a', 'c');
-    console.log(array);
-    // => ['b', 'b']
+   // => ['b', 'b']
 
 ## pullAll
 
@@ -873,7 +860,6 @@ Note: Unlike Array#difference, this method mutates array.
 
 Arguments
 
-    array (Array): The array to modify.
     values (Array): The values to remove.
 
 Returns
@@ -886,7 +872,6 @@ Example
     var myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
 
     myArray.pullAll(['a', 'c']);
-    console.log(array);
     // => ['b', 'b']
 
 ## pullAllBy
@@ -902,7 +887,6 @@ Note: Unlike Array#differenceBy, this method mutates array.
 
 Arguments
 
-    array (Array): The array to modify.
     values (Array): The values to remove.
     [iteratee=_.identity] (Function): The iteratee invoked per element.
 
@@ -916,7 +900,7 @@ Example
     var myArray = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
     
     myArray.pullAllBy([{ 'x': 1 }, { 'x': 3 }], 'x');
-    console.log(array);
+    console.log(myArray);
     // => [{ 'x': 2 }]
 
 ## pullAllWith
@@ -933,7 +917,6 @@ Note: Unlike Array#differenceWith, this method mutates array.
 
 Arguments
 
-    array (Array): The array to modify.
     values (Array): The values to remove.
     [comparator] (Function): The comparator invoked per element.
 
@@ -949,7 +932,7 @@ Example
 
 
     myArray.pullAllWith([{ 'x': 3, 'y': 4 }], _.isEqual);
-    console.log(array);
+    console.log(myArray);
     // => [{ 'x': 1, 'y': 2 }, { 'x': 5, 'y': 6 }]
 
  ## pullAt
@@ -979,7 +962,7 @@ Example
     var myArray = ['a', 'b', 'c', 'd'];
     var pulled = myArray.pullAt([1, 3]);
     
-    console.log(array);
+    console.log(myArray);
     // => ['a', 'c']
     
     console.log(pulled);
@@ -999,7 +982,6 @@ Note: Unlike Array#filter, this method mutates array. Use Array#pull to pull ele
 
 Arguments
 
-    array (Array): The array to modify.
     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -1065,7 +1047,6 @@ Note: This method is used instead of Array#slice to ensure dense arrays are retu
 
 Arguments
 
-    array (Array): The array to slice.
     [start=0] (number): The start position.
     [end=array.length] (number): The end position.
 
@@ -1084,7 +1065,6 @@ Uses a binary search to determine the lowest index at which value should be inse
 
 Arguments
 
-    array (Array): The sorted array to inspect.
     value (*): The value to evaluate.
 
 Returns
@@ -1109,7 +1089,6 @@ This method is like Array#sortedIndex except that it accepts iteratee which is i
 
 Arguments
 
-    array (Array): The sorted array to inspect.
     value (*): The value to evaluate.
     [iteratee=_.identity] (Function): The iteratee invoked per element.
 
@@ -1166,7 +1145,6 @@ This method is like Array#sortedIndex except that it returns the highest index a
 
 Arguments
 
-    array (Array): The sorted array to inspect.
     value (*): The value to evaluate.
 
 Returns
@@ -1191,7 +1169,6 @@ This method is like Array#sortedLastIndex except that it accepts iteratee which 
 
 Arguments
 
-    array (Array): The sorted array to inspect.
     value (*): The value to evaluate.
     [iteratee=_.identity] (Function): The iteratee invoked per element.
 
@@ -1286,7 +1263,7 @@ Example
 
  ## tail
 
-    Array#tail(array)
+    Array#tail()
 
 
 
@@ -1296,6 +1273,7 @@ Gets all but the first element of array.
 
 Arguments
 
+    None.
     
 
 Returns
@@ -1399,9 +1377,9 @@ Example
 	
 
     var users = [
-    { 'user': 'barney',  'active': true },
-    { 'user': 'fred',    'active': false },
-    { 'user': 'pebbles', 'active': false }
+        { 'user': 'barney',  'active': true },
+        { 'user': 'fred',    'active': false },
+        { 'user': 'pebbles', 'active': false }
     ];
     
     users.takeRightWhile(function(o) { return !o.active; });
@@ -1441,9 +1419,9 @@ Example
 	
 
     var users = [
-    { 'user': 'barney',  'active': false },
-    { 'user': 'fred',    'active': false },
-    { 'user': 'pebbles', 'active': true }
+        { 'user': 'barney',  'active': false },
+        { 'user': 'fred',    'active': false },
+        { 'user': 'pebbles', 'active': true }
     ];
     
     users.takeWhile(function(o) { return !o.active; });
@@ -1511,7 +1489,7 @@ Example
     // => [2.1, 1.2]
     
     // The `_.property` iteratee shorthand.
-    [{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }].unionBy('x');
+    [{ 'x': 1 }].unionBy( [{ 'x': 2 }, { 'x': 1 }], 'x');
     // => [{ 'x': 1 }, { 'x': 2 }]
 
 
@@ -1540,13 +1518,12 @@ Example
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
     var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
     
-    objects.unionWith(others, _.isEqual);
+    objects.unionWith( others, _.isEqual);
     // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
 
  ## uniq
 
-    Array#uniq(array)
-
+    Array#uniq()
 
 
 Creates a duplicate-free version of an using SameValueZero for equality comparisons, in which only the first occurrence of each element is kept. The order of result values is determined by the order they occur in the array.
@@ -1555,7 +1532,7 @@ Creates a duplicate-free version of an using SameValueZero for equality comparis
 
 Arguments
 
-    
+    None.
 
 Returns
 
@@ -1625,17 +1602,17 @@ Example
 
  ## unzip
 
-    Array#unzip(array)
+    Array#unzip()
 
 
 
-This method is like Array#zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
+This method is like Array.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
 
 
 
 Arguments
 
-    array (Array): The array of grouped elements to process.
+    None.
 
 Returns
 
@@ -1644,10 +1621,9 @@ Returns
 Example
 	
 
-    var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
-    // => [['a', 1, true], ['b', 2, false]]
+    var zipped = [['a', 1, true], ['b', 2, false]];
     
-    _.unzip(zipped);
+    zipped.unzip();
     // => [['a', 'b'], [1, 2], [true, false]]
 
 ## unzipWith
@@ -1675,7 +1651,7 @@ Example
     var zipped = _.zip([1, 2], [10, 20], [100, 200]);
     // => [[1, 10, 100], [2, 20, 200]]
     
-    _.unzipWith(zipped, _.add);
+    zipped.unzipWith( _.add);
     // => [3, 30, 300]
 
  ## without
@@ -1726,7 +1702,7 @@ Returns
 Example
 	
 
-    [2, 1].xor(, [2, 3]);
+    [2, 1].xor([2, 3]);
     // => [1, 3]
 
 ## xorBy
@@ -1750,11 +1726,11 @@ Returns
 Example
 	
 
-    _.xorBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+    [2.1, 1.2].xorBy( [2.3, 3.4], Math.floor);
     // => [1.2, 3.4]
     
     // The `_.property` iteratee shorthand.
-    _.xorBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+    [{ 'x': 1 }].xorBy([{ 'x': 2 }, { 'x': 1 }], 'x');
     // => [{ 'x': 2 }]
 
  ## xorWith
@@ -1782,12 +1758,12 @@ Example
     var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
     var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
     
-    _.xorWith(objects, others, _.isEqual);
+    objects.xorWith(others, _.isEqual);
     // => [{ 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
 
  ## zip
 
-    Array#zip([arrays])
+    Array.zip([arrays])
 
 
 
@@ -1806,7 +1782,7 @@ Returns
 Example
 	
 
-    _.zip(['a', 'b'], [1, 2], [true, false]);
+    Array.zip(['a', 'b'], [1, 2], [true, false]);
     // => [['a', 1, true], ['b', 2, false]]
 
 ## zipObject
@@ -1860,7 +1836,7 @@ Example
 
  ## zipWith
 
-    Array#zipWith([arrays], [iteratee=_.identity])
+    Array.zipWith([arrays], [iteratee=_.identity])
 
 
 
@@ -1880,7 +1856,7 @@ Returns
 Example
 	
 
-    Array#zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
+    Array.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
     return a + b + c;
     });
     // => [111, 222]
@@ -1888,7 +1864,7 @@ Example
 
 ## countBy
 
-    Array#countBy(collection, [iteratee=_.identity])
+    Array#countBy([iteratee=_.identity])
 
 
 
@@ -1898,7 +1874,6 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The iteratee to transform keys.
 
 Returns
@@ -1916,7 +1891,7 @@ Example
     // => { '3': 2, '5': 1 }
 
 ## every
-    Array#every(collection, [predicate=_.identity])
+    Array#every([predicate=_.identity])
 
 
 
@@ -1928,8 +1903,7 @@ Note: This method returns true for empty collections because everything is true 
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
-    [predicate=_.identity] (Function): The function invoked per iteration.
+     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
 
@@ -1938,12 +1912,12 @@ Returns
 Example
 	
 
-    _.every([true, 1, null, 'yes'], Boolean);
+    [true, 1, null, 'yes'].every(Boolean);
     // => false
     
     var users = [
-    { 'user': 'barney', 'age': 36, 'active': false },
-    { 'user': 'fred',   'age': 40, 'active': false }
+        { 'user': 'barney', 'age': 36, 'active': false },
+        { 'user': 'fred',   'age': 40, 'active': false }
     ];
     
     // The `_.matches` iteratee shorthand.
@@ -1959,7 +1933,7 @@ Example
     // => false
 
 ## filter
-    Array#filter(collection, [predicate=_.identity])
+    Array#filter([predicate=_.identity])
 
 
 
@@ -1971,8 +1945,7 @@ Note: Unlike Array#remove, this method returns a new array.
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
-    [predicate=_.identity] (Function): The function invoked per iteration.
+     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
 
@@ -1982,8 +1955,8 @@ Example
 	
 
     var users = [
-    { 'user': 'barney', 'age': 36, 'active': true },
-    { 'user': 'fred',   'age': 40, 'active': false }
+        { 'user': 'barney', 'age': 36, 'active': true },
+        { 'user': 'fred',   'age': 40, 'active': false }
     ];
     
     users.filter(function(o) { return !o.active; });
@@ -2002,7 +1975,8 @@ Example
     // => objects for ['barney']
 
 ## find
-    Array#find(collection, [predicate=_.identity], [fromIndex=0])
+
+    Array#find( [predicate=_.identity], [fromIndex=0])
 
 
 
@@ -2012,7 +1986,6 @@ Iterates over elements of collection, returning the first element predicate retu
 
 Arguments
 
-    collection (Array|Object): The collection to inspect.
     [predicate=_.identity] (Function): The function invoked per iteration.
     [fromIndex=0] (number): The index to search from.
 
@@ -2024,9 +1997,9 @@ Example
 	
 
     var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
+        { 'user': 'barney',  'age': 36, 'active': true },
+        { 'user': 'fred',    'age': 40, 'active': false },
+        { 'user': 'pebbles', 'age': 1,  'active': true }
     ];
     
     users.find(function(o) { return o.age < 40; });
@@ -2046,7 +2019,7 @@ Example
 
 
 ## findLast
-    Array#findLast(collection, [predicate=_.identity], [fromIndex=collection.length-1])
+    Array#findLast( [predicate=_.identity], [fromIndex=collection.length-1])
 
 
 
@@ -2056,7 +2029,6 @@ This method is like Array#find except that it iterates over elements of collecti
 
 Arguments
 
-    collection (Array|Object): The collection to inspect.
     [predicate=_.identity] (Function): The function invoked per iteration.
     [fromIndex=collection.length-1] (number): The index to search from.
 
@@ -2068,13 +2040,13 @@ Example
 	
 
     [1, 2, 3, 4].findLast(function(n) {
-    return n % 2 == 1;
+        return n % 2 == 1;
     });
     // => 3
 
  ## flatMap
 
-    Array#flatMap(collection, [iteratee=_.identity])
+    Array#flatMap([iteratee=_.identity])
 
 
 
@@ -2084,7 +2056,6 @@ Creates a flattened array of values by running each element in collection thru i
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2095,7 +2066,7 @@ Example
 	
 
     function duplicate(n) {
-    return [n, n];
+        return [n, n];
     }
     
     [1, 2].flatMap(duplicate);
@@ -2103,7 +2074,7 @@ Example
 
  ## flatMapDeep
 
-    Array#flatMapDeep(collection, [iteratee=_.identity])
+    Array#flatMapDeep( [iteratee=_.identity])
 
 
 
@@ -2113,7 +2084,6 @@ This method is like Array#flatMap except that it recursively flattens the mapped
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2124,14 +2094,14 @@ Example
 	
 
     function duplicate(n) {
-    return [[[n, n]]];
+        return [[[n, n]]];
     }
     
     [1, 2].flatMapDeep(duplicate);
     // => [1, 1, 2, 2]
 
 # flatMapDepth
-    Array#flatMapDepth(collection, [iteratee=_.identity], [depth=1])
+    Array#flatMapDepth([iteratee=_.identity], [depth=1])
 
 
 
@@ -2141,7 +2111,6 @@ This method is like Array#flatMap except that it recursively flattens the mapped
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
     [depth=1] (number): The maximum recursion depth.
 
@@ -2153,14 +2122,14 @@ Example
 	
 
     function duplicate(n) {
-    return [[[n, n]]];
+        return [[[n, n]]];
     }
     
     [1, 2].flatMapDepth(duplicate, 2);
     // => [[1, 1], [2, 2]]
 
 # forEach
-    Array#forEach(collection, [iteratee=_.identity])
+    Array#forEach( [iteratee=_.identity])
 
 
 
@@ -2169,15 +2138,8 @@ Iterates over elements of collection and invokes iteratee for each element. The 
 Note: As with other "Collections" methods, objects with a "length" property are iterated like arrays. To avoid this behavior use Array#forIn or Array#forOwn for object iteration.
 
 
-
-Aliases
-
- ## each
-
-Array#each
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2192,13 +2154,9 @@ Example
     });
     // => Logs `1` then `2`.
     
-    _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
-    console.log(key);
-    });
-    // => Logs 'a' then 'b' (iteration order is not guaranteed).
-
+ 
 ## forEachRight
-    Array#forEachRight(collection, [iteratee=_.identity])
+    Array#forEachRight([iteratee=_.identity])
 
 
 
@@ -2206,14 +2164,8 @@ This method is like Array#forEach except that it iterates over elements of colle
 
 
 
-Aliases
-
- ## eachRight
-
-    Array#eachRight
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2230,7 +2182,7 @@ Example
 
  ## groupBy
 
-    Array#groupBy(collection, [iteratee=_.identity])
+    Array#groupBy([iteratee=_.identity])
 
 
 
@@ -2240,7 +2192,6 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The iteratee to transform keys.
 
 Returns
@@ -2258,7 +2209,7 @@ Example
     // => { '3': ['one', 'two'], '5': ['three'] }
 
 ## includes
-    Array#includes(collection, value, [fromIndex=0])
+    Array#includes(value, [fromIndex=0])
 
 
 
@@ -2268,7 +2219,6 @@ Checks if value is in collection. If collection is a string, it's checked for a 
 
 Arguments
 
-    collection (Array|Object|string): The collection to inspect.
     value (*): The value to search for.
     [fromIndex=0] (number): The index to search from.
 
@@ -2285,15 +2235,10 @@ Example
     [1, 2, 3].includes(1, 2);
     // => false
     
-    _.includes({ 'a': 1, 'b': 2 }, 1);
-    // => true
-    
-    _.includes('abcd', 'bc');
-    // => true
 
  ## invokeMap
 
-    Array#invokeMap(collection, path, [args])
+    Array#invokeMap( path, [args])
 
 
 
@@ -2303,7 +2248,6 @@ Invokes the method at path of each element in collection, returning an array of 
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     path (Array|Function|string): The path of the method to invoke or the function invoked per iteration.
     [args] (...*): The arguments to invoke each method with.
 
@@ -2322,7 +2266,7 @@ Example
 
  ## keyBy
 
-    Array#keyBy(collection, [iteratee=_.identity])
+    Array#keyBy([iteratee=_.identity])
 
 
 
@@ -2332,7 +2276,6 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The iteratee to transform keys.
 
 Returns
@@ -2343,12 +2286,12 @@ Example
 	
 
     var myArray = [
-    { 'dir': 'left', 'code': 97 },
-    { 'dir': 'right', 'code': 100 }
+        { 'dir': 'left', 'code': 97 },
+        { 'dir': 'right', 'code': 100 }
     ];
     
     myArray.keyBy(function(o) {
-    return String.fromCharCode(o.code);
+     return String.fromCharCode(o.code);
     });
     // => { 'a': { 'dir': 'left', 'code': 97 }, 'd': { 'dir': 'right', 'code': 100 } }
     
@@ -2357,7 +2300,7 @@ Example
 
 ## map
 
-    Array#map(collection, [iteratee=_.identity])
+    Array#map([iteratee=_.identity])
 
 
 
@@ -2373,8 +2316,7 @@ ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, r
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+   [iteratee=_.identity] (Function): The function invoked per iteration.
 
 Returns
 
@@ -2384,27 +2326,15 @@ Example
 	
 
     function square(n) {
-    return n * n;
+        return n * n;
     }
     
     [4, 8].map(square);
     // => [16, 64]
-    
-    _.map({ 'a': 4, 'b': 8 }, square);
-    // => [16, 64] (iteration order is not guaranteed)
-    
-    var users = [
-    { 'user': 'barney' },
-    { 'user': 'fred' }
-    ];
-    
-    // The `_.property` iteratee shorthand.
-    _.map('user');
-    // => ['barney', 'fred']
-
+       
  ## orderBy
 
-    Array#orderBy(collection, [iteratees=[_.identity]], [orders])
+    Array#orderBy([iteratees=[_.identity]], [orders])
 
 
 
@@ -2414,7 +2344,6 @@ This method is like Array#sortBy except that it allows specifying the sort order
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratees=[_.identity]] (Array[]|Function[]|Object[]|string[]): The iteratees to sort by.
     [orders] (string[]): The sort orders of iteratees.
 
@@ -2426,10 +2355,10 @@ Example
 	
 
     var users = [
-    { 'user': 'fred',   'age': 48 },
-    { 'user': 'barney', 'age': 34 },
-    { 'user': 'fred',   'age': 40 },
-    { 'user': 'barney', 'age': 36 }
+        { 'user': 'fred',   'age': 48 },
+        { 'user': 'barney', 'age': 34 },
+        { 'user': 'fred',   'age': 40 },
+        { 'user': 'barney', 'age': 36 }
     ];
     
     // Sort by `user` in ascending order and by `age` in descending order.
@@ -2439,7 +2368,7 @@ Example
 
  ## partition
 
-    Array#partition(collection, [predicate=_.identity])
+    Array#partition([predicate=_.identity])
 
 
 
@@ -2449,7 +2378,6 @@ Creates an array of elements split into two groups, the first of which contains 
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2460,9 +2388,9 @@ Example
 	
 
     var users = [
-    { 'user': 'barney',  'age': 36, 'active': false },
-    { 'user': 'fred',    'age': 40, 'active': true },
-    { 'user': 'pebbles', 'age': 1,  'active': false }
+        { 'user': 'barney',  'age': 36, 'active': false },
+        { 'user': 'fred',    'age': 40, 'active': true },
+        { 'user': 'pebbles', 'age': 1,  'active': false }
     ];
     
    users.partition(function(o) { return o.active; });
@@ -2482,7 +2410,7 @@ Example
 
  ## reduce
 
-    Array#reduce(collection, [iteratee=_.identity], [accumulator])
+    Array#reduce([iteratee=_.identity], [accumulator])
 
 
 
@@ -2498,7 +2426,6 @@ assign, defaults, defaultsDeep, includes, merge, orderBy, and sortBy
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratee=_.identity] (Function): The function invoked per iteration.
     [accumulator] (*): The initial value.
 
@@ -2510,19 +2437,14 @@ Example
 	
 
     [1, 2].reduce(function(sum, n) {
-    return sum + n;
+        return sum + n;
     }, 0);
     // => 3
     
-    _.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
-    (result[value] || (result[value] = [])).push(key);
-    return result;
-    }, {});
-    // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
 
  ## reduceRight
 
-    Array#reduceRight(collection, [iteratee=_.identity], [accumulator])
+    Array#reduceRight([iteratee=_.identity], [accumulator])
 
 
 
@@ -2532,8 +2454,7 @@ This method is like Array#reduce except that it iterates over elements of collec
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+   [iteratee=_.identity] (Function): The function invoked per iteration.
     [accumulator] (*): The initial value.
 
 Returns
@@ -2546,14 +2467,14 @@ Example
     var myArray = [[0, 1], [2, 3], [4, 5]];
     
     myArray.reduceRight(function(flattened, other) {
-    return flattened.concat(other);
+        return flattened.concat(other);
     }, []);
     // => [4, 5, 2, 3, 0, 1]
 
 
  ## reject
 
-    Array#reject(collection, [predicate=_.identity])
+    Array#reject([predicate=_.identity])
 
 
 
@@ -2563,7 +2484,6 @@ The opposite of Array#filter; this method returns the elements of collection tha
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2574,8 +2494,8 @@ Example
 	
 
     var users = [
-    { 'user': 'barney', 'age': 36, 'active': false },
-    { 'user': 'fred',   'age': 40, 'active': true }
+        { 'user': 'barney', 'age': 36, 'active': false },
+        { 'user': 'fred',   'age': 40, 'active': true }
     ];
     
     users.reject(function(o) { return !o.active; });
@@ -2595,7 +2515,7 @@ Example
 
  ## sample
 
-    Array#sample(collection)
+    Array#sample()
 
 
 
@@ -2605,7 +2525,7 @@ Gets a random element from collection.
 
 Arguments
 
-    collection (Array|Object): The collection to sample.
+    None.
 
 Returns
 
@@ -2619,7 +2539,7 @@ Example
 
 ## sampleSize
 
-    Array#sampleSize(collection, [n=1])
+    Array#sampleSize([n=1])
 
 
 
@@ -2629,7 +2549,6 @@ Gets n random elements at unique keys from collection up to the size of collecti
 
 Arguments
 
-    collection (Array|Object): The collection to sample.
     [n=1] (number): The number of elements to sample.
 
 Returns
@@ -2649,7 +2568,7 @@ Example
 
  ## shuffle
 
-    Array#shuffle(collection)
+    Array#shuffle()
 
 
 
@@ -2659,7 +2578,7 @@ Creates an array of shuffled values, using a version of the Fisher-Yates shuffle
 
 Arguments
 
-    collection (Array|Object): The collection to shuffle.
+    None.
 
 Returns
 
@@ -2671,33 +2590,11 @@ Example
     [1, 2, 3, 4].shuffle();
     // => [4, 1, 3, 2]
 
- ## size
-
-    Array#size(collection)
-
-
-
-Gets the size of collection by returning its length for array-like values or the number of own enumerable string keyed properties for objects.
-
-
-
-Arguments
-
-    collection (Array|Object|string): The collection to inspect.
-
-Returns
-
-    (number): Returns the collection size.
-
-Example
-	
-
-    [1, 2, 3].size();
-    // => 3
+ 
        
  ## some
 
-    Array#some(collection, [predicate=_.identity])
+    Array#some( [predicate=_.identity])
 
 
 
@@ -2707,7 +2604,6 @@ Checks if predicate returns truthy for any element of collection. Iteration is s
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [predicate=_.identity] (Function): The function invoked per iteration.
 
 Returns
@@ -2721,8 +2617,8 @@ Example
     // => true
     
     var users = [
-    { 'user': 'barney', 'active': true },
-    { 'user': 'fred',   'active': false }
+        { 'user': 'barney', 'active': true },
+        { 'user': 'fred',   'active': false }
     ];
     
     // The `_.matches` iteratee shorthand.
@@ -2740,7 +2636,7 @@ Example
 
  ## sortBy
 
-    Array#sortBy(collection, [iteratees=[_.identity]])
+    Array#sortBy( [iteratees=[_.identity]])
 
 
 
@@ -2750,7 +2646,6 @@ Creates an array of elements, sorted in ascending order by the results of runnin
 
 Arguments
 
-    collection (Array|Object): The collection to iterate over.
     [iteratees=[_.identity]] (...(Function|Function[])): The iteratees to sort by.
 
 Returns
@@ -2761,10 +2656,10 @@ Example
 	
 
     var users = [
-    { 'user': 'fred',   'age': 48 },
-    { 'user': 'barney', 'age': 36 },
-    { 'user': 'fred',   'age': 40 },
-    { 'user': 'barney', 'age': 34 }
+        { 'user': 'fred',   'age': 48 },
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 },
+        { 'user': 'barney', 'age': 34 }
     ];
     
     users.sortBy([function(o) { return o.user; }]);
@@ -2775,964 +2670,4 @@ Example
 
 
 
-
-String Methods
- ## camelCase
-
-    String#camelCase([string=''])
-
-
-
-Converts string to camel case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the camel cased string.
-
-Example
-	
-
-    'Foo Bar'.camelCase();
-    // => 'fooBar'
-    
-    '--foo-bar--'.camelCase();
-    // => 'fooBar'
-    
-    '__FOO_BAR__'.camelCase();
-    // => 'fooBar'
-
- ## capitalize
-
-    String#capitalize([string=''])
-
-
-
-Converts the first character of string to upper case and the remaining to lower case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to capitalize.
-
-Returns
-
-(string): Returns the capitalized string.
-
-Example
-	
-
-    'FRED'.capitalize();
-    // => 'Fred'
-
-## deburr
-    String#deburr([string=''])
-
-
-
-Deburrs string by converting Latin-1 Supplement and Latin Extended-A letters to basic Latin letters and removing combining diacritical marks.
-
-
-
-Arguments
-
-    [string=''] (string): The string to deburr.
-
-Returns
-
-    (string): Returns the deburred string.
-
-Example
-	
-
-
-    'déjà vu'.deburr();
-    // => 'deja vu'
-
- ## endsWith
-    String#endsWith([string=''], [target], [position=string.length])
-
-
-
-Checks if string ends with the given target string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to inspect.
-    [target] (string): The string to search for.
-    [position=string.length] (number): The position to search up to.
-
-Returns
-
-    (boolean): Returns true if string ends with target, else false.
-
-Example
-	
-
-    'abc'.endsWith('c');
-    // => true
-    
-    'abc'.endsWith('b');
-    // => false
-    
-    'abc'.endsWith('b', 2);
-    // => true
-
- ## escape
-
-    String#escape([string=''])
-
-
-
-Converts the characters "&", "<", ">", '"', and "'" in string to their corresponding HTML entities.
-
-Note: No other characters are escaped. To escape additional characters use a third-party library like he.
-
-Though the ">" character is escaped for symmetry, characters like ">" and "/" don't need escaping in HTML and have no special meaning unless they're part of a tag or unquoted attribute value. See Mathias Bynens's article (under "semi-related fun fact") for more details.
-
-When working with HTML you should always quote attribute values to reduce XSS vectors.
-
-
-
-Arguments
-
-    [string=''] (string): The string to escape.
-
-Returns
-
-    (string): Returns the escaped string.
-
-Example
-	
-
-    'fred, barney, & pebbles'.escape();
-    // => 'fred, barney, &amp; pebbles'
-
- ## escapeRegExp
-
-    String#escapeRegExp([string=''])
-
-
-
-Escapes the RegExp special characters "^", "$", "\", ".", "*", "+", "?", "(", ")", "[", "]", "{", "}", and "|" in string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to escape.
-
-Returns
-
-    (string): Returns the escaped string.
-
-Example
-	
-
-    '[lodash](https://lodash.com/)'.escapeRegExp();
-    // => '\[lodash\]\(https://lodash\.com/\)'
-
-
- ## kebabCase
-
-    String#kebabCase([string=''])
-
-
-
-Converts string to kebab case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the kebab cased string.
-
-Example
-	
-
-    'Foo Bar'.kebabCase();
-    // => 'foo-bar'
-    
-    'fooBar'.kebabCase();
-    // => 'foo-bar'
-    
-    '__FOO_BAR__'.kebabCase();
-    // => 'foo-bar'
-
- ## lowerCase
-
-    String#lowerCase([string=''])
-
-
-
-Converts string, as space separated words, to lower case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the lower cased string.
-
-Example
-	
-
-    '--Foo-Bar--'.lowerCase();
-    // => 'foo bar'
-    
-    'fooBar'.lowerCase();
-    // => 'foo bar'
-    
-    '__FOO_BAR__'.lowerCase();
-    // => 'foo bar'
-
-## lowerFirst
-
-    String#lowerFirst([string=''])
-
-
-
-Converts the first character of string to lower case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the converted string.
-
-Example
-	
-
-    'Fred'.lowerFirst();
-    // => 'fred'
-    
-    'FRED'.lowerFirst();
-    // => 'fRED'
-
-
- ## pad
-
-    String#pad([string=''], [length=0], [chars=' '])
-
-
-
-Pads string on the left and right sides if it's shorter than length. Padding characters are truncated if they can't be evenly divided by length.
-
-
-
-Arguments
-
-    [string=''] (string): The string to pad.
-    [length=0] (number): The padding length.
-    [chars=' '] (string): The string used as padding.
-
-Returns
-
-    (string): Returns the padded string.
-
-Example
-	
-
-    'abc'.pad(, 8);
-    // => '  abc   '
-    
-    'abc'.pad( 8, '_-');
-    // => '_-abc_-_'
-    
-    'abc'.pad( 3);
-    // => 'abc'
-
- ## padEnd
-
-    String#padEnd([string=''], [length=0], [chars=' '])
-
-
-
-Pads string on the right side if it's shorter than length. Padding characters are truncated if they exceed length.
-
-
-
-Arguments
-
-    [string=''] (string): The string to pad.
-    [length=0] (number): The padding length.
-    [chars=' '] (string): The string used as padding.
-
-Returns
-
-    (string): Returns the padded string.
-
-Example
-	
-
-    'abc'.padEnd(6);
-    // => 'abc   '
-    
-    'abc'.padEnd(6, '_-');
-    // => 'abc_-_'
-    
-    'abc'.padEnd(3);
-    // => 'abc'
-
- ## padStart
-
-    String#padStart([string=''], [length=0], [chars=' '])
-
-
-
-Pads string on the left side if it's shorter than length. Padding characters are truncated if they exceed length.
-
-
-
-Arguments
-
-    [string=''] (string): The string to pad.
-    [length=0] (number): The padding length.
-    [chars=' '] (string): The string used as padding.
-
-Returns
-
-    (string): Returns the padded string.
-
-Example
-	
-
-    'abc'.padStart(6);
-    // => '   abc'
-    
-    'abc'.padStart(6, '_-');
-    // => '_-_abc'
-    
-    'abc'.padStart(3);
-    // => 'abc'
-
-
- ## parseInt
-
-    String#parseInt(string, [radix=10])
-
-
-
-Converts string to an integer of the specified radix. If radix is undefined or 0, a radix of 10 is used unless value is a hexadecimal, in which case a radix of 16 is used.
-
-Note: This method aligns with the ES5 implementation of parseInt.
-
-
-
-Arguments
-
-    string (string): The string to convert.
-    [radix=10] (number): The radix to interpret value by.
-
-Returns
-
-    (number): Returns the converted integer.
-
-Example
-	
-
-    _.parseInt('08');
-    // => 8
-    
-    _.map(['6', '08', '10'], _.parseInt);
-    // => [6, 8, 10]
-
-# repeat
-    String#repeat([string=''], [n=1])
-
-
-
-Repeats the given string n times.
-
-
-
-Arguments
-
-    [string=''] (string): The string to repeat.
-    [n=1] (number): The number of times to repeat the string.
-
-Returns
-
-    (string): Returns the repeated string.
-
-Example
-	
-
-    '*'.repeat(3);
-    // => '***'
-    
-    'abc'.repeat(2);
-    // => 'abcabc'
-    
-    'abc'.repeat(0);
-    // => ''
-
- ## replace
-
-    String#replace([string=''], pattern, replacement)
-
-
-
-Replaces matches for pattern in string with replacement.
-
-Note: This method is based on String#replace.
-
-
-
-Arguments
-
-    [string=''] (string): The string to modify.
-    pattern (RegExp|string): The pattern to replace.
-    replacement (Function|string): The match replacement.
-
-Returns
-
-    (string): Returns the modified string.
-
-Example
-	
-
-    'Hi Fred'.replace('Fred', 'Barney');
-    // => 'Hi Barney'
-
-
- ## snakeCase
-
-    String#snakeCase([string=''])
-
-
-
-Converts string to snake case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the snake cased string.
-
-Example
-	
-
-    'Foo Bar'.snakeCase();
-    // => 'foo_bar'
-    
-    'fooBar'.snakeCase();
-    // => 'foo_bar'
-    
-    '--FOO-BAR--'.snakeCase();
-    // => 'foo_bar'
-
-## split
-    String#split([string=''], separator, [limit])
-
-
-
-Splits string by separator.
-
-Note: This method is based on String#split.
-
-
-
-Arguments
-
-    [string=''] (string): The string to split.
-    separator (RegExp|string): The separator pattern to split by.
-    [limit] (number): The length to truncate results to.
-
-Returns
-
-    (Array): Returns the string segments.
-
-Example
-	
-
-    'a-b-c'.split('-', 2);
-    // => ['a', 'b']
-
- ## startCase
-
-    String#startCase([string=''])
-
-
-
-Converts string to start case.
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the start cased string.
-
-Example
-	
-
-    '--foo-bar--'.startCase();
-    // => 'Foo Bar'
-    
-    'fooBar'.startCase();
-    // => 'Foo Bar'
-    
-    '__FOO_BAR__'.startCase();
-    // => 'FOO BAR'
-
- ## startsWith
-
-    String#startsWith([string=''], [target], [position=0])
-
-
-
-Checks if string starts with the given target string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to inspect.
-    [target] (string): The string to search for.
-    [position=0] (number): The position to search from.
-
-Returns
-
-    (boolean): Returns true if string starts with target, else false.
-
-Example
-	
-
-    'abc'.startsWith('a');
-    // => true
-    
-    'abc'.startsWith('b');
-    // => false
-    
-    'abc'.startsWith('b', 1);
-    // => true
-
- ## template
-
-    String#template([string=''], [options={}])
-
-
-
-Creates a compiled template function that can interpolate data properties in "interpolate" delimiters, HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data properties may be accessed as free variables in the template. If a setting object is given, it takes precedence over _.templateSettings values.
-
-Note: In the development build _.template utilizes sourceURLs for easier debugging.
-
-For more information on precompiling templates see lodash's custom builds documentation.
-
-For more information on Chrome extension sandboxes see Chrome's extensions documentation.
-
-
-
-Arguments
-
-    [string=''] (string): The template string.
-    [options={}] (Object): The options object.
-    [options.escape=_.templateSettings.escape] (RegExp): The HTML "escape" delimiter.
-    [options.evaluate=_.templateSettings.evaluate] (RegExp): The "evaluate" delimiter.
-    [options.imports=_.templateSettings.imports] (Object): An object to import into the template as free variables.
-    [options.interpolate=_.templateSettings.interpolate] (RegExp): The "interpolate" delimiter.
-    [options.sourceURL='lodash.templateSources[n]'] (string): The sourceURL of the compiled template.
-    [options.variable='obj'] (string): The data object variable name.
-
-Returns
-
-    (Function): Returns the compiled template function.
-
-Example
-	
-
-// Use the "interpolate" delimiter to create a compiled template.
-var compiled = _.template('hello <%= user %>!');
-compiled({ 'user': 'fred' });
-// => 'hello fred!'
- 
-// Use the HTML "escape" delimiter to escape data property values.
-var compiled = _.template('<b><%- value %></b>');
-compiled({ 'value': '<script>' });
-// => '<b>&lt;script&gt;</b>'
- 
-// Use the "evaluate" delimiter to execute JavaScript and generate HTML.
-var compiled = _.template('<% _.forEach(function(user) { %><li><%- user %></li><% }); %>');
-compiled({ 'users': ['fred', 'barney'] });
-// => '<li>fred</li><li>barney</li>'
- 
-// Use the internal `print` function in "evaluate" delimiters.
-var compiled = _.template('<% print("hello " + user); %>!');
-compiled({ 'user': 'barney' });
-// => 'hello barney!'
- 
-// Use the ES template literal delimiter as an "interpolate" delimiter.
-// Disable support by replacing the "interpolate" delimiter.
-var compiled = _.template('hello ${ user }!');
-compiled({ 'user': 'pebbles' });
-// => 'hello pebbles!'
- 
-// Use backslashes to treat delimiters as plain text.
-var compiled = _.template('<%= "\\<%- value %\\>" %>');
-compiled({ 'value': 'ignored' });
-// => '<%- value %>'
- 
-// Use the `imports` option to import `jQuery` as `jq`.
-var text = '<% jq.each(function(user) { %><li><%- user %></li><% }); %>';
-var compiled = _.template(text, { 'imports': { 'jq': jQuery } });
-compiled({ 'users': ['fred', 'barney'] });
-// => '<li>fred</li><li>barney</li>'
- 
-// Use the `sourceURL` option to specify a custom sourceURL for the template.
-var compiled = _.template('hello <%= user %>!', { 'sourceURL': '/basic/greeting.jst' });
-compiled(data);
-// => Find the source of "greeting.jst" under the Sources tab or Resources panel of the web inspector.
- 
-// Use the `variable` option to ensure a with-statement isn't used in the compiled template.
-var compiled = _.template('hi <%= data.user %>!', { 'variable': 'data' });
-compiled.source;
-// => function(data) {
-//   var __t, __p = '';
-//   __p += 'hi ' + ((__t = ( data.user )) == null ? '' : __t) + '!';
-//   return __p;
-// }
- 
-// Use custom template delimiters.
-_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-var compiled = _.template('hello {{ user }}!');
-compiled({ 'user': 'mustache' });
-// => 'hello mustache!'
- 
-// Use the `source` property to inline compiled templates for meaningful
-// line numbers in error messages and stack traces.
-fs.writeFileSync(path.join(process.cwd(), 'jst.js'), '\
-  var JST = {\
-    "main": ' + _.template(mainText).source + '\
-  };\
-');
-
- ## toLower
-
-    String#toLower([string=''])
-
-
-
-Converts string, as a whole, to lower case just like String#toLowerCase.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the lower cased string.
-
-Example
-	
-
-    '--Foo-Bar--'.toLower();
-    // => '--foo-bar--'
-    
-    'fooBar'.toLower();
-    // => 'foobar'
-    
-    '__FOO_BAR__'.toLower();
-    // => '__foo_bar__'
-
-## toUpper
-
-    String#toUpper([string=''])
-
-
-
-Converts string, as a whole, to upper case just like String#toUpperCase.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the upper cased string.
-
-Example
-	
-
-    '--foo-bar--'.toUpper();
-    // => '--FOO-BAR--'
-    
-    'fooBar'.toUpper();
-    // => 'FOOBAR'
-    
-    '__foo_bar__'.toUpper();
-    // => '__FOO_BAR__'
-
-
- ## trim
-
-    String#trim([string=''], [chars=whitespace])
-
-
-
-Removes leading and trailing whitespace or specified characters from string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to trim.
-    [chars=whitespace] (string): The characters to trim.
-
-Returns
-
-    (string): Returns the trimmed string.
-
-Example
-	
-
-    '  abc  '.trim();
-    // => 'abc'
-    
-    '-_-abc-_-'.trim('_-');
-    // => 'abc'
-    
-    ['  foo  ', '  bar  '].map(_.trim);
-    // => ['foo', 'bar']
-
- ## trimEnd
-
-    String#trimEnd([string=''], [chars=whitespace])
-
-
-
-Removes trailing whitespace or specified characters from string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to trim.
-    [chars=whitespace] (string): The characters to trim.
-
-Returns
-
-    (string): Returns the trimmed string.
-
-Example
-	
-
-    '  abc  '.trimEnd();
-    // => '  abc'
-    
-    '-_-abc-_-'.trimEnd('_-');
-    // => '-_-abc'
-
- ## trimStart
-
-    String#trimStart([string=''], [chars=whitespace])
-
-
-
-Removes leading whitespace or specified characters from string.
-
-
-
-Arguments
-
-    [string=''] (string): The string to trim.
-    [chars=whitespace] (string): The characters to trim.
-
-Returns
-
-    (string): Returns the trimmed string.
-
-Example
-	
-
-    '  abc  '.trimStart();
-    // => 'abc  '
-    
-    '-_-abc-_-'.trimStart( '_-');
-    // => 'abc-_-'
-
- ## truncate
-
-    String#truncate([string=''], [options={}])
-
-
-
-Truncates string if it's longer than the given maximum string length. The last characters of the truncated string are replaced with the omission string which defaults to "...".
-
-
-
-Arguments
-
-    [string=''] (string): The string to truncate.
-    [options={}] (Object): The options object.
-    [options.length=30] (number): The maximum string length.
-    [options.omission='...'] (string): The string to indicate text is omitted.
-    [options.separator] (RegExp|string): The separator pattern to truncate to.
-
-Returns
-
-    (string): Returns the truncated string.
-
-Example
-	
-
-    'hi-diddly-ho there, neighborino'.truncate();
-    // => 'hi-diddly-ho there, neighbo...'
-    
-    'hi-diddly-ho there, neighborino'.truncate( {
-    'length': 24,
-    'separator': ' '
-    });
-    // => 'hi-diddly-ho there,...'
-    
-    'hi-diddly-ho there, neighborino'.truncate({
-    'length': 24,
-    'separator': /,? +/
-    });
-    // => 'hi-diddly-ho there...'
-    
-    'hi-diddly-ho there, neighborino'.truncate({
-    'omission': ' [...]'
-    });
-    // => 'hi-diddly-ho there, neig [...]'
-
-
- ## unescape
-
-    String#unescape([string=''])
-
-
-
-The inverse of String#escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, and &#39; in string to their corresponding characters.
-
-Note: No other HTML entities are unescaped. To unescape additional HTML entities use a third-party library like he.
-
-
-Arguments
-
-    [string=''] (string): The string to unescape.
-
-Returns
-
-    (string): Returns the unescaped string.
-
-Example
-	
-
-    'fred, barney, &amp; pebbles'.unescape();
-    // => 'fred, barney, & pebbles'
-
-
- ## upperCase
-    String#upperCase([string=''])
-
-
-
-Converts string, as space separated words, to upper case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the upper cased string.
-
-Example
-	
-
-    '--foo-bar'.upperCase();
-    // => 'FOO BAR'
-    
-    'fooBar'.upperCase();
-    // => 'FOO BAR'
-    
-    '__foo_bar__'.upperCase();
-    // => 'FOO BAR'
-
- ## upperFirst
-
-    String#upperFirst([string=''])
-
-
-
-Converts the first character of string to upper case.
-
-
-
-Arguments
-
-    [string=''] (string): The string to convert.
-
-Returns
-
-    (string): Returns the converted string.
-
-Example
-	
-
-    'fred'.upperFirst();
-    // => 'Fred'
-    
-    'FRED'.upperFirst();
-    // => 'FRED'
-
-## words
-
-    String#words([string=''], [pattern])
-
-
-
-Splits string into an array of its words.
-
-
-
-Arguments
-
-    [string=''] (string): The string to inspect.
-    [pattern] (RegExp|string): The pattern to match words.
-
-Returns
-
-    (Array): Returns the words of string.
-
-Example
-	
-
-    'fred, barney, & pebbles'.words();
-    // => ['fred', 'barney', 'pebbles']
-    
-    'fred, barney, & pebbles'.words( /[^, ]+/g);
-    // => ['fred', 'barney', '&', 'pebbles']
 

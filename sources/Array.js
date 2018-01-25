@@ -28,11 +28,6 @@
     return _.concat(this, args);
   }
 
-  Array.prototype.difference = function(args) { return _.difference(this, args); }
-
-  Array.prototype.differenceBy = function(args, iteratee) { return _.differenceBy(this, args, iteratee); }
-
-  Array.prototype.differenceWith = function(values, comparator) { return _.differenceWith(this, values, comparator); }
 
   Array.prototype.drop = function(n = 1) { return _.drop(this, n); }
 
@@ -66,9 +61,6 @@
   Array.prototype.indexOf = function(value, fromIndex) { return _.indexOf(this, value, fromIndex); }
 
   Array.prototype.initial = function() { return _.initial(this); }
-  Array.prototype.intersection = function(...arrays) { return _.intersection(this, ...arrays); }
-  Array.prototype.intersectionBy = function(iteratee) { return _.intersectionBy(this, iteratee); }
-  Array.prototype.intersectionWith = function(comparator) { return _.intersectionWith(this, comparator); }
 
   //C
   Array.prototype.join = function(separator = ',') { return _.join(this, separator); }
@@ -112,16 +104,10 @@
   Array.prototype.takeRight = function(n = 1) { return _.takeRight(this, n); }
   Array.prototype.takeRightWhile = function(predicate) { return _.takeRightWhile(this, predicate); }
   Array.prototype.takeWhile = function(predicate) { return _.takeWhile(this, predicate); }
-  Array.prototype.union = function(...arrays) { return _.union(this, ...arrays); }
-  Array.prototype.unionBy = function(iteratee) { return _.unionBy(this, iteratee); }
-  Array.prototype.unionWith = function(comparator) { return _.unionWith(this, comparator); }
   Array.prototype.unzip = function() { return _.unzip(this); }
   Array.prototype.unzipWith = function(iteratee) { return _.unzipWith(this, iteratee); }
   Array.prototype.without = function(...values) { return _.without(this, ...values); }
-  Array.prototype.xor = function(...arrays) { return _.xor(this, ...arrays); }
-  Array.prototype.xorBy = function(iteratee, ...arrays) { return _.xorBy(this, ...arrays, iteratee); }
-  Array.prototype.xorWith = function(arrays, comparator) { return _.xorWith(this, arrays, comparator); }
-  Array.prototype.zip = function(...arrays) { return _.zip(this, ...arrays); }
+
   Array.prototype.zipObject = function(values) { return _.zipObject(this, values); }
   Array.prototype.zipObjectDeep = function(values) { return _.zipObjectDeep(this, values); }
   Array.prototype.zipWith = function(iteratee) { return _.zipWith(this, iteratee); }
@@ -131,10 +117,7 @@
 
   Array.prototype.forEach = function(iteratee) { return _.forEach(this, iteratee); }
 
-  Array.prototype.forEachReverse = function(iteratee) {
-
-    _.forEachRight(this, iteratee);
-  }
+  Array.prototype.forEachReverse = function(iteratee) { _.forEachRight(this, iteratee); }
 
   Array.prototype.every = function(predicate) { return _.every(this, predicate); }
 
@@ -178,8 +161,8 @@
 
   Array.prototype.shuffle = function() { return _.shuffle(this); }
 
-  Array.prototype.size = function() { return _.size(this); }
-    //C
+  //Array.prototype.size = function() { return _.size(this); }
+  //C
   Array.prototype.some = function(predicate) { return _.some(this, predicate); }
   Array.prototype.sortBy = function(...iteratees) { return _.sortBy(this, ...iteratees); }
 
@@ -188,6 +171,28 @@
   Array.prototype.toJson = function() {
     return JSON.stringify(this);
   }
+
+  Array.prototype.difference = function(args) { return _.difference(args); }
+
+  Array.prototype.differenceBy = function(args, iteratee) { return _.differenceBy(args, iteratee); }
+
+  Array.prototype.differenceWith = function(values, comparator) { return _.differenceWith(values, comparator); }
+
+
+  Array.prototype.intersection = function(...arrays) { return _.intersection(this, ...arrays); }
+  Array.prototype.intersectionBy = function(iteratee) { return _.intersectionBy(this, iteratee); }
+  Array.prototype.intersectionWith = function(comparator) { return _.intersectionWith(this, comparator); }
+
+  Array.prototype.union = function(...arrays) { return _.union(this, ...arrays); }
+  Array.prototype.unionBy = function(iteratee) { return _.unionBy(this, iteratee); }
+  Array.prototype.unionWith = function(comparator) { return _.unionWith(this, comparator); }
+
+  Array.prototype.xor = function(...arrays) { return _.xor(...arrays); }
+  Array.prototype.xorBy = function(iteratee, ...arrays) { return _.xorBy(this, ...arrays, iteratee); }
+  Array.prototype.xorWith = function(arrays, comparator) { return _.xorWith(this, arrays, comparator); }
+
+
+  Array.zip = function(...arrays) { return _.zip(...arrays); }
 
   return Array;
 

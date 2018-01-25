@@ -18,7 +18,7 @@ var ints = [1, 2, 3, 4, 5];
 // => [1, 2, 3]
 
 //console.log(_.head(arrayOfPoint), arrayOfPoint.head());
-console.log(arrayOfPoint.head());
+console.log(arrayOfPoint.first());
 
 console.log("tail", arrayOfPoint.tail().toJson());
 console.log("concat", _.concat(arrayOfPoint, 5).toJson(), arrayOfPoint.concat(5).toJson());
@@ -126,7 +126,7 @@ console.log("xorBy", _.xorBy('x', [{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }]).toJson
 
 var arr4 = ['a', 'b'];
 console.log("zip", _.zip(arr4, [1, 2]).toJson());
-console.log("zip", arr4.zip([1, 2], [true, false]).toJson());
+console.log("zip", Array.zip(arr4, [1, 2], [true, false]).toJson());
 // => [['a', 1, true], ['b', 2, false]]
 
 console.log("zipObject", ['a', 'b'].zipObject([1, 2]));
