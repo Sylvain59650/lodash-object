@@ -1,6 +1,6 @@
  <div class="Note" style="color:orange;font-style:italic">
  
-  The lastest version of this document is available on [Github > lodash-object](https://github.com/Sylvain59650/lodash-object/blob/master/README.md)
+The lastest version of this document is available on [Github > lodash-object](https://github.com/Sylvain59650/lodash-object/blob/master/README.md)
 </div>
 
 
@@ -32,11 +32,11 @@ you will write
 # Installation
 <code>
 
-  npm install lodash lodash-object --save
+  npm install lodash-object --save
 
 OR
 
-  bower install lodash lodash-object --save
+  bower install lodash-object --save
 </code>
 
 # References in browser 
@@ -66,7 +66,7 @@ to extend the mathematical features
 
 These APIs have the same function names as those of Lodash. See [Lodash documentation](https://lodash.com/docs/4.17.4) for Lodash features.
 
-# Contents
+# Table Of Contents
 
 # Array Extension
 
@@ -152,7 +152,7 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [map](docs/Array.md#map)
  - [orderBy](docs/Array.md#orderBy)
  - [partition](docs/Array.md#partition)
- - [reduce](docs/Array.md#reduceb
+ - [reduce](docs/Array.md#reduce)
  - [reduceRight](docs/Array.md#reduceright)
  - [reject](docs/Array.md#reject)
  - [sample](docs/Array.md#sample)
@@ -163,24 +163,34 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [toJson](docs/Array.md#tojson)
 
 # String Extension
-
- - [camelCase](docs/String.md#camelcase)
- - [capitalize](docs/String.md#capitalize)
- - [deburr](docs/String.md#deburr)
+ - [between](docs/String.md#between) 
+ - [capitalize](docs/String.md#capitalize) 
+ - [chompLeft](docs/String.md#chompLeft) 
+ - [chompRight](docs/String.md#chompRight)
+ - [collapseWhitespace](docs/String.md#collapsewhitespace)
+ - [count](docs/String.md#count) 
  - [endsWith](docs/String.md#endswith)
+ - [equalsIgnoreCase](docs/String.md#equalsignorecase)
  - [escape](docs/String.md#escape)
  - [escapeRegExp](docs/String.md#escaperegexp)
- - [kebabCase](docs/String.md#kebabcase)
+ - [includes](docs/String.md#includes)
+ - [indexOfAny](docs/String.md#indexofany)
+ - [insertAt](docs/String.md#insertat)
+ - [isNullOrEmpty](docs/String.md#isnullorempty)
+ - [isNullOrWhiteSpace](docs/String.md#isnullorwhiteSpace)
+ - [latinize](docs/String.md#latinize)
+ - [lines](docs/String.md#lines)
  - [lowerFirst](docs/String.md#lowerfirst)
  - [pad](docs/String.md#pad)
  - [padEnd](docs/String.md#padend)
  - [padStart](docs/String.md#padStart)
  - [repeat](docs/String.md#repeat)
  - [replace](docs/String.md#replace)
- - [snakeCase](docs/String.md#snakecase)
+ - [reverse](docs/String.md#reverse)
  - [split](docs/String.md#split)
- - [startCase](docs/String.md#startcase)
+ - [strip](docs/String.md#strip)
  - [startsWith](docs/String.md#startswith)
+ - [toCharArray](docs/String.md#tochararray)
  - [toLowerCase](docs/String.md#tolowercase)
  - [toUpperCase](docs/String.md#touppercase)
  - [trim](docs/String.md#trim)
@@ -191,6 +201,12 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [upperFirst](docs/String.md#upperfirst)
  - [words](docs/String.md#words)
 
+# functions on character strings rarely used
+- [camelCase](docs/String.md#camelcase)
+- [kebabCase](docs/String.md#kebabcase)
+- [snakeCase](docs/String.md#snakecase)
+- [startCase](docs/String.md#startcase)
+ 
 # Math Extension
 
  - [add](docs/Math.md#add)
