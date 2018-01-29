@@ -1,4 +1,17 @@
-String Methods
+# String Methods
+
+## between
+    String#between(left, right)
+
+Extracts a string between left and right strings.
+Arguments
+
+Example
+
+    '<a>foo</a>'.between('<a>', '</a>') ==> foo
+
+ 
+
  ## camelCase
 
     String#camelCase()
@@ -53,29 +66,62 @@ Example
     'FRED'.capitalize();
     // => 'Fred'
 
-## deburr
-    String#deburr()
 
+## chompLeft
+    String#chompLeft(prefix)
 
+Removes prefix from start of string.
+Arguments
 
-Deburrs string by converting Latin-1 Supplement and Latin Extended-A letters to basic Latin letters and removing combining diacritical marks.
+    prefix : 
+Returns
 
+Example
 
+    'foobar'.chompLeft('foo'); // bar
+    'foobar'.chompLeft('bar'); // foobar
+
+## chompRight
+    String#chompRight(suffix)
+
+Removes suffix from end of string.
+Arguments
+
+    suffix :
+
+Example
+
+    'foobar'.chompRight('bar'); // foo
+    'foobar'.chompRight('foo'); // foobar
+
+## collapseWhitespace
+    String#collapseWhitespace()
+
+Converts all adjacent whitespace characters to a single space.
 
 Arguments
 
     None.
 
-Returns
+Example
 
-    (string): Returns the deburred string.
+    ' String   \t libraries are   \n\n\t fun\n!  '.collapseWhitespace()); // 'String libraries are fun !'
+
+
+
+## count
+    String#count(substr)
+
+Returns the count of the number of occurrences of the substring.
+
+Arguments
+    substr: 
 
 Example
-	
+
+    "ababababab".count("ba"); // 4
 
 
-    'déjà vu'.deburr();
-    // => 'deja vu'
 
  ## endsWith
     String#endsWith( [target], [position=string.length])
@@ -106,6 +152,15 @@ Example
     
     'abc'.endsWith('b', 2);
     // => true
+
+
+## equalsIgnoreCase
+    equalsIgnoreCase
+
+Example
+
+    "AbCd".equalsIgnoreCase("aBCD"); // true
+    "AZERTY".equalsIgnoreCase("azerty"); // true
 
  ## escape
 
@@ -162,6 +217,74 @@ Example
     // => '\[lodash\]\(https://lodash\.com/\)'
 
 
+## includes
+    String#includes(substr)
+
+Arguments
+
+Returns
+
+Example
+
+
+## indexOfAny
+
+    String#indexOfAny(arrayOfChars)
+
+Reports the index of the first occurrence in this instance of any character in a specified array of characters. 
+The method returns -1 if the characters in the array are not found in this instance.
+
+Arguments
+
+    arrayOfChars : string with characters to search
+
+Example
+
+    "123456789-987654321!123456789%987654".indexOfAny("%!-"); // 9
+
+## insertAt
+    String#insertAt(position, str)
+
+Arguments
+   position: position to insert str in the string
+    
+Returns
+    the new string
+Example
+
+    "1234567890".insertAt(3,"--"); // "123--4567890"
+
+## isNullOrEmpty
+    String.isNullOrEmpty(string)
+
+Arguments:
+    string: the string to analyse
+
+Returns 
+    true if string is null, undefined or ""
+
+    String.isNullOrEmpty(null); // true            
+    String.isNullOrEmpty(undefined); // true
+    String.isNullOrEmpty(""); // true
+    String.isNullOrEmpty("azerty"); // false
+    String.isNullOrEmpty("   "); // false
+
+
+## isNullOrWhiteSpace
+    String.isNullOrWhiteSpace(string)
+Arguments:
+    string: the string to analyse
+
+Returns 
+    true if string is null, undefined, "" or contains only whitespace
+
+    String.isNullOrEmpty(null); // true            
+    String.isNullOrEmpty(undefined); // true
+    String.isNullOrEmpty(""); // true    
+    String.isNullOrEmpty("   "); // true
+    String.isNullOrEmpty("\n\r"); // true
+    String.isNullOrEmpty("azerty"); // false
+
  ## kebabCase
 
     String#kebabCase()
@@ -191,6 +314,44 @@ Example
     
     '__FOO_BAR__'.kebabCase();
     // => 'foo-bar'
+
+
+## latinize
+    String#latinize()
+
+
+
+Deburrs string by converting Latin-1 Supplement and Latin Extended-A letters to basic Latin letters and removing combining diacritical marks.
+
+
+
+Arguments
+
+    None.
+
+Returns
+
+    (string): Returns the deburred string.
+
+Example
+	
+
+
+    'déjà vu'.latinize();
+    // => 'deja vu'
+
+
+## lines
+    String#lines()
+
+Arguments
+
+    None.
+Returns
+    A array of lines
+Example
+
+
 
  ## lowerCase
 
@@ -399,6 +560,22 @@ Example
     // => 'Hi Barney'
 
 
+
+## reverse
+    String#reverse()
+
+Arguments
+
+    None.
+    
+Returns
+    the string inversed
+
+Example
+
+    "123456789".reverse(); // "987654321"
+
+
  ## snakeCase
 
     String#snakeCase()
@@ -515,6 +692,28 @@ Example
     // => true
 
  
+ ## strip
+    String#strip(str1,str2,str3...)
+Returns a new string with all occurrences of str1],str2],str3,... removed.
+
+Arguments
+
+    str1,str2,str3 : the strings to remove
+    
+Returns
+
+Example
+
+    ' 1 2 3--__--4 5 6-7__8__9--0'.strip(' ', '_', '-'); //'1234567890'
+
+## toCharArray
+    String#toCharArray
+
+Convert the string in array of chars
+
+Example
+
+    "azerty".toCharArray(); // ["a","z","e","r","t","y"]    
 
  ## toLowerCase  Native
 

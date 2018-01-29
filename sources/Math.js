@@ -1,9 +1,9 @@
 /**
  * @license
- * Lodash-Object  4.7.18
+ * Lodash-Object  4.7.6
  * Copyright Sylvain Longepée
  * Released under MIT license <https://github.com/Sylvain59650/lodash-object/blob/master/LICENSE>
- * Based on Lodash 4.7.17 <https://lodash.com/>
+ * Based on Lodash 4.7.4 <https://lodash.com/>
  */
 
 ;
@@ -35,7 +35,7 @@
   Math.sumBy = function(array, iteratee) { return _.sumBy(array, iteratee); }
 
   Math.random = function(lower = 0, upper = 1, floating) { return _.random(lower, upper, floating); }
-  Math.inRange = function(number, start = 0, end) { return _.inRange(number, start, end); }
+  Math.inRange = function(number, start, end) { return _.inRange(number, start || 0, end); }
   Math.clamp = function(number, lower, upper) { return _.clamp(number, lower, upper); }
 
 

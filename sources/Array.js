@@ -1,9 +1,9 @@
 /**
  * @license
- * Lodash-Object 4.7.18
+ * Lodash-Object 4.7.6
  * Copyright Sylvain Longepée
  * Released under MIT license <https://github.com/Sylvain59650/lodash-object/blob/master/LICENSE>
- * Based on Lodash 4.7.17 <https://lodash.com/>
+ * Based on Lodash 4.7.4 <https://lodash.com/>
  */
 
 ;
@@ -18,7 +18,7 @@
 }("ArrayModule", this, function(_) {
   'use strict';
 
-  Array.prototype.chunk = function(size = 1) { return _.chunk(this, size); }
+  Array.prototype.chunk = function(size) { return _.chunk(this, size || 1); }
 
   Array.prototype.compact = function() { return _.compact(this); }
 
@@ -68,7 +68,7 @@
 
   //C
   Array.prototype.lastIndexOf = function(value, fromIndex) { return _.lastIndexOf(this, value, fromIndex); }
-  Array.prototype.nth = function(n = 0) { return _.nth(this, n); }
+  Array.prototype.nth = function(n) { return _.nth(this, n || 0); }
   Array.prototype.pull = function(...values) { return _.pull(this, ...values); }
   Array.prototype.pullAll = function(values) { return _.pullAll(this, values); }
 
