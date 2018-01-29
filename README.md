@@ -68,6 +68,8 @@ These APIs have the same function names as those of Lodash. See [Lodash document
 
 # Table Of Contents
 
+** See the complete documentation on [github]((https://github.com/Sylvain59650/lodash-object/blob/master/README.md))
+
 # Array Extension
 
  - [chunk](docs/Array.md#chunk)
