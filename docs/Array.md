@@ -1,4 +1,4 @@
-
+[<img src="back.png">Table Of Contents](../README.md)
 # Array Methods
 
 ## add
@@ -399,6 +399,29 @@ Example
     users.dropWhile('active');
     // => objects for ['barney', 'fred', 'pebbles']
 
+## equals
+    Array#equals(anotherArray)
+
+Argument 
+    anotherArray : a array
+
+Returns
+    true if the array contains same value of anotherArray in same position, else false    
+
+Example
+
+    var items = [
+        { name: "Edward", value: 21 },
+        { name: "Sharpe", value: 37 },
+        { name: "And", value: 45 },
+        { name: "The", value: -12 },
+        { name: "Magnetic", value: 13 },
+        { name: "Zeros", value: 37 }
+    ];
+    var items2 = items.shuffle();
+    items.equals(items); // true
+    items.equals(items2);  //false
+    [1,2,3,"a","b","c"].equals([1,2,3,"a","b","c"]); // true
 
 ## every
     Array#every([predicate=_.identity])
@@ -1019,7 +1042,21 @@ Example
     
     [1, 2, 3].includes(1, 2);
     // => false
-    
+
+## includesAll
+    Array#includesAll(array)
+
+Argument
+
+    array : a array
+Returns
+
+    true if the array contains all value of array, else false
+
+Example
+
+    [1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "a", "b", "c"]); // true
+    [1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "d", "a", "b", "c"]); // false
 ## insertAt
 
     Array#insertAt(position,value)

@@ -250,3 +250,24 @@ items.sort(function(a, b) {
 });
 
 console.log(items);
+
+console.log(items.equals(items));
+
+var items2 = items.shuffle();
+
+console.log(items.equals(items2));
+
+items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "And", value: 45 },
+  { name: "The", value: -12 },
+  { name: "Magnetic", value: 13 },
+  { name: "Zeros", value: 37 }
+];
+items2 = items.shuffle();
+console.log(items.equals(items)); // true
+console.log(items.equals(items2)); //false
+console.log([1, 2, 3, "a", "b", "c"].equals([1, 2, 3, "a", "b", "c"])); // true
+
+console.log([1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "a", "b", "c", "d"]));

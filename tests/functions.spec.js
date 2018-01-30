@@ -5,6 +5,6 @@ function square(n) {
   return n * n;
 }
 
-var addSquare = fn.flow([_.add, square]);
-console.log(addSquare(1 + 2, 3));
+//var addSquare = fn.flow([_.add, square]);
+//console.log(addSquare(1 + 2, 3));
 // => 9
