@@ -28,7 +28,7 @@
   String.prototype.endsWith = function(searchFor, position) { return _.endsWith(this, searchFor, position); }
   String.prototype.escape = function() { return _.escape(this); }
   String.prototype.escapeRegExp = function() { return _.escapeRegExp(this); }
-  String.prototype.lowerCase = function() { return _.lowerCase(this); }
+    //String.prototype.lowerCase = function() { return _.lowerCase(this); }
   String.prototype.lowerFirst = function() { return _.lowerFirst(this); }
   String.prototype.pad = function(length, chars) { return _.pad(this, length, chars); }
   String.prototype.padEnd = function(length, chars) { return _.padEnd(this, length, chars); }
@@ -48,8 +48,8 @@
   //C
   String.prototype.startsWith = function() { return _.startsWith(this); }
   String.prototype.template = function(options = {}) { return _.template(this, options); }
-  String.prototype.toLower = function() { return _.toLower(this); }
-  String.prototype.toUpper = function() { return _.toUpper(this); }
+    //String.prototype.toLower = function() { return _.toLower(this); }
+    //String.prototype.toUpper = function() { return _.toUpper(this); }
 
   //C
   String.prototype.trim = function() { return _.trim(this); }
@@ -61,7 +61,7 @@
   String.prototype.trimStart = function() { return _.trimStart(this); }
   String.prototype.truncate = function(options = {}) { return _.truncate(this, options); }
   String.prototype.unescape = function() { return _.unescape(this); }
-  String.prototype.upperCase = function() { return _.upperCase(this); }
+    //String.prototype.upperCase = function() { return _.upperCase(this); }
   String.prototype.upperFirst = function() { return _.upperFirst(this); }
   String.prototype.words = function(pattern) { return _.words(this, pattern); }
 

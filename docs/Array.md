@@ -993,7 +993,7 @@ Example
     ['one', 'two', 'three'].groupBy('length');
     // => { '3': ['one', 'two'], '5': ['three'] }
 
-## includes
+## includes <img src="chrome.png">
     Array#includes(value, [fromIndex=0])
 
 

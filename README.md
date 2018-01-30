@@ -68,11 +68,13 @@ These APIs have the same function names as those of Lodash. See [Lodash document
 
 # Table Of Contents
 
-** See the complete documentation on [github]((https://github.com/Sylvain59650/lodash-object/blob/master/README.md))
+**Note** See the complete documentation on [github]((https://github.com/Sylvain59650/lodash-object/blob/master/README.md))
 
 # Array Extension
-
+ - [add](docs/Array.md#add)
+ - [addRange](docs/Array.md#addrange)
  - [chunk](docs/Array.md#chunk)
+ - [clear](docs/Array.md#clear)
  - [compact](docs/Array.md#compact)
  - [concat](docs/Array.md#concat)
  - [difference](docs/Array.md#difference)
@@ -90,15 +92,18 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [flattenDeep](docs/Array.md#flattendeep)
  - [flattenDepth](docs/Array.md#flattendepth)
  - [fromPairs](docs/Array.md#flattendepth)
+ - [getRange](docs/Array.md#getrange)
  - [head](docs/Array.md#head)
  - [indexOf](docs/Array.md#indexof)
  - [initial](docs/Array.md#initial)
+ - [insertAt](docs/Array.md#insertat)
+ - [insertRangeAt](docs/Array.md#insertrangeat)
  - [intersection](docs/Array.md#intersection)
  - [intersectionBy](docs/Array.md#intersectionby)
  - [intersectionWith](docs/Array.md#intersectionwith)
  - [join](docs/Array.md#join)
  - [last](docs/Array.md#last)
- - [lastIndexOf](docs/Array.md#lastIndexOf)
+ - [lastIndexOf](docs/Array.md#lastindexof)
  - [nth](docs/Array.md#nth)
  - [pull](docs/Array.md#pull)
  - [pullAll](docs/Array.md#pullall)
@@ -204,10 +209,10 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [words](docs/String.md#words)
 
 # functions on character strings rarely used
-- [camelCase](docs/String.md#camelcase)
-- [kebabCase](docs/String.md#kebabcase)
-- [snakeCase](docs/String.md#snakecase)
-- [startCase](docs/String.md#startcase)
+- [camelCase](docs/StringForDev.md#camelcase)
+- [kebabCase](docs/StringForDev.md#kebabcase)
+- [snakeCase](docs/StringForDev.md#snakecase)
+- [startCase](docs/StringForDev.md#startcase)
  
 # Math Extension
 

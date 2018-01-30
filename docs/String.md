@@ -12,37 +12,7 @@ Example
 
  
 
- ## camelCase
-
-    String#camelCase()
-
-
-
-Converts string to camel case.
-
-
-
-Arguments
-
-    None.
-
-Returns
-
-    (string): Returns the camel cased string.
-
-Example
-	
-
-    'Foo Bar'.camelCase();
-    // => 'fooBar'
-    
-    '--foo-bar--'.camelCase();
-    // => 'fooBar'
-    
-    '__FOO_BAR__'.camelCase();
-    // => 'fooBar'
-
- ## capitalize
+  ## capitalize
 
     String#capitalize()
 
@@ -285,36 +255,7 @@ Returns
     String.isNullOrEmpty("\n\r"); // true
     String.isNullOrEmpty("azerty"); // false
 
- ## kebabCase
-
-    String#kebabCase()
-
-
-
-Converts string to kebab case.
-
-
-
-Arguments
-
-    None.
-
-Returns
-
-    (string): Returns the kebab cased string.
-
-Example
-	
-
-    'Foo Bar'.kebabCase();
-    // => 'foo-bar'
-    
-    'fooBar'.kebabCase();
-    // => 'foo-bar'
-    
-    '__FOO_BAR__'.kebabCase();
-    // => 'foo-bar'
-
+ 
 
 ## latinize
     String#latinize()
@@ -348,40 +289,12 @@ Arguments
 
     None.
 Returns
+
     A array of lines
 Example
 
+    "aaaa\nbb\nccc".lines(); // ["aaaa","bb","ccc"]
 
-
- ## lowerCase
-
-    String#lowerCase()
-
-
-
-Converts string, as space separated words, to lower case.
-
-
-
-Arguments
-
-    None.
-
-Returns
-
-    (string): Returns the lower cased string.
-
-Example
-	
-
-    '--Foo-Bar--'.lowerCase();
-    // => 'foo bar'
-    
-    'fooBar'.lowerCase();
-    // => 'foo bar'
-    
-    '__FOO_BAR__'.lowerCase();
-    // => 'foo bar'
 
 ## lowerFirst
 
@@ -576,37 +489,9 @@ Example
     "123456789".reverse(); // "987654321"
 
 
- ## snakeCase
+ 
 
-    String#snakeCase()
-
-
-
-Converts string to snake case.
-
-
-
-Arguments
-
-   None.
-
-Returns
-
-    (string): Returns the snake cased string.
-
-Example
-	
-
-    'Foo Bar'.snakeCase();
-    // => 'foo_bar'
-    
-    'fooBar'.snakeCase();
-    // => 'foo_bar'
-    
-    '--FOO-BAR--'.snakeCase();
-    // => 'foo_bar'
-
-## split  IE/C
+## split <img src="ie.png"> <img src="chrome.png">
     String#split( separator, [limit])
 
 
@@ -631,35 +516,7 @@ Example
     'a-b-c'.split('-', 2);
     // => ['a', 'b']
 
- ## startCase
-
-    String#startCase()
-
-
-
-Converts string to start case.
-
-
-Arguments
-
-    None.
-
-Returns
-
-    (string): Returns the start cased string.
-
-Example
-	
-
-    '--foo-bar--'.startCase();
-    // => 'Foo Bar'
-    
-    'fooBar'.startCase();
-    // => 'Foo Bar'
-    
-    '__FOO_BAR__'.startCase();
-    // => 'FOO BAR'
-
+ 
  ## startsWith
 
     String#startsWith( [target], [position=0])
@@ -931,35 +788,7 @@ Example
     // => 'fred, barney, & pebbles'
 
 
- ## upperCase
-    String#upperCase()
-
-
-
-Converts string, as space separated words, to upper case.
-
-
-
-Arguments
-
-    None.
-
-Returns
-
-    (string): Returns the upper cased string.
-
-Example
-	
-
-    '--foo-bar'.upperCase();
-    // => 'FOO BAR'
-    
-    'fooBar'.upperCase();
-    // => 'FOO BAR'
-    
-    '__foo_bar__'.upperCase();
-    // => 'FOO BAR'
-
+ 
  ## upperFirst
 
     String#upperFirst()
