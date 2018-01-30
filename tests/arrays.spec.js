@@ -1,7 +1,5 @@
 var _ = require("../node_modules/lodash/lodash.min.js");
-require("../distrib/Array.min.js");
-require("../distrib/String.min.js");
-require("../distrib/Math.min.js");
+require("../sources/Array.js");
 var arrayOfPoint = [{
   x: 1,
   y: 2
@@ -147,25 +145,6 @@ console.log("countBy", ['one', 'two', 'three'].countBy('length'));
 
 
 
-console.log("words", "fred, barney, & pebbles".words().toJson());
-// => ['fred', 'barney', 'pebbles']
-
-console.log("words", "fred, barney, & pebbles".words(/[^, ]+/g).toJson());
-// => ['fred', 'barney', '&', 'pebbles']
-
-
-console.log("Math.add", Math.add(6, 4));
-console.log("Math.sum", Math.sum([6, 4]));
-
-
-console.log("Math.random", Math.random(2, 10));
-
-[1, 2].forEach(function(value) {
-  console.log("forEach", value);
-});
-// => Logs `1` then `2`.
-
-
 
 console.log("every", [true, 1, null, 'yes'].every(Boolean));
 // => false
@@ -213,68 +192,61 @@ console.log("filter age>=36", users.toJson());
 users = users.filter((item) => { return item.age < 48; });
 console.log("filter age<48", users.toJson());
 
-
-var st = "123123123456789123456789123654654987";
-
-console.log(st.count("123"));
-
-console.log('<a>foo</a>'.between('<a>', '</a>')); // => 'foo'
-console.log('<a>foo</a></a>'.between('<a>', '</a>')); // => 'foo'
-console.log('<a><a>foo</a></a>'.between('<a>', '</a>')); // => '<a>foo'
-console.log('<a>foo'.between('<a>', '</a>')); // => ''
-console.log('Some strings } are very {weird}, dont you think?'.between('{', '}')); // => 'weird'
-console.log('This is a test string'.between('test')); // => ' string'
-console.log('This is a test string'.between('', 'test')); // => 'This is a '
+var a = [1, 2, 3];
+a.add(4, 5, 6).add(7, 8, 9);
+console.log(a);
 
 
+var b = [1, 2, 3];
+var c = [4, 5, 6, 7, 8, 9];
+b.addRange(c);
+console.log(b);
 
 
-console.log('foobar'.chompLeft('foo')); //'bar'
-console.log('foobar'.chompLeft('bar')); //'foobar'
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+a.insertAt(3, 10);
+console.log(a);
+
+a.insertAt(999, 11);
+console.log(a);
 
 
-console.log('foobar'.chompRight('bar')); //'foo'
-console.log('foobar'.chompRight('foo')); //'foobar'
+a = [10, 5, 2, 3, 8, 4, 5, 6, 7, 8, 18, 9];
 
-console.log('  String   \t libraries are   \n\n\t fun\n!  '.collapseWhitespace()); //'String libraries are fun !'
+function compareNombres(a, b) {
+  return a - b;
+}
 
-var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
-var lines = stuff.lines();
+a.sort(compareNombres);
+console.log(a);
 
-console.log(lines);
+a = [10, 5, 2, 3, 8, 4, 5, 6, 7, 8, 18, 9];
+a.sort((a, b) => { return a - b; });
+console.log(a);
 
-console.log(' 1 2 3--__--4 5 6-7__8__9--0'.strip(' ', '_', '-')); //'1234567890'
-console.log('can words also be stripped out?'.strip('words', 'also', 'be')); //'can    stripped out?'
+var range = a.getRange(5, 10);
+console.log(a, range);
+
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+range = a.getRange(5, 8);
+console.log(a);
+console.log(range);
+
+range = a.getRange(5);
+console.log(range);
 
 
-console.log('hellword'.insertAt(4, "o "));
-console.log('123456789'.reverse());
 
-console.log('123456789'.equalsIgnoreCase('123456789'));
-console.log('123456789'.equalsIgnoreCase('1234567890'));
+var items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "And", value: 45 },
+  { name: "The", value: -12 },
+  { name: "Magnetic", value: 13 },
+  { name: "Zeros", value: 37 }
+];
+items.sort(function(a, b) {
+  return a.value - b.value;
+});
 
-console.log('123456789'.equalsIgnoreCase(null));
-
-console.log('!=)àç_è-("é&^$ù*!:;,.ABCDEFGHIJKLMNOPQRSTUVWXYZ'.equalsIgnoreCase('!=)àç_è-("é&^$ù*!:;,.ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toLowerCase()));
-
-console.log("azertyui*opmlkjhgf$qsdfghùwxcv!gt".indexOfAny("!$ù*"));
-
-console.log(String.isNullOrEmpty("azertyui"));
-var a;
-console.log(String.isNullOrEmpty(a));
-a = "";
-console.log(String.isNullOrEmpty(a));
-
-console.log(String.isNullOrEmpty(null));
-console.log(String.isNullOrEmpty("toto"));
-
-console.log(String.isNullOrWhiteSpace("toto"));
-console.log(String.isNullOrWhiteSpace("\t"));
-
-console.log("toto".toCharArray());
-
-console.log(_.escape("<h1>toto</h1>"));
-
-console.log("1234567890".insertAt(3, "--"));
-
-console.log("123456789-987654321!123456789%987654".indexOfAny("%!-"));
+console.log(items);

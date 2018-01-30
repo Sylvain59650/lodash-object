@@ -442,7 +442,7 @@ Example
     'abc'.pad( 3);
     // => 'abc'
 
- ## padEnd
+ ## padEnd   <img src="chrome.png"> <img src="ff.gif">
 
     String#padEnd([length=0], [chars=' '])
 
@@ -473,7 +473,7 @@ Example
     'abc'.padEnd(3);
     // => 'abc'
 
- ## padStart
+ ## padStart <img src="chrome.png"> <img src="ff.gif">
 
     String#padStart([length=0], [chars=' '])
 
@@ -534,7 +534,7 @@ Example
     'abc'.repeat(0);
     // => ''
 
- ## replace   IE/C
+ ## replace    <img src="chrome.png"> <img src="ie.png">
 
     String#replace( pattern, replacement)
 
@@ -715,7 +715,7 @@ Example
 
     "azerty".toCharArray(); // ["a","z","e","r","t","y"]    
 
- ## toLowerCase  Native
+ ## toLowerCase  <img src="js.png">
 
     String#toLowerCase()
 
@@ -745,7 +745,7 @@ Example
     '__FOO_BAR__'.toLowerCase();
     // => '__foo_bar__'
 
-## toUpperCase   NATIVE
+## toUpperCase   <img src="js.png">
 
     String#toUpperCase()
 
@@ -776,7 +776,7 @@ Example
     // => '__FOO_BAR__'
 
 
- ## trim
+ ## trim <img src="js.png">
 
     String#trim([chars=whitespace])
 

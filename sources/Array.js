@@ -194,6 +194,50 @@
 
   Array.zip = function(...arrays) { return _.zip(...arrays); }
 
+  Array.prototype.add = function(values) {
+    for (var i = 0; i < arguments.length; i++) { this.push(arguments[i]); }
+    return this;
+  }
+
+  Array.prototype.addRange = function(array) {
+    for (var i = 0; i < array.length; i++) { this.push(array[i]); }
+    return this;
+  }
+
+  Array.prototype.clear = function() {
+    this.length = 0;
+  }
+
+  Array.prototype.insertAt = function(position, value) {
+    if (position >= this.length) {
+      this.push(value);
+      return this;
+    }
+    var arr = this.slice(0, position);
+    arr.push(value);
+    arr.addRange(this.slice(position + 1));
+    this.clear();
+    return this.addRange(arr);
+  }
+
+
+  Array.prototype.insertRangeAt = function(position, values) {
+    if (position >= this.length) {
+      this.addRange(values);
+      return this;
+    }
+    var arr = this.slice(0, position);
+    var right = this.slice(position + 1);
+    arr.addRange(values);
+    arr.addRange(right);
+    this.clear();
+    return this.addRange(arr);
+  }
+
+  Array.prototype.getRange = function(start, end) {
+    return this.slice(start, (end || this.length) + 1);
+  }
+
   return Array;
 
 }));
