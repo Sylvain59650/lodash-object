@@ -90,6 +90,21 @@ gulp.task("StringExtension.min.js", () => {
     .pipe(gulp.dest(chemins.distrib))
 });
 
+gulp.task("Object.min.js", () => {
+  return gulp.src([
+      "sources/Object.js"
+    ])
+    .pipe(concat("Object.min.js"))
+    .pipe(babel({
+      presets: ["es2015"],
+      compact: true
+    }))
+    // .pipe(uglify())
+    .on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+    // .pipe(umd())
+    .pipe(gulp.dest(chemins.distrib))
+});
+
 gulp.task("Math.min.js", () => {
   return gulp.src([
       "sources/Math.js"
@@ -130,9 +145,15 @@ gulp.task('watch:Math.min.js', function() {
   });
 });
 
+gulp.task('watch:Object.min.js', function() {
+  watch("./sources/Object.js", function() {
+    gulp.run('Object.min.js');
+  });
+});
+
 gulp.task('default', ['Array.min.js', 'String.min.js', 'StringExtension.min.js', 'Math.min.js']);
 
 
 gulp.task('all', ['default']);
 
-gulp.task("watch", ["watch:Array.min.js", "watch:String.min.js", "watch:StringExtension.min.js", "watch:Math.min.js"]);
+gulp.task("watch", ["watch:Array.min.js", "watch:String.min.js", "watch:Object.min.js", "watch:StringExtension.min.js", "watch:Math.min.js"]);

@@ -257,13 +257,19 @@ var items2 = items.shuffle();
 
 console.log(items.equals(items2));
 
+console.log("castArray", Array.castArray([1, 2]));
+console.log("castArray", Array.castArray(2));
+console.log("castArray", Array.castArray(undefined));
+console.log("castArray", Array.castArray(null));
+
 items = [
   { name: "Edward", value: 21 },
   { name: "Sharpe", value: 37 },
-  { name: "And", value: 45 },
-  { name: "The", value: -12 },
-  { name: "Magnetic", value: 13 },
-  { name: "Zeros", value: 37 }
+  { name: "Alfred", value: 45 },
+  { name: "Thomas", value: -12 },
+  { name: "Paul", value: 13 },
+  { name: "Tibo", value: 37 },
+  { name: "Manuel", value: 38 }
 ];
 items2 = items.shuffle();
 console.log(items.equals(items)); // true
@@ -271,3 +277,81 @@ console.log(items.equals(items2)); //false
 console.log([1, 2, 3, "a", "b", "c"].equals([1, 2, 3, "a", "b", "c"])); // true
 
 console.log([1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "a", "b", "c", "d"]));
+
+
+jobTitle = [
+  { name: "Sharpe", job: "technician", exp: "senior" },
+  { name: "Edward", job: "ingenieer", exp: "junior" },
+  { name: "Manuel", job: "florist", exp: "junior" },
+  { name: "Paul", job: "electrician", exp: "senior" },
+  { name: "Laurent", job: "builder", exp: "junior" },
+];
+
+var arr = items.leftJoin(jobTitle, "name=name", ["job"]);
+console.log("leftJoin", arr);
+
+var arr2 = items.leftJoin(jobTitle, "name=name", ["job", "exp"]);
+console.log("leftJoin", arr2);
+
+var arr3 = items.leftJoin(jobTitle, "name=name", null, "job");
+console.log("leftJoin", arr3);
+
+items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "Alfred", value: 45 },
+  { name: "Thomas", value: -12 },
+  { name: "Paul", value: 13 },
+  { name: "Tibo", value: 37 },
+  { name: "Manuel", value: 38 }
+];
+
+jobTitle = [
+  { name: "Sharpe", job: "technician", exp: "senior" },
+  { name: "Edward", job: "ingenieer", exp: "junior" },
+  { name: "Manuel", job: "florist", exp: "junior" },
+  { name: "Paul", job: "electrician", exp: "senior" },
+  { name: "Laurent", job: "builder", exp: "junior" },
+];
+
+arr = items.innerJoin(jobTitle, "name=name", ["job", "exp"]);
+console.log("innerJoin", arr);
+
+
+arr.remove({ name: "Manuel" });
+console.log("removeBy", arr);
+
+
+var ints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6];
+
+console.log("remove", ints.remove(2));
+
+console.log("remove", ints.remove(3));
+
+var objs = [
+  { x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }, { x: 4, y: 4 },
+  { x: 1, y: 10 }, { x: 2, y: 20 }, { x: 3, y: 30 }, { x: 4, y: 40 },
+  { x: 1, y: 100 }, { x: 2, y: 200 }, { x: 3, y: 300 }, { x: 4, y: 400 }
+];
+console.log(objs.remove({ x: 2, y: 2 }));
+console.log(objs.remove({ x: 2 }));
+
+objs = [
+  { x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }, { x: 4, y: 4 },
+  { x: 1, y: 10 }, { x: 2, y: 20 }, { x: 3, y: 30 }, { x: 4, y: 40 },
+  { x: 1, y: 100 }, { x: 2, y: 200 }, { x: 3, y: 300 }, { x: 4, y: 400 }
+];
+
+console.log("replace", objs.replace({ x: 1 }, { x: "one", y: 1, z: 1 }));
+
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6].replace(_.identity(2), "two"));
+
+console.log(_.isObject(2));
+
+var users2 = {
+  'barney': { 'age': 36, 'active': true },
+  'fred': { 'age': 40, 'active': false },
+  'pebbles': { 'age': 1, 'active': true }
+};
+
+console.log(_.find(users2, function(o) { return o.age < 40; }));

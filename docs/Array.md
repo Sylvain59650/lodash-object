@@ -7,7 +7,7 @@
 
 Arguments
 
-    a value
+    (*) value : a value
 
 Returns
 
@@ -19,11 +19,11 @@ Example
 
 ## addRange
 
-    Array#addRange([values])
+    (this) Array#addRange( (Array) values)
 
 Arguments
 
-    a array of value
+   (Array) values: a array of value
 
 Returns
 
@@ -35,7 +35,7 @@ Example
 
 ## chunk
 
-    chunk([size=1])
+   (Array) Array#chunk( (number) size=1)
 
 
 
@@ -45,7 +45,7 @@ Creates an array of elements split into groups the length of size. If array can'
 
 Arguments
 
-    [size=1] (number): The length of each chunk
+    size (number): The length of each chunk
 
 Returns
 
@@ -61,12 +61,15 @@ Example
 
 ## clear
 
-    Remove all elements of the current array
+    (this) Array#clear()
+
+Remove all elements of the current array
 
 Argument
     None
 
 Return
+
     the current array cleared
 
 Example
@@ -77,8 +80,7 @@ Example
 
 ## compact
 
-    Array#compact(array)
-
+    (Array) Array#compact( (Array) array)
 
 
 Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
@@ -97,8 +99,7 @@ Example
 
 ## concat <img src="js.png">
 
-    Array#concat([values])
-
+   (Array) Array#concat( (...*) values)
 
 
 Creates a new array concatenating array with any additional arrays and/or values.
@@ -128,7 +129,7 @@ Example
 
 ## countBy
 
-    Array#countBy([iteratee=_.identity])
+    (Object) Array#countBy( (Function) iteratee=_.identity)
 
 
 
@@ -138,7 +139,7 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    [iteratee=_.identity] (Function): The iteratee to transform keys.
+    iteratee=_.identity (Function): The iteratee to transform keys.
 
 Returns
 
@@ -156,8 +157,7 @@ Example
 
 ## difference
 
-    Array#difference([values])
-
+    (Array) Array#difference( (...Array) values)
 
 
 Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
@@ -168,7 +168,7 @@ Note: Unlike Array#pullAll, this method returns a new array.
 
 Arguments
 
-    [values] (...Array): The values to exclude.
+    values (...Array): The values to exclude.
 
 Returns
 
@@ -182,14 +182,14 @@ Example
 
 ## differenceBy
 
-    Array#differenceBy([values], [iteratee=_.identity])
+    (Array) Array#differenceBy( (...Array) values, (Function) iteratee=_.identity)
 
 
 
-This method is like Array#difference except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
+This method is like [Array#difference](difference) except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
 (value).
 
-Note: Unlike Array#pullAllBy, this method returns a new array.
+Note: Unlike [Array#pullAllBy](pullallby), this method returns a new array.
 
 
 
@@ -1191,6 +1191,45 @@ Example
     [1, 2, 3].initial();
     // => [1, 2]
 
+## innerJoin
+
+    Array#innerJoin(array,condition,fields)
+
+ Arguments
+        array : the array to inner join
+
+Returns
+
+        (Array): return a new array with fields of right array and left array whose matches with condition
+
+Examples
+
+    var items = [
+        { name: "Edward", value: 21 },
+        { name: "Sharpe", value: 37 },
+        { name: "Alfred", value: 45 },
+        { name: "Thomas", value: -12 },
+        { name: "Paul", value: 13 },
+        { name: "Tibo", value: 37 },
+        { name: "Manuel", value: 38 }
+    ];
+
+    var jobTitle = [
+        { name: "Sharpe", job: "technician", exp: "senior" },
+        { name: "Edward", job: "ingenieer", exp: "junior" },
+        { name: "Manuel", job: "florist", exp: "junior" },
+        { name: "Paul", job: "electrician", exp: "senior" },
+        { name: "Laurent", job: "builder", exp: "junior" },
+    ];
+
+    arr = items.innerJoin(jobTitle, "name=name", ["job", "exp"]);
+
+    /* 
+    [   { name: 'Edward', value: 21, job: 'ingenieer', exp: 'junior' },
+        { name: 'Sharpe', value: 37, job: 'technician', exp: 'senior' },
+        { name: 'Paul', value: 13, job: 'electrician', exp: 'senior' },
+        { name: 'Manuel', value: 38, job: 'florist', exp: 'junior' } ]
+  */
 
 ## intersection
 
@@ -1861,6 +1900,47 @@ Example
     [1, 2, 1, 2].lastIndexOf(2, 2);
     // => 1
 
+## leftJoin
+
+    Array#leftJoin(array,condition,fields)
+
+ Arguments
+        array : the array to left join
+
+Returns
+
+        (Array): return the current array with fields of right array whose matches with condition
+
+Examples
+
+    var items = [
+        { name: "Edward", value: 21 },
+        { name: "Sharpe", value: 37 },
+        { name: "Alfred", value: 45 },
+        { name: "Thomas", value: -12 },
+        { name: "Paul", value: 13 },
+        { name: "Tibo", value: 37 },
+        { name: "Manuel", value: 38 }
+    ];
+
+    var jobTitle = [
+        { name: "Sharpe", job: "technician", exp: "senior" },
+        { name: "Edward", job: "ingenieer", exp: "junior" },
+        { name: "Manuel", job: "florist", exp: "junior" },
+        { name: "Paul", job: "electrician", exp: "senior" },
+        { name: "Laurent", job: "builder", exp: "junior" },
+    ];
+
+    var arr = items.leftJoin(jobTitle, "name=name", ["job"]);
+
+    /*[ { name: 'Edward', value: 21, job: 'ingenieer' },
+        { name: 'Sharpe', value: 37, job: 'technician' },
+        { name: 'Alfred', value: 45 },
+        { name: 'Thomas', value: -12 },
+        { name: 'Paul', value: 13, job: 'electrician' },
+        { name: 'Tibo', value: 37 },
+        { name: 'Manuel', value: 38, job: 'florist' } 
+    ]*/
 
 
 ## pull
@@ -2046,6 +2126,38 @@ Example
     
     console.log(evens);
     // => [2, 4]
+
+
+## replace
+
+    Array#replace(value,newValue)
+
+    Replace the element of the array whose match with value and replace by newValue
+
+Argument    
+
+    value:
+    newValue:
+
+Returns 
+
+    the current array with replaced value
+
+Example
+
+    objs = [
+        { x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }, { x: 4, y: 4 },
+        { x: 1, y: 10 }, { x: 2, y: 20 }, { x: 3, y: 30 }, { x: 4, y: 40 },
+        { x: 1, y: 100 }, { x: 2, y: 200 }, { x: 3, y: 300 }, { x: 4, y: 400 }
+    ];
+
+    console.log(objs.replace({ x: 1 }, { x: "one", y: 1, z: 1 }));
+        
+       /*
+          [ { x: 'one', y: 1, z: 1 },{ x: 2, y: 2 },{ x: 3, y: 3 },{ x: 4, y: 4 },
+            { x: 'one', y: 1, z: 1 },{ x: 2, y: 20 },{ x: 3, y: 30 },{ x: 4, y: 40 },
+            { x: 'one', y: 1, z: 1 },{ x: 2, y: 200 },{ x: 3, y: 300 },{ x: 4, y: 400 } ]
+    */
 
  ## reverse
 

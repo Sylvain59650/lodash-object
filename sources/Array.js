@@ -42,6 +42,8 @@
   //C
   Array.prototype.findIndex = function(predicate, fromIndex = 0) { return _.findIndex(this, predicate, fromIndex); }
 
+  //Array.prototype.findKey = function(predicate, fromIndex = 0) { return _.findIndex(this, predicate, fromIndex); }
+
 
   Array.prototype.findLastIndex = function(predicate, fromIndex) { return _.findLastIndex(this, predicate, fromIndex); }
   Array.prototype.first = function() {
@@ -220,6 +222,12 @@
     return this.addRange(arr);
   }
 
+  Array.castArray = function(array) {
+    if (array == null || array == undefined) return [];
+    return _.castArray(array);
+  }
+
+
 
   Array.prototype.insertRangeAt = function(position, values) {
     if (position >= this.length) {
@@ -253,6 +261,113 @@
       if (!this.includes(array[i])) return false;
     }
     return true;
+  }
+
+
+  Array.prototype.innerJoin = function(array, conditions, newPropertyName) {
+    if (array) {
+      var ar = array.length;
+      var cc = conditions.split("=");
+      var leftPropertyName = cc[0].trim();
+      var rightPropertyName = "";
+      if (cc.length > 1) { rightPropertyName = cc[1].trim(); } else { rightPropertyName = leftPropertyName }
+      newPropertyName = newPropertyName || rightPropertyName;
+      var props = _.castArray(newPropertyName);
+      for (var i = this.length - 1; i >= 0; i--) {
+        var item = this[i];
+        var found = false;
+        for (var j = 0; j < ar; j++) {
+          var right = array[j];
+          if (item[leftPropertyName] == right[rightPropertyName]) {
+            found = true;
+            for (var kk = 0; kk < props.length; kk++) {
+              var propName = props[kk];
+              item[propName] = right[propName];
+            }
+          }
+        }
+        if (!found) {
+          this.splice(i, 1);
+        }
+      }
+    }
+    return this;
+  }
+
+  Array.prototype.leftJoin = function(array, conditions, fieldsRight, newFieldName) {
+    if (array) {
+      var ar = array.length;
+      var cc = conditions.split("=");
+      var leftPropertyName = cc[0].trim();
+      var rightPropertyName = "";
+      if (cc.length > 1) { rightPropertyName = cc[1].trim(); } else { rightPropertyName = leftPropertyName }
+      var fullObject = (fieldsRight == undefined);
+      //newPropertyName = newPropertyName || rightPropertyName;
+      if (!fullObject) {
+        var props = _.castArray(fieldsRight);
+      }
+
+      for (var i = 0, al = this.length; i < al; i++) {
+        var item = this[i];
+        for (var j = 0; j < ar; j++) {
+          var right = array[j];
+          if (item[leftPropertyName] == right[rightPropertyName]) {
+            if (fullObject) {
+              item[newFieldName] = right;
+            } else {
+              for (var kk = 0; kk < props.length; kk++) {
+                var propName = props[kk];
+                item[propName] = right[propName];
+              }
+            }
+          }
+        }
+      }
+    }
+    return this;
+  }
+
+  function _removeValue(array, value) {
+    var idx = array.indexOf(value, 0);
+    while (idx >= 0) {
+      array.splice(idx, 1);
+      idx = array.indexOf(value, idx + 1);
+    }
+    return array;
+  }
+
+  function _removeObject(array, value) {
+    var idx = array.filter(value);
+    array.pullAll(idx);
+    return array;
+  }
+
+  Array.prototype.remove = function(value) {
+    if (_.isObject(value)) { return _removeObject(this, value); }
+    return _removeValue(this, value);
+  }
+
+  function _replaceObject(array, value, replace) {
+    var idx = array.findIndex(value, 0);
+    while (idx != -1) {
+      array[idx] = replace;
+      idx = array.findIndex(value, idx + 1);
+    }
+    return array;
+  }
+
+  function _replaceValue(array, value, replace) {
+    var idx = array.indexOf(value, 0);
+    while (idx >= 0) {
+      array[idx] = replace;
+      idx = array.findIndex(value, idx + 1);
+    }
+    return array;
+  }
+
+  Array.prototype.replace = function(value, replace) {
+    if (_.isObject(value)) { return _replaceObject(this, value, replace); }
+    return _replaceValue(this, value, replace);
   }
 
   return Array;
