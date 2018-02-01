@@ -3,7 +3,7 @@
 
 ## add
 
-    Array#add(value)
+    (this) Array#add( (*) value)
 
 Arguments
 
@@ -19,7 +19,7 @@ Example
 
 ## addRange
 
-    (this) Array#addRange( (Array) values)
+    (this) Array#addRange( Array values)
 
 Arguments
 
@@ -35,7 +35,7 @@ Example
 
 ## chunk
 
-   (Array) Array#chunk( (number) size=1)
+    Array Array#chunk( number size=1)
 
 
 
@@ -66,6 +66,7 @@ Example
 Remove all elements of the current array
 
 Argument
+
     None
 
 Return
@@ -80,7 +81,7 @@ Example
 
 ## compact
 
-    (Array) Array#compact( (Array) array)
+    Array Array#compact()
 
 
 Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
@@ -99,7 +100,7 @@ Example
 
 ## concat <img src="js.png">
 
-   (Array) Array#concat( (...*) values)
+    Array Array#concat( (...*) values)
 
 
 Creates a new array concatenating array with any additional arrays and/or values.
@@ -129,7 +130,7 @@ Example
 
 ## countBy
 
-    (Object) Array#countBy( (Function) iteratee=_.identity)
+    Object Array#countBy( Function iteratee=_.identity)
 
 
 
@@ -155,14 +156,15 @@ Example
     ['one', 'two', 'three'].countBy('length');
     // => { '3': 2, '5': 1 }
 
+
 ## difference
 
-    (Array) Array#difference( (...Array) values)
+    Array Array#difference( (...Array) values)
 
 
 Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
 
-Note: Unlike Array#pullAll, this method returns a new array.
+Note: Unlike [Array#pullAll](#pullall), this method returns a new array.
 
 
 
@@ -182,21 +184,21 @@ Example
 
 ## differenceBy
 
-    (Array) Array#differenceBy( (...Array) values, (Function) iteratee=_.identity)
+    Array Array#differenceBy( (...Array) values, Function iteratee=_.identity)
 
 
 
-This method is like [Array#difference](difference) except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
+This method is like [Array#difference](#difference) except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
 (value).
 
-Note: Unlike [Array#pullAllBy](pullallby), this method returns a new array.
+Note: Unlike [Array#pullAllBy](#pullallby), this method returns a new array.
 
 
 
 Arguments
 
     [values] (...Array): The values to exclude.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -214,13 +216,13 @@ Example
 
 ## differenceWith
 
-    Array#differenceWith([values], [comparator])
+   Array Array#differenceWith( Array values, Function comparator)
 
 
 
-This method is like Array#difference except that it accepts comparator which is invoked to compare elements of array to values. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#difference](#difference) except that it accepts comparator which is invoked to compare elements of array to values. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
 
-Note: Unlike Array#pullAllWith, this method returns a new array.
+Note: Unlike [Array#pullAllWith](#pullallwith), this method returns a new array.
 
 
 
@@ -228,7 +230,7 @@ Arguments
 
     
     [values] (...Array): The values to exclude.
-    [comparator] (Function): The comparator invoked per element.
+    comparator: The comparator invoked per element.
 
 Returns
 
@@ -245,7 +247,7 @@ Example
 
 ## drop
 
-    Array#drop([n=1])
+    Array Array#drop( number n=1)
 
 
 
@@ -280,7 +282,7 @@ Example
 
 ## dropRight
 
-    Array#dropRight([n=1])
+    Array Array#dropRight(number n=1)
 
 
 
@@ -314,7 +316,7 @@ Example
 
 ## dropRightWhile
 
-    Array#dropRightWhile([predicate=_.identity])
+    Array Array#dropRightWhile( Function predicate=_.identity)
 
 
 
@@ -325,7 +327,7 @@ Creates a slice of array excluding elements dropped from the end. Elements are d
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -358,7 +360,7 @@ Example
 
 ## dropWhile
 
-    Array#dropWhile([predicate=_.identity])
+    Array Array#dropWhile( Function predicate=_.identity)
 
 
 
@@ -369,7 +371,7 @@ Creates a slice of array excluding elements dropped from the beginning. Elements
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -400,7 +402,7 @@ Example
     // => objects for ['barney', 'fred', 'pebbles']
 
 ## equals
-    Array#equals(anotherArray)
+    boolean Array#equals( Array anotherArray)
 
 Argument 
     anotherArray : a array
@@ -424,7 +426,7 @@ Example
     [1,2,3,"a","b","c"].equals([1,2,3,"a","b","c"]); // true
 
 ## every
-    Array#every([predicate=_.identity])
+    boolean Array#every( Function predicate=_.identity)
 
 
 
@@ -436,7 +438,7 @@ Note: This method returns true for empty collections because everything is true 
 
 Arguments
 
-     [predicate=_.identity] (Function): The function invoked per iteration.
+     predicate: The function invoked per iteration.
 
 Returns
 
@@ -468,7 +470,7 @@ Example
 
 ## fill <img src="js.png">
 
-    Array#fill(value, [start=0], [end=array.length])
+   Array Array#fill( (*) value, number start=0, number end=array.length)
 
 
 
@@ -503,19 +505,19 @@ Example
 
 
 ## filter <img src="chrome.png">
-    Array#filter([predicate=_.identity])
+   Array Array#filter(Function predicate=_.identity)
 
 
 
 Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
-Note: Unlike Array#remove, this method returns a new array.
+Note: Unlike [Array#remove](#remove), this method returns a new array.
 
 
 
 Arguments
 
-     [predicate=_.identity] (Function): The function invoked per iteration.
+     predicate: The function invoked per iteration.
 
 Returns
 
@@ -546,7 +548,7 @@ Example
 
 ## find <img src="chrome.png">
 
-    Array#find( [predicate=_.identity], [fromIndex=0])
+   Array Array#find( Function predicate=_.identity, number fromIndex=0)
 
 
 
@@ -556,7 +558,7 @@ Iterates over elements of collection, returning the first element predicate retu
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
     [fromIndex=0] (number): The index to search from.
 
 Returns
@@ -590,18 +592,18 @@ Example
 
 ## findIndex <img src="chrome.png">
 
-    Array#findIndex([predicate=_.identity], [fromIndex=0])
+   number Array#findIndex(Function predicate=_.identity, number fromIndex=0)
 
 
 
-This method is like Array#find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
+This method is like [Array#find](#find) except that it returns the index of the first element predicate returns truthy for instead of the element itself.
 
 
 
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
     [fromIndex=0] (number): The index to search from.
 
 Returns
@@ -634,17 +636,17 @@ Example
 
 
 ## findLast
-    Array#findLast( [predicate=_.identity], [fromIndex=collection.length-1])
+   (*) Array#findLast( Function predicate=_.identity, number fromIndex=collection.length-1)
 
 
 
-This method is like Array#find except that it iterates over elements of collection from right to left.
+This method is like [Array#find](#find) except that it iterates over elements of collection from right to left.
 
 
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
     [fromIndex=collection.length-1] (number): The index to search from.
 
 Returns
@@ -662,18 +664,18 @@ Example
 
 ## findLastIndex
 
-    Array#findLastIndex([predicate=_.identity],[fromIndex=array.length-1])
+   number Array#findLastIndex(Function predicate=_.identity, number fromIndex=array.length-1)
 
 
 
-This method is like Array#findIndex except that it iterates over elements of collection from right to left.
+This method is like [Array#findIndex](#findindex) except that it iterates over elements of collection from right to left.
 
 
 
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
     [fromIndex=array.length-1] (number): The index to search from.
 
 Returns
@@ -706,8 +708,7 @@ Example
 
 ## first
 
-    Array#first
-
+    (*) Array#first()
     
 
 Returns
@@ -725,7 +726,7 @@ Example
 
 ## flatMap
 
-    Array#flatMap([iteratee=_.identity])
+    Array Array#flatMap(Function iteratee=_.identity)
 
 
 
@@ -735,7 +736,7 @@ Creates a flattened array of values by running each element in collection thru i
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+    iteratee : The function invoked per iteration.
 
 Returns
 
@@ -753,17 +754,17 @@ Example
 
  ## flatMapDeep
 
-    Array#flatMapDeep( [iteratee=_.identity])
+    Array#flatMapDeep( Function iteratee=_.identity)
 
 
 
-This method is like Array#flatMap except that it recursively flattens the mapped results.
+This method is like [Array#flatMap](#flatmap) except that it recursively flattens the mapped results.
 
 
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+    iteratee : The function invoked per iteration.
 
 Returns
 
@@ -780,18 +781,18 @@ Example
     // => [1, 1, 2, 2]
 
 # flatMapDepth
-    Array#flatMapDepth([iteratee=_.identity], [depth=1])
+    Array Array#flatMapDepth(Function iteratee=_.identity, number depth=1)
 
 
 
-This method is like Array#flatMap except that it recursively flattens the mapped results up to depth times.
+This method is like [Array#flatMap](#flatmap) except that it recursively flattens the mapped results up to depth times.
 
 
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
-    [depth=1] (number): The maximum recursion depth.
+    iteratee : The function invoked per iteration.
+    depth : The maximum recursion depth.
 
 Returns
 
@@ -810,7 +811,7 @@ Example
 
 ## flatten
 
-    Array#flatten()
+    Array Array#flatten()
 
 
 
@@ -836,7 +837,7 @@ Example
 
 ## flattenDeep
 
-    Array#flattenDeep()
+    Array Array#flattenDeep()
 
 
 
@@ -860,7 +861,7 @@ Example
 
 # flattenDepth
 
-    Array#flattenDepth([depth=1])
+    Array Array#flattenDepth(number depth=1)
 
 
 Recursively flatten array up to depth times.
@@ -869,8 +870,7 @@ Recursively flatten array up to depth times.
 
 Arguments
 
-    array (Array): The array to flatten.
-    [depth=1] (number): The maximum recursion depth.
+    depth : The maximum recursion depth.
 
 Returns
 
@@ -890,11 +890,11 @@ Example
 
 ## fromPairs
 
-    Array#fromPairs(pairs)
+    Object Array#fromPairs(Array pairs)
 
 
 
-The inverse of _.toPairs; this method returns an object composed from key-value pairs.
+The inverse of [toPairs](#topair); this method returns an object composed from key-value pairs.
 
 
 
@@ -916,7 +916,7 @@ Example
 
  
 # forEach
-    Array#forEach( [iteratee=_.identity])
+    (this) Array#forEach( Function iteratee=_.identity)
 
 
 
@@ -927,7 +927,7 @@ Note: As with other "Collections" methods, objects with a "length" property are 
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+    iteratee : The function invoked per iteration.
 
 Returns
 
@@ -943,21 +943,21 @@ Example
     
  
 ## forEachRight
-    Array#forEachRight([iteratee=_.identity])
+    (this) Array#forEachRight(Function iteratee=_.identity)
 
 
 
-This method is like Array#forEach except that it iterates over elements of collection from right to left.
+This method is like [Array#forEach](#foreach) except that it iterates over elements of collection from right to left.
 
 
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
+    iteratee : The function invoked per iteration.
 
 Returns
 
-(*): Returns collection.
+    (*): Returns collection.
 
 Example
 	
@@ -969,11 +969,12 @@ Example
 
 ## getRange
 
-    Array#getRange(start,end)
+    Array Array#getRange(number start, number end)
 
 returns a new array whose elements are those of the original array between the start and end positions
 
 Arguments
+    
     start: start position in the array
     end: end position in the array
 
@@ -990,7 +991,7 @@ Example
 
  ## groupBy
 
-    Array#groupBy([iteratee=_.identity])
+    Object Array#groupBy(Function iteratee=_.identity)
 
 
 
@@ -1000,7 +1001,7 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    [iteratee=_.identity] (Function): The iteratee to transform keys.
+    iteratee : The iteratee to transform keys.
 
 Returns
 
@@ -1017,7 +1018,7 @@ Example
     // => { '3': ['one', 'two'], '5': ['three'] }
 
 ## includes <img src="chrome.png">
-    Array#includes(value, [fromIndex=0])
+    boolean Array#includes( (*) value, number fromIndex=0)
 
 
 
@@ -1044,7 +1045,7 @@ Example
     // => false
 
 ## includesAll
-    Array#includesAll(array)
+    boolean Array#includesAll(Array array)
 
 Argument
 
@@ -1059,7 +1060,7 @@ Example
     [1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "d", "a", "b", "c"]); // false
 ## insertAt
 
-    Array#insertAt(position,value)
+    (this) Array#insertAt(number position, any value)
 
 Insert a value at the position of the current array.
 If position is greater than array length, then insert at last position.
@@ -1085,7 +1086,7 @@ Example
 
 ## insertRangeAt
 
-    Array#insertRangeAt(position,[values])
+    (this) Array#insertRangeAt(number position, Array values)
 
 Insert elements of values at the position of the current array.
 If position is greater than array length, then insert at last position.
@@ -1109,7 +1110,7 @@ Example
 
  ## invokeMap
 
-    Array#invokeMap( path, [args])
+    Array Array#invokeMap( (*) path, (...*) args)
 
 
 
@@ -1138,7 +1139,7 @@ Example
 
 ## indexOf <img src="js.png">
 
-    Array#indexOf(value, [fromIndex=0])
+    number Array#indexOf(any value, number fromIndex=0)
 
 
 
@@ -1150,7 +1151,7 @@ Arguments
 
     
     value (*): The value to search for.
-    [fromIndex=0] (number): The index to search from.
+    fromIndex (number): The index to search from.
 
 Returns
 
@@ -1169,7 +1170,7 @@ Example
 
 ## initial
 
-    Array#initial(array)
+    Array Array#initial()
 
 
 
@@ -1179,7 +1180,7 @@ Gets all but the last element of array.
 
 Arguments
 
-    
+    None
 
 Returns
 
@@ -1193,10 +1194,14 @@ Example
 
 ## innerJoin
 
-    Array#innerJoin(array,condition,fields)
+    (this) Array#innerJoin(Array array,string condition,[string] fields)
 
  Arguments
+        
         array : the array to inner join
+        condition: a left field = a right field
+        fieds : array of field in right array to extends left array
+
 
 Returns
 
@@ -1233,7 +1238,7 @@ Examples
 
 ## intersection
 
-    Array#intersection([arrays])
+   Array Array#intersection([arrays])
 
 
 
@@ -1257,11 +1262,11 @@ Example
 
 ## intersectionBy
 
-    Array#intersectionBy([arrays], [iteratee=_.identity])
+    Array Array#intersectionBy([arrays], Function iteratee=_.identity)
 
 
 
-This method is like Array#intersection except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
+This method is like [Array#intersection](#intersection) except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which they're compared. The order and references of result values are determined by the first array. The iteratee is invoked with one argument:
 (value).
 
 
@@ -1269,7 +1274,7 @@ This method is like Array#intersection except that it accepts iteratee which is 
 Arguments
 
     [arrays] (...Array): The arrays to inspect.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -1288,18 +1293,18 @@ Example
 
 ## intersectionWith
 
-    Array#intersectionWith([arrays], [comparator])
+    Array Array#intersectionWith( (...Array) arrays, Function comparator)
 
 
 
-This method is like Array#intersection except that it accepts comparator which is invoked to compare elements of arrays. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#intersection](#intersection) except that it accepts comparator which is invoked to compare elements of arrays. The order and references of result values are determined by the first array. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
 Arguments
 
-    [arrays] (...Array): The arrays to inspect.
-    [comparator] (Function): The comparator invoked per element.
+    arrays (...Array): The arrays to inspect.
+    comparator (Function): The comparator invoked per element.
 
 Returns
 
@@ -1316,7 +1321,7 @@ Example
 
 ## join <img src="js.png">
 
-    Array#join([separator=','])
+    string Array#join(string separator=',')
 
 Converts all elements in array into a string separated by separator.
 
@@ -1324,8 +1329,7 @@ Converts all elements in array into a string separated by separator.
 
 Arguments
 
-    array (Array): The array to convert.
-    [separator=','] (string): The element separator.
+   separator: The string separator.
 
 Returns
 
@@ -1339,7 +1343,7 @@ Example
 
  ## keyBy
 
-    Array#keyBy([iteratee=_.identity])
+    Object Array#keyBy(Function iteratee=_.identity)
 
 
 
@@ -1349,7 +1353,7 @@ Creates an object composed of keys generated from the results of running each el
 
 Arguments
 
-    [iteratee=_.identity] (Function): The iteratee to transform keys.
+    iteratee : The iteratee to transform keys.
 
 Returns
 
@@ -1373,14 +1377,14 @@ Example
 
 ## map
 
-    Array#map([iteratee=_.identity])
+    Array Array#map(Function iteratee=_.identity)
 
 
 
 Creates an array of values by running each element in collection thru iteratee. The iteratee is invoked with three arguments:
 (value, index|key, collection).
 
-Many lodash methods are guarded to work as iteratees for methods like Array#every, Array#filter, Array#map, Array#mapValues, Array#reject, and Array#some.
+Many lodash methods are guarded to work as iteratees for methods like [Array#every](#every), [Array#filter](#filter), [Array#map](#map), [Array#mapValues](#mapvalues), [Array#reject](#reject), and [Array#some](#some).
 
 The guarded methods are:
 ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, random, range, rangeRight, repeat, sampleSize, slice, some, sortBy, split, take, takeRight, template, trim, trimEnd, trimStart, and words
@@ -1389,7 +1393,7 @@ ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, r
 
 Arguments
 
-   [iteratee=_.identity] (Function): The function invoked per iteration.
+    iteratee : The function invoked per iteration.
 
 Returns
 
@@ -1407,7 +1411,7 @@ Example
 
 ## nth
 
-    Array#nth([n=0])
+    any Array#nth(number n=0)
 
 
 
@@ -1418,7 +1422,7 @@ Gets the element at index n of array. If n is negative, the nth element from the
 Arguments
 
     
-    [n=0] (number): The index of the element to return.
+    n : The index of the element to return.
 
 Returns
 
@@ -1437,11 +1441,11 @@ Example
 
  ## orderBy
 
-    Array#orderBy([iteratees=[_.identity]], [orders])
+    Array Array#orderBy([iteratees=[_.identity]], [orders])
 
 
 
-This method is like Array#sortBy except that it allows specifying the sort orders of the iteratees to sort by. If orders is unspecified, all values are sorted in ascending order. Otherwise, specify an order of "desc" for descending or "asc" for ascending sort order of corresponding values.
+This method is like [Array#sortBy](#sortby) except that it allows specifying the sort orders of the iteratees to sort by. If orders is unspecified, all values are sorted in ascending order. Otherwise, specify an order of "desc" for descending or "asc" for ascending sort order of corresponding values.
 
 
 
@@ -1471,7 +1475,7 @@ Example
 
  ## partition
 
-    Array#partition([predicate=_.identity])
+    Array Array#partition(Function predicate=_.identity)
 
 
 
@@ -1481,7 +1485,7 @@ Creates an array of elements split into two groups, the first of which contains 
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate : The function invoked per iteration.
 
 Returns
 
@@ -1513,9 +1517,9 @@ Example
 
 ## pop <img src="js.png">
 
-		Array#pop()
+		(*) Array#pop()
 		
-pop() removes the last element from an array and returns that element.
+Remove the last element from an array and returns that element.
 
 Argument
 
@@ -1529,7 +1533,7 @@ Example
 
 ## push <img src="js.png"> 
 
-	Array#push(value)
+	(this) Array#push(value)
 	
 	push() adds one or more elements to the end of an array and returns the resulting length of the array.
 
@@ -1545,14 +1549,14 @@ Example
 
  ## reduce
 
-    Array#reduce([iteratee=_.identity], [accumulator])
+    any Array#reduce(Function iteratee=_.identity, any accumulator)
 
 
 
 Reduces collection to a value which is the accumulated result of running each element in collection thru iteratee, where each successive invocation is supplied the return value of the previous. If accumulator is not given, the first element of collection is used as the initial value. The iteratee is invoked with four arguments:
 (accumulator, value, index|key, collection).
 
-Many lodash methods are guarded to work as iteratees for methods like Array#reduce, Array#reduceRight, and Array#transform.
+Many lodash methods are guarded to work as iteratees for methods like [Array#reduce](#reduce), [Array#reduceRight](#reduceright), and [Array#transform](#transform).
 
 The guarded methods are:
 assign, defaults, defaultsDeep, includes, merge, orderBy, and sortBy
@@ -1561,8 +1565,8 @@ assign, defaults, defaultsDeep, includes, merge, orderBy, and sortBy
 
 Arguments
 
-    [iteratee=_.identity] (Function): The function invoked per iteration.
-    [accumulator] (*): The initial value.
+    iteratee : The function invoked per iteration.
+    accumulator (*): The initial value.
 
 Returns
 
@@ -1579,17 +1583,17 @@ Example
 
  ## reduceRight
 
-    Array#reduceRight([iteratee=_.identity], [accumulator])
+    any Array#reduceRight(Function iteratee=_.identity, any accumulator)
 
 
 
-This method is like Array#reduce except that it iterates over elements of collection from right to left.
+This method is like [Array#reduce](#reduce) except that it iterates over elements of collection from right to left.
 
 
 
 Arguments
 
-   [iteratee=_.identity] (Function): The function invoked per iteration.
+   iteratee : The function invoked per iteration.
     [accumulator] (*): The initial value.
 
 Returns
@@ -1609,17 +1613,17 @@ Example
 
  ## reject
 
-    Array#reject([predicate=_.identity])
+    Array Array#reject(Function predicate=_.identity)
 
 
 
-The opposite of Array#filter; this method returns the elements of collection that predicate does not return truthy for.
+The opposite of [Array#filter](#filter); this method returns the elements of collection that predicate does not return truthy for.
 
 
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -1650,7 +1654,7 @@ Example
 
  ## sample
 
-    Array#sample()
+    (*) Array#sample()
 
 
 
@@ -1674,7 +1678,7 @@ Example
 
 ## sampleSize
 
-    Array#sampleSize([n=1])
+    Array Array#sampleSize(number n=1)
 
 
 
@@ -1684,7 +1688,7 @@ Gets n random elements at unique keys from collection up to the size of collecti
 
 Arguments
 
-    [n=1] (number): The number of elements to sample.
+    n : The number of elements to sample.
 
 Returns
 
@@ -1703,7 +1707,7 @@ Example
 
  ## shuffle
 
-    Array#shuffle()
+    Array Array#shuffle()
 
 
 
@@ -1729,7 +1733,7 @@ Example
        
  ## some
 
-    Array#some( [predicate=_.identity])
+    boolean Array#some( Function predicate=_.identity)
 
 
 
@@ -1739,7 +1743,7 @@ Checks if predicate returns truthy for any element of collection. Iteration is s
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -1770,11 +1774,11 @@ Example
 
 ## sort <img src="js.png">
 
-    Array#sort(comparaison)
+    (this) Array#sort(comparaison)
 
 Argument
 
-    a comparaison fonction
+    comparaison: a comparaison fonction
 
 Return
 
@@ -1805,7 +1809,7 @@ Example
 
  ## sortBy
 
-    Array#sortBy( [iteratees=[_.identity]])
+    Array Array#sortBy( [iteratees=[_.identity]])
 
 
 
@@ -1847,7 +1851,7 @@ Example
 
 ## last
 
-    Array#last()
+    any Array#last()
 
 
 
@@ -1872,11 +1876,11 @@ Example
 
 ## lastIndexOf
 
-    Array#lastIndexOf(value, [fromIndex=array.length-1])
+    number Array#lastIndexOf(value, number fromIndex=array.length-1)
 
 
 
-This method is like Array#indexOf except that it iterates over elements of array from right to left.
+This method is like [Array#indexOf](#indexof) except that it iterates over elements of array from right to left.
 
 
 
@@ -1902,7 +1906,7 @@ Example
 
 ## leftJoin
 
-    Array#leftJoin(array,condition,fields)
+    Array Array#leftJoin(Array array,string condition,[string] fields)
 
  Arguments
         array : the array to left join
@@ -1945,13 +1949,13 @@ Examples
 
 ## pull
 
-    Array#pull([values])
+    (this) Array#pull(Array values)
 
 
 
 Removes all given values from array using SameValueZero for equality comparisons.
 
-Note: Unlike Array#without, this method mutates array. Use Array#remove to remove elements from an array by predicate.
+Note: Unlike [Array#without](#without), this method mutates array. Use Array#remove to remove elements from an array by predicate.
 
 
 
@@ -1973,13 +1977,13 @@ Example
 
 ## pullAll
 
-    Array#pullAll(values)
+    (this) Array#pullAll(Array values)
 
 
 
-This method is like Array#pull except that it accepts an array of values to remove.
+This method is like [Array#pull](#pull) except that it accepts an array of values to remove.
 
-Note: Unlike Array#difference, this method mutates array.
+Note: Unlike [Array#difference](#difference), this method mutates array.
 
 
 
@@ -2000,20 +2004,20 @@ Example
     // => ['b', 'b']
 
 ## pullAllBy
-    Array#pullAllBy(values, [iteratee=_.identity])
+   (this) Array#pullAllBy(Array values, Function iteratee=_.identity)
 
 
 
-This method is like Array#pullAll except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The iteratee is invoked with one argument: (value).
+This method is like [Array#pullAll](#pullall) except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared. The iteratee is invoked with one argument: (value).
 
-Note: Unlike Array#differenceBy, this method mutates array.
+Note: Unlike [Array#differenceBy](#differenceby), this method mutates array.
 
 
 
 Arguments
 
     values (Array): The values to remove.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2030,20 +2034,20 @@ Example
 
 ## pullAllWith
 
-    Array#pullAllWith(values, [comparator])
+    (this) Array#pullAllWith(Array values, Function comparator)
 
 
 
-This method is like Array#pullAll except that it accepts comparator which is invoked to compare elements of array to values. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#pullAll](#pullall) except that it accepts comparator which is invoked to compare elements of array to values. The comparator is invoked with two arguments: (arrVal, othVal).
 
-Note: Unlike Array#differenceWith, this method mutates array.
+Note: Unlike [Array#differenceWith](#differencewith), this method mutates array.
 
 
 
 Arguments
 
     values (Array): The values to remove.
-    [comparator] (Function): The comparator invoked per element.
+    comparator: The comparator invoked per element.
 
 Returns
 
@@ -2062,13 +2066,13 @@ Example
 
  ## pullAt
 
-    Array#pullAt([indexes])
+    (this) Array#pullAt(Array indexes)
 
 
 
 Removes elements from array corresponding to indexes and returns an array of removed elements.
 
-Note: Unlike Array#at, this method mutates array.
+Note: Unlike [Array#at](#at), this method mutates array.
 
 
 
@@ -2095,19 +2099,19 @@ Example
 
  ## remove
 
-    Array#remove([predicate=_.identity])
+    (this) Array#remove(Function predicate=_.identity)
 
 
 
 Removes all elements from array that predicate returns truthy for and returns an array of the removed elements. The predicate is invoked with three arguments: (value, index, array).
 
-Note: Unlike Array#filter, this method mutates array. Use Array#pull to pull elements from an array by value.
+Note: Unlike [Array#filter](#filter), this method mutates array. Use Array#pull to pull elements from an array by value.
 
 
 
 Arguments
 
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -2130,7 +2134,7 @@ Example
 
 ## replace
 
-    Array#replace(value,newValue)
+    (this) Array#replace(any value,any newValue)
 
     Replace the element of the array whose match with value and replace by newValue
 
@@ -2161,7 +2165,7 @@ Example
 
  ## reverse
 
-    Array#reverse(array)
+    Array Array#reverse(Array array)
 
 
 
@@ -2192,9 +2196,9 @@ Example
 
 ## shift <img src="js.png">
 
-    Array#shift()
+    Array Array#shift()
 
-    shift() removes the first element from an array and returns that element.
+Remove the first element from an array and returns that element.
 
 Example
 
@@ -2204,7 +2208,7 @@ Example
 
 ## slice <img src="js.png">
 
-    Array#slice([start=0], [end=array.length])
+    Array Array#slice(number start, number end=array.length)
 
 
 
@@ -2216,8 +2220,8 @@ Note: This method is used instead of Array#slice to ensure dense arrays are retu
 
 Arguments
 
-    [start=0] (number): The start position.
-    [end=array.length] (number): The end position.
+    start: The start position.
+    end: The end position.
 
 Returns
 
@@ -2226,10 +2230,13 @@ Returns
 Example
     
     var myArray = new Array('a', 'b', 'c', 'd', 'e');
-    myArray = myArray.slice(1, 4); // starts at index 1 and extracts all elements until index 3, returning [ "b", "c", "d"]
+    myArray = myArray.slice(1, 4); 
+    // starts at index 1 
+    // and extracts all elements until index 3, 
+    // returning [ "b", "c", "d"]
 
 ## sortedIndex
-    Array#sortedIndex(value)
+    number Array#sortedIndex(any value)
 
 
 
@@ -2253,18 +2260,18 @@ Example
 
  ## sortedIndexBy
 
-    Array#sortedIndexBy(value, [iteratee=_.identity])
+    number Array#sortedIndexBy(any value, Function iteratee=_.identity)
 
 
 
-This method is like Array#sortedIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
+This method is like [Array#sortedIndex](#sortindex) except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
 
 
 
 Arguments
 
     value (*): The value to evaluate.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2284,11 +2291,11 @@ Example
 
 
 ## sortedIndexOf
-    Array#sortedIndexOf(value)
+    number Array#sortedIndexOf(any value)
 
 
 
-This method is like Array#indexOf except that it performs a binary search on a sorted array.
+This method is like [Array#indexOf](#indexof) except that it performs a binary search on a sorted array.
 
 
 
@@ -2309,11 +2316,11 @@ Example
 
  ## sortedLastIndex
 
-    Array#sortedLastIndex(value)
+    number Array#sortedLastIndex(any value)
 
 
 
-This method is like Array#sortedIndex except that it returns the highest index at which value should be inserted into array in order to maintain its sort order.
+This method is like [Array#sortedIndex](#sortindex) except that it returns the highest index at which value should be inserted into array in order to maintain its sort order.
 
 
 
@@ -2333,18 +2340,18 @@ Example
 
  ## sortedLastIndexBy
 
-    Array#sortedLastIndexBy(value, [iteratee=_.identity])
+    number Array#sortedLastIndexBy(any value, Function iteratee=_.identity)
 
 
 
-This method is like Array#sortedLastIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
+This method is like [Array#sortedLastIndex](#sortedlastIndex) except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
 
 
 
 Arguments
 
     value (*): The value to evaluate.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2363,11 +2370,11 @@ Example
     // => 1
 
 ## sortedLastIndexOf
-    Array#sortedLastIndexOf(value)
+    number Array#sortedLastIndexOf(any value)
 
 
 
-This method is like Array#lastIndexOf except that it performs a binary search on a sorted array.
+This method is like [Array#lastIndexOf](#lastindexof) except that it performs a binary search on a sorted array.
 
 
 
@@ -2388,18 +2395,18 @@ Example
 
  ## sortedUniq
 
-    Array#sortedUniq(array)
+    number Array#sortedUniq()
 
 
 
-This method is like Array#uniq except that it's designed and optimized for sorted arrays.
+This method is like [Array#uniq](#uniq) except that it's designed and optimized for sorted arrays.
 
 
 
 Arguments
 
+    None
     
-
 Returns
 
     (Array): Returns the new duplicate free array.
@@ -2412,18 +2419,18 @@ Example
 
 # sortedUniqBy
 
-    Array#sortedUniqBy([iteratee])
+    Array#sortedUniqBy(Function iteratee)
 
 
 
-This method is like Array#uniqBy except that it's designed and optimized for sorted arrays.
+This method is like [Array#uniqBy](#uniqby) except that it's designed and optimized for sorted arrays.
 
 
 
 Arguments
 
     
-    [iteratee] (Function): The iteratee invoked per element.
+    iteratee: The iteratee invoked per element.
 
 Returns
 
@@ -2437,7 +2444,7 @@ Example
 
 ## splice <img src="js.png">
 
-    Array#splice(index, count_to_remove, addElement1, addElement2, ...) 
+    (*) Array#splice(number index, number count_to_remove, (...any) newElements) 
 
 removes elements from an array and (optionally) replaces them. It returns the items which were removed from the array.
 
@@ -2451,8 +2458,7 @@ Example
 
  ## tail
 
-    Array#tail()
-
+    Array Array#tail()
 
 
 Gets all but the first element of array.
@@ -2476,7 +2482,7 @@ Example
 
 ## take
 
-    Array#take([n=1])
+    Array Array#take(number n=1)
 
 
 
@@ -2487,7 +2493,7 @@ Creates a slice of array with n elements taken from the beginning.
 Arguments
 
     
-    [n=1] (number): The number of elements to take.
+    n: The number of elements to take.
 
 Returns
 
@@ -2510,7 +2516,7 @@ Example
 
  ## takeRight
 
-    Array#takeRight([n=1])
+    Array Array#takeRight(number n=1)
 
 
 
@@ -2521,7 +2527,7 @@ Creates a slice of array with n elements taken from the end.
 Arguments
 
     
-    [n=1] (number): The number of elements to take.
+    n: The number of elements to take.
 
 Returns
 
@@ -2544,7 +2550,7 @@ Example
 
  ## takeRightWhile
 
-    Array#takeRightWhile([predicate=_.identity])
+    Array Array#takeRightWhile(Function predicate=_.identity)
 
 
 
@@ -2555,11 +2561,11 @@ Creates a slice of array with elements taken from the end. Elements are taken un
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
-(Array): Returns the slice of array.
+    (Array): Returns the slice of array.
 
 Example
 	
@@ -2586,7 +2592,7 @@ Example
     // => []
 
 ## takeWhile
-    Array#takeWhile([predicate=_.identity])
+    Array Array#takeWhile(Function predicate=_.identity)
 
 
 
@@ -2597,7 +2603,7 @@ Creates a slice of array with elements taken from the beginning. Elements are ta
 Arguments
 
     
-    [predicate=_.identity] (Function): The function invoked per iteration.
+    predicate: The function invoked per iteration.
 
 Returns
 
@@ -2629,7 +2635,7 @@ Example
 
  ## union
 
-    Array#union([arrays])
+    Array Array#union( (...Array) arrays)
 
 
 
@@ -2652,11 +2658,11 @@ Example
     // => [2, 1]
 
 # unionBy
-    Array#unionBy([arrays], [iteratee=_.identity])
+    Array Array#unionBy( (...Array)arrays, Function iteratee=_.identity)
 
 
 
-This method is like Array#union except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed. Result values are chosen from the first array in which the value occurs. The iteratee is invoked with one argument:
+This method is like [Array#union](#union) except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed. Result values are chosen from the first array in which the value occurs. The iteratee is invoked with one argument:
 (value).
 
 
@@ -2664,7 +2670,7 @@ This method is like Array#union except that it accepts iteratee which is invoked
 Arguments
 
     [arrays] (...Array): The arrays to inspect.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2683,18 +2689,18 @@ Example
 
  ## unionWith
 
-    Array#unionWith([arrays], [comparator])
+    Array Array#unionWith((...Array)arrays, Function comparator)
 
 
 
-This method is like Array#union except that it accepts comparator which is invoked to compare elements of arrays. Result values are chosen from the first array in which the value occurs. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#union](#union) except that it accepts comparator which is invoked to compare elements of arrays. Result values are chosen from the first array in which the value occurs. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
 Arguments
 
     [arrays] (...Array): The arrays to inspect.
-    [comparator] (Function): The comparator invoked per element.
+    comparator: The comparator invoked per element.
 
 Returns
 
@@ -2711,7 +2717,7 @@ Example
 
  ## uniq
 
-    Array#uniq()
+    Array Array#uniq()
 
 
 Creates a duplicate-free version of an using SameValueZero for equality comparisons, in which only the first occurrence of each element is kept. The order of result values is determined by the order they occur in the array.
@@ -2734,11 +2740,11 @@ Example
 
  ## uniqBy
 
-    Array#uniqBy([iteratee=_.identity])
+    Array Array#uniqBy(Function iteratee=_.identity)
 
 
 
-This method is like Array#uniq except that it accepts iteratee which is invoked for each element in array to generate the criterion by which uniqueness is computed. The order of result values is determined by the order they occur in the array. The iteratee is invoked with one argument:
+This method is like [Array#uniq](#uniq) except that it accepts iteratee which is invoked for each element in array to generate the criterion by which uniqueness is computed. The order of result values is determined by the order they occur in the array. The iteratee is invoked with one argument:
 (value).
 
 
@@ -2746,7 +2752,7 @@ This method is like Array#uniq except that it accepts iteratee which is invoked 
 Arguments
 
     
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2763,18 +2769,18 @@ Example
     // => [{ 'x': 1 }, { 'x': 2 }]
 
 ## uniqWith
-    Array#uniqWith([comparator])
+    Array Array#uniqWith(Function comparator)
 
 
 
-This method is like Array#uniq except that it accepts comparator which is invoked to compare elements of array. The order of result values is determined by the order they occur in the array.The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#uniq](#uniq) except that it accepts comparator which is invoked to compare elements of array. The order of result values is determined by the order they occur in the array.The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
 Arguments
 
     
-    [comparator] (Function): The comparator invoked per element.
+    comparator: The comparator invoked per element.
 
 Returns
 
@@ -2790,9 +2796,9 @@ Example
 
 ## unshift <img src="js.png">
 
-    Array#unshift(value1,value2,...)
+    (*) Array#unshift( (...any) value1)
 
-unshift() adds one or more elements to the front of an array and returns the new length of the array.
+Add one or more elements to the front of an array and returns the new length of the array.
 
 Example
 
@@ -2806,7 +2812,7 @@ Example
 
 
 
-This method is like Array.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
+This method is like [Array.zip](#zip) except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
 
 
 
@@ -2828,18 +2834,18 @@ Example
 
 ## unzipWith
 
-    Array#unzipWith([iteratee=_.identity])
+    Array Array#unzipWith(Function iteratee=_.identity)
 
 
 
-This method is like Array#unzip except that it accepts iteratee to specify how regrouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
+This method is like [Array#unzip](#unzip) except that it accepts iteratee to specify how regrouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
 
 
 
 Arguments
 
     array (Array): The array of grouped elements to process.
-    [iteratee=_.identity] (Function): The function to combine regrouped values.
+    iteratee : The function to combine regrouped values.
 
 Returns
 
@@ -2856,13 +2862,13 @@ Example
 
  ## without
 
-    Array#without([values])
+    Array Array#without(Array values)
 
 
 
 Creates an array excluding all given values using SameValueZero for equality comparisons.
 
-Note: Unlike Array#pull, this method returns a new array.
+Note: Unlike [Array#pull](#pull), this method returns a new array.
 
 
 
@@ -2883,7 +2889,7 @@ Example
 
  ## xor
 
-    Array#xor([arrays])
+    Array Array#xor(Array arrays)
 
 
 
@@ -2906,18 +2912,18 @@ Example
     // => [1, 3]
 
 ## xorBy
-    Array#xorBy([arrays], [iteratee=_.identity])
+    Array Array#xorBy(Array arrays, Function iteratee=_.identity)
 
 
 
-This method is like Array#xor except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which by which they're compared. The order of result values is determined by the order they occur in the arrays. The iteratee is invoked with one argument: (value).
+This method is like [Array#xor](#xor) except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which by which they're compared. The order of result values is determined by the order they occur in the arrays. The iteratee is invoked with one argument: (value).
 
 
 
 Arguments
 
     [arrays] (...Array): The arrays to inspect.
-    [iteratee=_.identity] (Function): The iteratee invoked per element.
+    iteratee : The iteratee invoked per element.
 
 Returns
 
@@ -2935,18 +2941,18 @@ Example
 
  ## xorWith
 
-    Array#xorWith([arrays], [comparator])
+    Array Array#xorWith( (...Array) arrays, Function comparator)
 
 
 
-This method is like Array#xor except that it accepts comparator which is invoked to compare elements of arrays. The order of result values is determined by the order they occur in the arrays. The comparator is invoked with two arguments: (arrVal, othVal).
+This method is like [Array#xor](#xor) except that it accepts comparator which is invoked to compare elements of arrays. The order of result values is determined by the order they occur in the arrays. The comparator is invoked with two arguments: (arrVal, othVal).
 
 
 
 Arguments
 
     [arrays] (...Array): The arrays to inspect.
-    [comparator] (Function): The comparator invoked per element.
+    comparator: The comparator invoked per element.
 
 Returns
 
@@ -2963,7 +2969,7 @@ Example
 
  ## zip
 
-    Array.zip([arrays])
+    Array Array.zip( (...Array) arrays)
 
 
 
@@ -2986,11 +2992,11 @@ Example
     // => [['a', 1, true], ['b', 2, false]]
 
 ## zipObject
-    Array#zipObject([props=[]], [values=[]])
+    Object Array#zipObject([props=[]], [values=[]])
 
 
 
-This method is like Array#fromPairs except that it accepts two arrays, one of property identifiers and one of corresponding values.
+This method is like [Array#fromPairs](#frompair) except that it accepts two arrays, one of property identifiers and one of corresponding values.
 
 
 
@@ -3011,11 +3017,11 @@ Example
 
 ## zipObjectDeep
 
-    Array#zipObjectDeep([props=[]], [values=[]])
+    Object Array#zipObjectDeep([props=[]], [values=[]])
 
 
 
-This method is like Array#zipObject except that it supports property paths.
+This method is like [Array#zipObject](#zipobject) except that it supports property paths.
 
 
 
@@ -3036,18 +3042,18 @@ Example
 
  ## zipWith
 
-    Array.zipWith([arrays], [iteratee=_.identity])
+    Array Array.zipWith( (...Array)arrays, Function iteratee=_.identity)
 
 
 
-This method is like Array#zip except that it accepts iteratee to specify how grouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
+This method is like [Array#zip](#zip) except that it accepts iteratee to specify how grouped values should be combined. The iteratee is invoked with the elements of each group: (...group).
 
 
 
 Arguments
 
     [arrays] (...Array): The arrays to process.
-    [iteratee=_.identity] (Function): The function to combine grouped values.
+    iteratee : The function to combine grouped values.
 
 Returns
 
