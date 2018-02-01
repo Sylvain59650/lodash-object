@@ -1137,6 +1137,8 @@ Example
     // => [['1', '2', '3'], ['4', '5', '6']]
 
 
+<a name="indexof"></a>
+
 ## indexOf <img src="js.png">
 
     number Array#indexOf(any value, number fromIndex=0)
@@ -2235,6 +2237,7 @@ Example
     // and extracts all elements until index 3, 
     // returning [ "b", "c", "d"]
 
+<a name="sortedindex"></a>
 ## sortedIndex
     number Array#sortedIndex(any value)
 
@@ -2264,7 +2267,7 @@ Example
 
 
 
-This method is like [Array#sortedIndex](#sortindex) except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
+This method is like [Array#sortedIndex](#sortedindex) except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking. The iteratee is invoked with one argument: (value).
 
 
 

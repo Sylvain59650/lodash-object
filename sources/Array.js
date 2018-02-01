@@ -77,17 +77,14 @@
   Array.prototype.pullAllBy = function(values, iteratee) { return _.pullAllBy(this, values, iteratee); }
   Array.prototype.pullAllWith = function(values, comparator) { return _.pullAllWith(this, values, comparator); }
   Array.prototype.pullAt = function(indexes) {
-
     _.pullAt(this, indexes);
     return this;
   }
   Array.prototype.pullAtFrom = function(indexes) { return _.pullAt(this, indexes); }
   Array.prototype.remove = function(predicate) {
-
     _.remove(this, predicate);
     return this;
   }
-  Array.prototype.removeFrom = function(predicate) { return _.remove(this, predicate); }
   Array.prototype.reverse = function() { return _.reverse(this); }
 
   //C
@@ -342,7 +339,7 @@
     return array;
   }
 
-  Array.prototype.remove = function(value) {
+  Array.prototype.remove2 = function(value) {
     if (_.isObject(value)) { return _removeObject(this, value); }
     return _removeValue(this, value);
   }
