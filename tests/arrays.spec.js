@@ -357,6 +357,7 @@ var users2 = {
 console.log(_.find(users2, function(o) { return o.age < 40; }));
 
 
+
 var tt = [1, 2, 3, 4, 5, 6];
 var t2 = tt.drop(2);
 console.log("drop", tt, t2);
