@@ -252,6 +252,14 @@
     return true;
   }
 
+  Array.prototype.clone = function() {
+    return this.slice(0, this.length);
+  }
+
+  Array.prototype.cloneDeep = function() {
+    return _.cloneDeep(this);
+  }
+
   Array.prototype.includesAll = function(array) {
     if (array == null) return false;
     for (var i = 0, l = array.length; i < l; i++) {
@@ -365,6 +373,130 @@
   Array.prototype.replace = function(value, replace) {
     if (_.isObject(value)) { return _replaceObject(this, value, replace); }
     return _replaceValue(this, value, replace);
+  }
+
+
+  Array.prototype.where = function(clause) {
+    var arr = [];
+    var len = this.length;
+    for (var i = 0; i < len; i++) {
+      if (clause.apply(this[i], [this[i], i])) {
+        arr.push(this[i]);
+      }
+    }
+    return arr;
+  }
+
+  Array.prototype.firstOrDefault = function(clause) {
+    if (arguments.length === 0) {
+      return (this.length > 0) ? this[0] : null;
+    }
+    var len = this.length;
+    for (var i = 0; i < len; i++) {
+      if (clause.apply(this[i], [this[i], i])) {
+        return this[i];
+      }
+    }
+    return null;
+  }
+
+  Array.prototype.lastOrDefault = function(clause) {
+    if (arguments.length === 0) {
+      return (this.length > 0) ? this[this.length - 1] : null;
+    }
+    var len = this.length;
+    for (var i = len - 1; i >= 0; i--) {
+      if (clause.apply(this[i], [this[i], i])) {
+        return this[i];
+      }
+    }
+    return null;
+  }
+
+  function buildFunction(clause) {
+    if (clause.indexOf("=>") > 0) {
+      var expr = clause.match(/^[(\s]*([^()]*?)[)\s]*=>(.*)/);
+      return new Function(expr[1], "return (" + expr[2] + ")");
+    } else {
+      return new Function("x", "return (x." + clause + ")");
+    }
+  }
+
+  Array.prototype.distinct = function(clause) {
+    var dico = {};
+    var arr = [];
+    for (var i = 0; i < this.length; i++) {
+      var item = clause.apply(this[i], [this[i]]);
+      if (dico[item] === undefined) {
+        dico[item] = true;
+        arr.push(item);
+      }
+    }
+    return arr;
+  }
+
+
+  Array.prototype.orderBy = function(lambda) {
+    var fn = buildFunction(lambda);
+    this.sort(function(a, b) {
+      var x = fn.apply(a, [a]);
+      var y = fn.apply(b, [b]);
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+    return this;
+  }
+
+  Array.prototype.orderByDescending = function(lambda) {
+    var fn = buildFunction(lambda);
+    this.sort(function(a, b) {
+      var y = fn.apply(a, [a]);
+      var x = fn.apply(b, [b]);
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+    return this;
+  }
+
+
+  Array.prototype.count = function(clause) {
+    var nb = 0;
+    var len = this.length;
+    for (var i = 0; i < len; i++) {
+      if (clause.apply(this[i], [this[i], i])) {
+        nb++;
+      }
+    }
+    return nb;
+  }
+
+  Array.prototype.all = function(clause) {
+    return (this.count(clause) === this.length);
+  }
+
+  Array.prototype.any = function(clause) {
+    return (this.count(clause) > 0);
+  }
+
+  Array.prototype.skip = function(num) {
+    return this.slice(num || 1, this.length);
+  }
+
+  Array.prototype.skipWhile = function(clause) {
+    return this.slice(this.whileIndex(clause), this.length);
+  }
+
+  Array.prototype.whileIndex = function(clause) {
+    var nb = 0;
+    var len = this.length;
+    for (var i = 0; i < len; i++) {
+      if (clause.apply(this[i], [this[i], i])) {
+        nb++;
+      }
+    }
+    return nb;
+  }
+
+  Array.prototype.takeWhile = function(clause) {
+    return this.slice(0, this.whileIndex(clause));
   }
 
   return Array;

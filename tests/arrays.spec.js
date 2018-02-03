@@ -370,3 +370,96 @@ var myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
 myArray.pull('a', 'c');
 
 console.log("pull", myArray);
+
+items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "Alfred", value: 45 },
+  { name: "Thomas", value: -12 },
+  { name: "Paul", value: 13 },
+  { name: "Tibo", value: 37 },
+  { name: "Manuel", value: 38 }
+];
+
+var u2 = items.where(function() { return this.name == "Edward" });
+console.log(u2);
+
+var u3 = items.where((x) => x.name == "Edward" || x.name == "Manuel");
+
+console.log(u3);
+
+console.log(items.count((x) => x.name == "Edward" || x.name == "Manuel"));
+
+console.log(items.firstOrDefault((x) => x.value > 37));
+
+console.log("firstOrDefault", items.firstOrDefault());
+
+console.log(items.lastOrDefault((x) => x.value > 37));
+console.log("lastOrDefault", items.lastOrDefault());
+items.orderBy("x=>x.name");
+console.log(items);
+
+items.orderBy("x=>x.value");
+console.log(items);
+
+items.orderByDescending("x=>x.value");
+console.log(items);
+
+items = items.addRange(items.clone());
+console.log("it", items.distinct(function(x) { return x.name }));
+
+items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "Alfred", value: 45 },
+  { name: "Thomas", value: -12 },
+  { name: "Paul", value: 13 },
+  { name: "Tibo", value: 37 },
+  { name: "Manuel", value: 38 }
+];
+
+console.log(items.any((x) => x.name === "Paul"));
+console.log(items.all((x) => x.name !== ""));
+
+
+console.log("skip", items.skip(3));
+
+console.log("skip", items.skip(33));
+
+var users = [
+  { 'user': 'fred', 'age': 48 },
+  { 'user': 'barney', 'age': 34 },
+  { 'user': 'fred', 'age': 40 },
+  { 'user': 'magalie', 'age': 40 },
+  { 'user': 'sylvain', 'age': 43 },
+  { 'user': 'arno', 'age': 48 },
+  { 'user': 'clothilde', 'age': 30 },
+  { 'user': 'caroline', 'age': 25 },
+  { 'user': 'mike', 'age': 12 },
+  { 'user': 'alfred', 'age': 18 },
+  { 'user': 'pauline', 'age': 43 },
+  { 'user': 'ludo', 'age': 49 },
+  { 'user': 'matt', 'age': 30 },
+  { 'user': 'barney', 'age': 36 }
+];
+
+// Sort by `user` in ascending order and by `age` in descending order.
+console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
+
+
+users = users.shuffle();
+
+console.log(users.orderByDescending("x=>x.age").orderBy("x=>x.user"));
+
+users = users.shuffle();
+console.log(users.orderByDescending("age").orderBy("user"));
+
+
+var users = [
+  { 'user': 'fred', 'age': 48 },
+  { 'user': 'barney', 'age': 36 },
+  { 'user': 'fred', 'age': 40 },
+  { 'user': 'barney', 'age': 34 }
+];
+
+console.log(users.sortBy(users.sortBy(['user', 'age'])));
