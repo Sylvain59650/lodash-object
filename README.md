@@ -11,12 +11,15 @@ Wrapper for lodash for work with objects
 
 lodash-object takes lodash functions on tables, strings and mathematical calculations but allows to work in object..
 
+If you work with objects and manipulate tables, take a look at [linq-to-objects](https://www.npmjs.com/package/linq-to-object).
+
 Instead of writing
 <code>
 
   var myArray = [1, 2, 3, 4];
 
   _.remove(myArray,function(n) { return n % 2 == 0; });
+  var three = _.filter(myArray,function(x) {return x==3});
 </code>
 
 you will write
@@ -26,6 +29,7 @@ you will write
   var myArray = [1, 2, 3, 4];
 
   myArray.remove(function(n) { return n % 2 == 0; });
+  var three = myArray.filter(function(x) {return x==3});
 </code>
 
 
@@ -36,9 +40,14 @@ you will write
 
 OR
 
-  bower install lodash-object --save
+  yarn add lodash-object --save
 </code>
 
+# References in Node.js
+<code>
+
+  require("lodash-object");
+</code>
 # References in browser 
 <code>
 
@@ -50,6 +59,7 @@ to extend the functionality of tables
 
   &lt;script src="./node_modules/lodash-object/dist/Array.js"&gt;&lt;/script&gt;
 </code>
+
 
 to extend the functionality of strings
 <code>
@@ -64,15 +74,13 @@ to extend the mathematical features
 </code>
 
 
-These APIs have the same function names as those of Lodash. See [Lodash documentation](https://lodash.com/docs/4.17.4) for Lodash features.
+These APIs have the same function names as those of Lodash. See [Lodash documentation](https://lodash.com/docs/4.17.5) for Lodash features.
 
 # Table Of Contents
 
 **Note** See the complete documentation on [github]((https://github.com/Sylvain59650/lodash-object/blob/master/README.md))
 
 # Array Extension
- - [add](docs/Array.md#add)
- - [addRange](docs/Array.md#addrange)
  - [chunk](docs/Array.md#chunk)
  - [clear](docs/Array.md#clear)
  - [compact](docs/Array.md#compact)
@@ -94,22 +102,17 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [flattenDeep](docs/Array.md#flattendeep)
  - [flattenDepth](docs/Array.md#flattendepth)
  - [fromPairs](docs/Array.md#flattendepth)
- - [getRange](docs/Array.md#getrange)
  - [head](docs/Array.md#head)
  - [includes](docs/Array/md#includes)
  - [includesAll](docs/Array/md#includesall)
  - [indexOf](docs/Array.md#indexof)
  - [initial](docs/Array.md#initial)
- - [innerJoin](docs/Array.md#innerjoin)
- - [insertAt](docs/Array.md#insertat)
- - [insertRangeAt](docs/Array.md#insertrangeat)
  - [intersection](docs/Array.md#intersection)
  - [intersectionBy](docs/Array.md#intersectionby)
  - [intersectionWith](docs/Array.md#intersectionwith)
  - [join](docs/Array.md#join)
  - [last](docs/Array.md#last)
  - [lastIndexOf](docs/Array.md#lastindexof)
- - [leftJoin](docs/Array.md#leftjoin)
  - [nth](docs/Array.md#nth)
  - [pull](docs/Array.md#pull)
  - [pullAll](docs/Array.md#pullall)
@@ -189,7 +192,6 @@ These APIs have the same function names as those of Lodash. See [Lodash document
  - [escapeRegExp](docs/String.md#escaperegexp)
  - [includes](docs/String.md#includes)
  - [indexOfAny](docs/String.md#indexofany)
- - [insertAt](docs/String.md#insertat)
  - [isNullOrEmpty](docs/String.md#isnullorempty)
  - [isNullOrWhiteSpace](docs/String.md#isnullorwhiteSpace)
  - [latinize](docs/String.md#latinize)

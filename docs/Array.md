@@ -1,37 +1,6 @@
 [<img src="back.png">Table Of Contents](../README.md)
 # Array Methods
 
-## add
-
-    (this) Array#add( (*) value)
-
-Arguments
-
-    (*) value : a value
-
-Returns
-
-    the current array with the value
-
-Example
-
-    var a=[].add(5).add(6); // [5,6]
-
-## addRange
-
-    (this) Array#addRange( Array values)
-
-Arguments
-
-   values: a array of value
-
-Returns
-
-    the current array with elements of values
-Example
-
-        var a=[].addRange([5,6].addRange[7,8,9]); // [5,6,7,8,9]
-
 
 ## chunk
 
@@ -867,27 +836,6 @@ Example
     });
     // => Logs `2` then `1`.
 
-## getRange
-
-    Array Array#getRange(number start, number end)
-
-returns a new array whose elements are those of the original array between the start and end positions
-
-Arguments
-    
-    start: start position in the array
-    end: end position in the array
-
-Returns
-
-    a new array whose elements are those of the original array between the start and end positions
-
-Example
-
-    var a=[0,1,2,3,4,5,6,7,8,9];
-    var b=a.getRange(5,8);
-    console.log(a);  //[0,1,2,3,4,5,6,7,8,9]
-    console.log(b);  //[5,6,7,8]
 
  ## groupBy
 
@@ -950,55 +898,6 @@ Example
 
     [1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "a", "b", "c"]); // true
     [1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "d", "a", "b", "c"]); // false
-## insertAt
-
-    (this) Array#insertAt(number position, any value)
-
-Insert a value at the position of the current array.
-If position is greater than array length, then insert at last position.
-
-Argument
-
-    position: position where insert the value in the array
-    value: the value to insert
-
-Returns
-
-    the current array with new values
-
-Example
-
-    var a=[7,8,9,10];
-    a.insertAt(0,11);
-    console.log(a); // [11,7,8,9,10]
-
-    a.insertAt(50,12).insertAt(4,13);
-    console.log(a); //[11,7,8,9,13,10,12]    
-
-
-## insertRangeAt
-
-    (this) Array#insertRangeAt(number position, Array values)
-
-Insert elements of values at the position of the current array.
-If position is greater than array length, then insert at last position.
-
-Argument
-
-    position: position where insert the value in the array
-    values: element of array to insert
-
-Returns
-
-    the current array with new values
-
-Example
-
-    var a=[7,8,9,10];
-    
-    a.insertRangeAt(2,[12,13,14,15,16]);
-    console.log(a); //[7,8,12,13,14,15,16]    
-
 
  ## invokeMap
 
@@ -1074,48 +973,6 @@ Example
     [1, 2, 3].initial();
     // => [1, 2]
 
-## innerJoin
-
-    (this) Array#innerJoin(Array array,string condition,[string] fields)
-
- Arguments
-        
-        array : the array to inner join
-        condition: a left field = a right field
-        fieds : array of field in right array to extends left array
-
-
-Returns
-
-        (Array): return a new array with fields of right array and left array whose matches with condition
-
-Examples
-
-    var items = [
-        { name: "Edward", value: 21 },
-        { name: "Sharpe", value: 37 },
-        { name: "Alfred", value: 45 },
-        { name: "Thomas", value: -12 },
-        { name: "Paul", value: 13 },
-        { name: "Tibo", value: 37 },
-        { name: "Manuel", value: 38 }
-    ];
-
-    var jobTitle = [
-        { name: "Sharpe", job: "technician", exp: "senior" },
-        { name: "Edward", job: "ingenieer", exp: "junior" },
-        { name: "Manuel", job: "florist", exp: "junior" },
-        { name: "Paul", job: "electrician", exp: "senior" },
-        { name: "Laurent", job: "builder", exp: "junior" },
-    ];
-
-    arr = items.innerJoin(jobTitle, "name=name", ["job", "exp"]);
-
-    /* 
-    [   { name: 'Edward', value: 21, job: 'ingenieer', exp: 'junior' },
-        { name: 'Sharpe', value: 37, job: 'technician', exp: 'senior' },
-        { name: 'Paul', value: 13, job: 'electrician', exp: 'senior' },
-        { name: 'Manuel', value: 38, job: 'florist', exp: 'junior' } ] */
 
 ## intersection
 
@@ -1705,48 +1562,6 @@ Example
     // Search from the `fromIndex`.
     [1, 2, 1, 2].lastIndexOf(2, 2);
     // => 1
-
-## leftJoin
-
-    Array Array#leftJoin(Array array,string condition,[string] fields)
-
- Arguments
-        array : the array to left join
-
-Returns
-
-        (Array): return the current array with fields of right array whose matches with condition
-
-Examples
-
-    var items = [
-        { name: "Edward", value: 21 },
-        { name: "Sharpe", value: 37 },
-        { name: "Alfred", value: 45 },
-        { name: "Thomas", value: -12 },
-        { name: "Paul", value: 13 },
-        { name: "Tibo", value: 37 },
-        { name: "Manuel", value: 38 }
-    ];
-
-    var jobTitle = [
-        { name: "Sharpe", job: "technician", exp: "senior" },
-        { name: "Edward", job: "ingenieer", exp: "junior" },
-        { name: "Manuel", job: "florist", exp: "junior" },
-        { name: "Paul", job: "electrician", exp: "senior" },
-        { name: "Laurent", job: "builder", exp: "junior" },
-    ];
-
-    var arr = items.leftJoin(jobTitle, "name=name", ["job"]);
-
-    /*[ { name: 'Edward', value: 21, job: 'ingenieer' },
-        { name: 'Sharpe', value: 37, job: 'technician' },
-        { name: 'Alfred', value: 45 },
-        { name: 'Thomas', value: -12 },
-        { name: 'Paul', value: 13, job: 'electrician' },
-        { name: 'Tibo', value: 37 },
-        { name: 'Manuel', value: 38, job: 'florist' } 
-    ]*/
 
 
 ## pull
@@ -2725,6 +2540,3 @@ Example
     return a + b + c;
     });
     // => [111, 222]
-
-
-

@@ -1,12 +1,12 @@
 {
   "name": "lodash-object",
-  "version": "4.17.6",
+  "version": "4.17.7",
   "description": "Wrapper for lodash for work with objects",
-  "main": "tests/index.spec.js",
+  "main": "distrib/lodash-object.js",
   "author": "sylvain59",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

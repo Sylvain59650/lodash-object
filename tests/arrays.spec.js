@@ -192,24 +192,6 @@ console.log("filter age>=36", users.toJson());
 users = users.filter((item) => { return item.age < 48; });
 console.log("filter age<48", users.toJson());
 
-var a = [1, 2, 3];
-a.add(4, 5, 6).add(7, 8, 9);
-console.log(a);
-
-
-var b = [1, 2, 3];
-var c = [4, 5, 6, 7, 8, 9];
-b.addRange(c);
-console.log(b);
-
-
-a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-a.insertAt(3, 10);
-console.log(a);
-
-a.insertAt(999, 11);
-console.log(a);
-
 
 a = [10, 5, 2, 3, 8, 4, 5, 6, 7, 8, 18, 9];
 
@@ -224,16 +206,7 @@ a = [10, 5, 2, 3, 8, 4, 5, 6, 7, 8, 18, 9];
 a.sort((a, b) => { return a - b; });
 console.log(a);
 
-var range = a.getRange(5, 10);
-console.log(a, range);
 
-a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-range = a.getRange(5, 8);
-console.log(a);
-console.log(range);
-
-range = a.getRange(5);
-console.log(range);
 
 
 
@@ -261,61 +234,6 @@ console.log("castArray", Array.castArray([1, 2]));
 console.log("castArray", Array.castArray(2));
 console.log("castArray", Array.castArray(undefined));
 console.log("castArray", Array.castArray(null));
-
-items = [
-  { name: "Edward", value: 21 },
-  { name: "Sharpe", value: 37 },
-  { name: "Alfred", value: 45 },
-  { name: "Thomas", value: -12 },
-  { name: "Paul", value: 13 },
-  { name: "Tibo", value: 37 },
-  { name: "Manuel", value: 38 }
-];
-items2 = items.shuffle();
-console.log(items.equals(items)); // true
-console.log(items.equals(items2)); //false
-console.log([1, 2, 3, "a", "b", "c"].equals([1, 2, 3, "a", "b", "c"])); // true
-
-console.log([1, 2, 3, "a", "b", "c"].includesAll([1, 2, 3, "a", "b", "c", "d"]));
-
-
-jobTitle = [
-  { name: "Sharpe", job: "technician", exp: "senior" },
-  { name: "Edward", job: "ingenieer", exp: "junior" },
-  { name: "Manuel", job: "florist", exp: "junior" },
-  { name: "Paul", job: "electrician", exp: "senior" },
-  { name: "Laurent", job: "builder", exp: "junior" },
-];
-
-var arr = items.leftJoin(jobTitle, "name=name", ["job"]);
-console.log("leftJoin", arr);
-
-var arr2 = items.leftJoin(jobTitle, "name=name", ["job", "exp"]);
-console.log("leftJoin", arr2);
-
-var arr3 = items.leftJoin(jobTitle, "name=name", null, "job");
-console.log("leftJoin", arr3);
-
-items = [
-  { name: "Edward", value: 21 },
-  { name: "Sharpe", value: 37 },
-  { name: "Alfred", value: 45 },
-  { name: "Thomas", value: -12 },
-  { name: "Paul", value: 13 },
-  { name: "Tibo", value: 37 },
-  { name: "Manuel", value: 38 }
-];
-
-jobTitle = [
-  { name: "Sharpe", job: "technician", exp: "senior" },
-  { name: "Edward", job: "ingenieer", exp: "junior" },
-  { name: "Manuel", job: "florist", exp: "junior" },
-  { name: "Paul", job: "electrician", exp: "senior" },
-  { name: "Laurent", job: "builder", exp: "junior" },
-];
-
-arr = items.innerJoin(jobTitle, "name=name", ["job", "exp"]);
-console.log("innerJoin", arr);
 
 
 arr.remove({ name: "Manuel" });
@@ -371,42 +289,12 @@ myArray.pull('a', 'c');
 
 console.log("pull", myArray);
 
-items = [
-  { name: "Edward", value: 21 },
-  { name: "Sharpe", value: 37 },
-  { name: "Alfred", value: 45 },
-  { name: "Thomas", value: -12 },
-  { name: "Paul", value: 13 },
-  { name: "Tibo", value: 37 },
-  { name: "Manuel", value: 38 }
-];
 
-var u2 = items.where(function() { return this.name == "Edward" });
-console.log(u2);
-
-var u3 = items.where((x) => x.name == "Edward" || x.name == "Manuel");
-
-console.log(u3);
-
-console.log(items.count((x) => x.name == "Edward" || x.name == "Manuel"));
-
-console.log(items.firstOrDefault((x) => x.value > 37));
-
-console.log("firstOrDefault", items.firstOrDefault());
-
-console.log(items.lastOrDefault((x) => x.value > 37));
-console.log("lastOrDefault", items.lastOrDefault());
-items.orderBy("x=>x.name");
-console.log(items);
 
 items.orderBy("x=>x.value");
 console.log(items);
 
-items.orderByDescending("x=>x.value");
-console.log(items);
 
-items = items.addRange(items.clone());
-console.log("it", items.distinct(function(x) { return x.name }));
 
 items = [
   { name: "Edward", value: 21 },
@@ -418,13 +306,6 @@ items = [
   { name: "Manuel", value: 38 }
 ];
 
-console.log(items.any((x) => x.name === "Paul"));
-console.log(items.all((x) => x.name !== ""));
-
-
-console.log("skip", items.skip(3));
-
-console.log("skip", items.skip(33));
 
 var users = [
   { 'user': 'fred', 'age': 48 },
@@ -447,19 +328,4 @@ var users = [
 console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
 
 
-users = users.shuffle();
-
-console.log(users.orderByDescending("x=>x.age").orderBy("x=>x.user"));
-
-users = users.shuffle();
-console.log(users.orderByDescending("age").orderBy("user"));
-
-
-var users = [
-  { 'user': 'fred', 'age': 48 },
-  { 'user': 'barney', 'age': 36 },
-  { 'user': 'fred', 'age': 40 },
-  { 'user': 'barney', 'age': 34 }
-];
-
-console.log(users.sortBy(users.sortBy(['user', 'age'])));
+console.log("filter", users.filter(x => x.user.startsWith("b")));

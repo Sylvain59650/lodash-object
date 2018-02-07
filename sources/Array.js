@@ -1,9 +1,9 @@
 /**
  * @license
- * Lodash-Object 4.7.6
+ * Lodash-Object 4.7.7
  * Copyright Sylvain Longepée
  * Released under MIT license <https://github.com/Sylvain59650/lodash-object/blob/master/LICENSE>
- * Based on Lodash 4.7.4 <https://lodash.com/>
+ * Based on Lodash 4.7.5 <https://lodash.com/>
  */
 
 ;
@@ -13,7 +13,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require("lodash"));
   } else {
-    root.Array = factory(_);
+    Array = factory(_);
   }
 }("ArrayModule", this, function(_) {
   'use strict';
@@ -44,6 +44,11 @@
 
   //Array.prototype.findKey = function(predicate, fromIndex = 0) { return _.findIndex(this, predicate, fromIndex); }
 
+  Array.castArray = function(obj) {
+    if (obj == null) return [];
+    if (typeof obj == "object" && obj.length) return obj;
+    return [obj];
+  }
 
   Array.prototype.findLastIndex = function(predicate, fromIndex) { return _.findLastIndex(this, predicate, fromIndex); }
   Array.prototype.first = function() {
@@ -193,56 +198,6 @@
 
   Array.zip = function(...arrays) { return _.zip(...arrays); }
 
-  Array.prototype.add = function(values) {
-    for (var i = 0; i < arguments.length; i++) { this.push(arguments[i]); }
-    return this;
-  }
-
-  Array.prototype.addRange = function(array) {
-    for (var i = 0; i < array.length; i++) { this.push(array[i]); }
-    return this;
-  }
-
-  Array.prototype.clear = function() {
-    this.length = 0;
-  }
-
-  Array.prototype.insertAt = function(position, value) {
-    if (position >= this.length) {
-      this.push(value);
-      return this;
-    }
-    var arr = this.slice(0, position);
-    arr.push(value);
-    arr.addRange(this.slice(position + 1));
-    this.clear();
-    return this.addRange(arr);
-  }
-
-  Array.castArray = function(array) {
-    if (array == null || array == undefined) return [];
-    return _.castArray(array);
-  }
-
-
-
-  Array.prototype.insertRangeAt = function(position, values) {
-    if (position >= this.length) {
-      this.addRange(values);
-      return this;
-    }
-    var arr = this.slice(0, position);
-    var right = this.slice(position + 1);
-    arr.addRange(values);
-    arr.addRange(right);
-    this.clear();
-    return this.addRange(arr);
-  }
-
-  Array.prototype.getRange = function(start, end) {
-    return this.slice(start, (end || this.length) + 1);
-  }
-
   Array.prototype.equals = function(array) {
     if (array == null) return false;
     if (array.length != this.length) return false;
@@ -268,90 +223,6 @@
     return true;
   }
 
-
-  Array.prototype.innerJoin = function(array, conditions, newPropertyName) {
-    if (array) {
-      var ar = array.length;
-      var cc = conditions.split("=");
-      var leftPropertyName = cc[0].trim();
-      var rightPropertyName = "";
-      if (cc.length > 1) { rightPropertyName = cc[1].trim(); } else { rightPropertyName = leftPropertyName }
-      newPropertyName = newPropertyName || rightPropertyName;
-      var props = _.castArray(newPropertyName);
-      for (var i = this.length - 1; i >= 0; i--) {
-        var item = this[i];
-        var found = false;
-        for (var j = 0; j < ar; j++) {
-          var right = array[j];
-          if (item[leftPropertyName] == right[rightPropertyName]) {
-            found = true;
-            for (var kk = 0; kk < props.length; kk++) {
-              var propName = props[kk];
-              item[propName] = right[propName];
-            }
-          }
-        }
-        if (!found) {
-          this.splice(i, 1);
-        }
-      }
-    }
-    return this;
-  }
-
-  Array.prototype.leftJoin = function(array, conditions, fieldsRight, newFieldName) {
-    if (array) {
-      var ar = array.length;
-      var cc = conditions.split("=");
-      var leftPropertyName = cc[0].trim();
-      var rightPropertyName = "";
-      if (cc.length > 1) { rightPropertyName = cc[1].trim(); } else { rightPropertyName = leftPropertyName }
-      var fullObject = (fieldsRight == undefined);
-      //newPropertyName = newPropertyName || rightPropertyName;
-      if (!fullObject) {
-        var props = _.castArray(fieldsRight);
-      }
-
-      for (var i = 0, al = this.length; i < al; i++) {
-        var item = this[i];
-        for (var j = 0; j < ar; j++) {
-          var right = array[j];
-          if (item[leftPropertyName] == right[rightPropertyName]) {
-            if (fullObject) {
-              item[newFieldName] = right;
-            } else {
-              for (var kk = 0; kk < props.length; kk++) {
-                var propName = props[kk];
-                item[propName] = right[propName];
-              }
-            }
-          }
-        }
-      }
-    }
-    return this;
-  }
-
-  function _removeValue(array, value) {
-    var idx = array.indexOf(value, 0);
-    while (idx >= 0) {
-      array.splice(idx, 1);
-      idx = array.indexOf(value, idx + 1);
-    }
-    return array;
-  }
-
-  function _removeObject(array, value) {
-    var idx = array.filter(value);
-    array.pullAll(idx);
-    return array;
-  }
-
-  Array.prototype.remove2 = function(value) {
-    if (_.isObject(value)) { return _removeObject(this, value); }
-    return _removeValue(this, value);
-  }
-
   function _replaceObject(array, value, replace) {
     var idx = array.findIndex(value, 0);
     while (idx != -1) {
@@ -373,130 +244,6 @@
   Array.prototype.replace = function(value, replace) {
     if (_.isObject(value)) { return _replaceObject(this, value, replace); }
     return _replaceValue(this, value, replace);
-  }
-
-
-  Array.prototype.where = function(clause) {
-    var arr = [];
-    var len = this.length;
-    for (var i = 0; i < len; i++) {
-      if (clause.apply(this[i], [this[i], i])) {
-        arr.push(this[i]);
-      }
-    }
-    return arr;
-  }
-
-  Array.prototype.firstOrDefault = function(clause) {
-    if (arguments.length === 0) {
-      return (this.length > 0) ? this[0] : null;
-    }
-    var len = this.length;
-    for (var i = 0; i < len; i++) {
-      if (clause.apply(this[i], [this[i], i])) {
-        return this[i];
-      }
-    }
-    return null;
-  }
-
-  Array.prototype.lastOrDefault = function(clause) {
-    if (arguments.length === 0) {
-      return (this.length > 0) ? this[this.length - 1] : null;
-    }
-    var len = this.length;
-    for (var i = len - 1; i >= 0; i--) {
-      if (clause.apply(this[i], [this[i], i])) {
-        return this[i];
-      }
-    }
-    return null;
-  }
-
-  function buildFunction(clause) {
-    if (clause.indexOf("=>") > 0) {
-      var expr = clause.match(/^[(\s]*([^()]*?)[)\s]*=>(.*)/);
-      return new Function(expr[1], "return (" + expr[2] + ")");
-    } else {
-      return new Function("x", "return (x." + clause + ")");
-    }
-  }
-
-  Array.prototype.distinct = function(clause) {
-    var dico = {};
-    var arr = [];
-    for (var i = 0; i < this.length; i++) {
-      var item = clause.apply(this[i], [this[i]]);
-      if (dico[item] === undefined) {
-        dico[item] = true;
-        arr.push(item);
-      }
-    }
-    return arr;
-  }
-
-
-  Array.prototype.orderBy = function(lambda) {
-    var fn = buildFunction(lambda);
-    this.sort(function(a, b) {
-      var x = fn.apply(a, [a]);
-      var y = fn.apply(b, [b]);
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
-    return this;
-  }
-
-  Array.prototype.orderByDescending = function(lambda) {
-    var fn = buildFunction(lambda);
-    this.sort(function(a, b) {
-      var y = fn.apply(a, [a]);
-      var x = fn.apply(b, [b]);
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
-    return this;
-  }
-
-
-  Array.prototype.count = function(clause) {
-    var nb = 0;
-    var len = this.length;
-    for (var i = 0; i < len; i++) {
-      if (clause.apply(this[i], [this[i], i])) {
-        nb++;
-      }
-    }
-    return nb;
-  }
-
-  Array.prototype.all = function(clause) {
-    return (this.count(clause) === this.length);
-  }
-
-  Array.prototype.any = function(clause) {
-    return (this.count(clause) > 0);
-  }
-
-  Array.prototype.skip = function(num) {
-    return this.slice(num || 1, this.length);
-  }
-
-  Array.prototype.skipWhile = function(clause) {
-    return this.slice(this.whileIndex(clause), this.length);
-  }
-
-  Array.prototype.whileIndex = function(clause) {
-    var nb = 0;
-    var len = this.length;
-    for (var i = 0; i < len; i++) {
-      if (clause.apply(this[i], [this[i], i])) {
-        nb++;
-      }
-    }
-    return nb;
-  }
-
-  Array.prototype.takeWhile = function(clause) {
-    return this.slice(0, this.whileIndex(clause));
   }
 
   return Array;

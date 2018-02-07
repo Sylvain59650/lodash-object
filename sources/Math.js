@@ -1,9 +1,9 @@
 /**
  * @license
- * Lodash-Object  4.7.6
+ * Lodash-Object  4.7.7
  * Copyright Sylvain Longepée
  * Released under MIT license <https://github.com/Sylvain59650/lodash-object/blob/master/LICENSE>
- * Based on Lodash 4.7.4 <https://lodash.com/>
+ * Based on Lodash 4.7.5 <https://lodash.com/>
  */
 
 ;
@@ -13,7 +13,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require("lodash"));
   } else {
-    root.Math = factory(_);
+    Math = factory(_);
   }
 }("MathModule", this, function(_) {
   'use strict';
