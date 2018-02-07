@@ -11,66 +11,71 @@ Wrapper for lodash for work with objects
 
 lodash-object takes lodash functions on tables, strings and mathematical calculations but allows to work in object..
 
-If you work with objects and manipulate tables, take a look at [linq-to-objects](https://www.npmjs.com/package/linq-to-object).
+If you work with objects and manipulate tables, take a look at [linq-to-objects](https://www.npmjs.com/package/linq-to-objects).
 
 Instead of writing
 <code>
 
-  var myArray = [1, 2, 3, 4];
-
-  _.remove(myArray,function(n) { return n % 2 == 0; });
-  var three = _.filter(myArray,function(x) {return x==3});
+    var myArray = [1, 2, 3, 4];
+    _.remove(myArray,function(n) { return n % 2 == 0; });
+    var three = _.filter(myArray,function(x) {return x==3});
 </code>
 
 you will write
 
 <code>
   
-  var myArray = [1, 2, 3, 4];
 
-  myArray.remove(function(n) { return n % 2 == 0; });
-  var three = myArray.filter(function(x) {return x==3});
+    var myArray = [1, 2, 3, 4];
+    myArray.remove(function(n) { return n % 2 == 0; });
+    var three = myArray.filter(function(x) {return x==3});
 </code>
 
 
 # Installation
 <code>
 
-  npm install lodash-object --save
+    npm install lodash-object --save
 
 OR
 
-  yarn add lodash-object --save
+    yarn add lodash-object --save
 </code>
 
 # References in Node.js
 <code>
 
-  require("lodash-object");
+    require("lodash-object");
 </code>
 # References in browser 
 <code>
 
-  &lt;script src="./node_modules/lodash/lodash.min.js"&gt;&lt;/script&gt;
+   &lt;script src="./node_modules/lodash/lodash.min.js"&gt;&lt;/script&gt;
 </code>
 
 to extend the functionality of tables
  <code>
 
-  &lt;script src="./node_modules/lodash-object/dist/Array.js"&gt;&lt;/script&gt;
+  &lt;script src="./node_modules/lodash-object/distrib/Array.min.js"&gt;&lt;/script&gt;
 </code>
 
 
 to extend the functionality of strings
 <code>
 
-  &lt;script src="./node_modules/lodash-object/dist/String.js"&gt;&lt;/script&gt;
+  &lt;script src="./node_modules/lodash-object/distrib/String.min.js"&gt;&lt;/script&gt;
+</code>
+
+to extend the functionality of strings with rare functions
+<code>
+
+  &lt;script src="./node_modules/lodash-object/distrib/StringExtension.min.js"&gt;&lt;/script&gt;
 </code>
 
 to extend the mathematical features
 <code>
 
-  &lt;script src="./node_modules/lodash-object/dist/Math.js"&gt;&lt;/script&gt;
+  &lt;script src="./node_modules/lodash-object/distrib/Math.min.js"&gt;&lt;/script&gt;
 </code>
 
 
