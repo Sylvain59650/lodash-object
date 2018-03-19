@@ -4,8 +4,10 @@ The lastest version of this document is available on [Github > lodash-object](ht
 </div>
 
 
-
-
+<div>
+<img data-canonical-src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat">
+<img data-canonical-src="https://travis-ci.org/Sylvain59650/lodash-object.svg?branch=master" />
+</div>
 # lodash-object
 Wrapper for lodash for work with objects
 
