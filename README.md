@@ -10,6 +10,8 @@ The lastest version of this document is available on [Github > lodash-object](ht
 
 [![Build Status](https://travis-ci.org/Sylvain59650/lodash-object.png?branch=master)](https://travis-ci.org/Sylvain59650/lodash-object)
 
+[![dependencies](https://david-dm.org/Sylvain59650/lodash-object.svg](https://david-dm.org/Sylvain59650/lodash-object.svg)
+
 [![HitCount](http://hits.dwyl.com/Sylvain59650/lodash-object.svg)](http://hits.dwyl.com/Sylvain59650/lodash-object)
 </div>
 # lodash-object
