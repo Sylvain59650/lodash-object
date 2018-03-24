@@ -1,12 +1,16 @@
  <div class="Note" style="color:orange;font-style:italic">
  
 The lastest version of this document is available on [Github > lodash-object](https://github.com/Sylvain59650/lodash-object/blob/master/README.md)
+
+
 </div>
 
 
 <div>
-<img data-canonical-src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat">
-<img data-canonical-src="https://travis-ci.org/Sylvain59650/lodash-object.svg?branch=master" />
+
+[![Build Status](https://travis-ci.org/Sylvain59650/lodash-object.png?branch=master)](https://travis-ci.org/Sylvain59650/lodash-object)
+
+[![HitCount](http://hits.dwyl.com/Sylvain59650/lodash-object.svg)](http://hits.dwyl.com/Sylvain59650/lodash-object)
 </div>
 # lodash-object
 Wrapper for lodash for work with objects
