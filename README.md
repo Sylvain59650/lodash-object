@@ -6,16 +6,15 @@ The lastest version of this document is available on [Github > lodash-object](ht
 </div>
 
 
-<div>
+<div style="display:inline">
 
 [![Build Status](https://travis-ci.org/Sylvain59650/lodash-object.png?branch=master)](https://travis-ci.org/Sylvain59650/lodash-object)
-
 ![Libraries.io for GitHub](https://img.shields.io/librariesio/github/Sylvain59650/lodash-object.svg?style=flat-square)
-
-[![Dependency Status](https://img.shields.io/david/lodash-object.svg?style=flat-square)](https://david-dm.org/Sylvain59650/lodash-object)
-
+![npm bundle size (minified)](https://img.shields.io/Sylvain59650/lodash-object/react.svg)
+![npm](https://img.shields.io/npm/l/lodash-object.svg)
 [![HitCount](http://hits.dwyl.com/Sylvain59650/lodash-object.svg)](http://hits.dwyl.com/Sylvain59650/lodash-object)
 </div>
+
 # lodash-object
 Wrapper for lodash for work with objects
 
