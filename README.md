@@ -1,3 +1,16 @@
+# lodash-object
+ 
+<div style="display:inline">
+
+[![Build Status](https://travis-ci.org/Sylvain59650/lodash-object.png?branch=master)](https://travis-ci.org/Sylvain59650/lodash-object)
+![package](https://img.shields.io/github/package-json/v/Sylvain59650/lodash-object.svg)
+![npm bundle size (minified)](https://img.shields.io/lodash-object/react.svg)
+![dependencies](https://img.shields.io/david/Sylvain59650/lodash-object.svg)
+[![dependencies graph](https://img.shields.io/badge/dependencies-graph-blue.svg)](http://npm.anvaka.com/#/view/2d/lodash-object)
+![license](https://img.shields.io/npm/l/lodash-object.svg)
+[![HitCount](http://hits.dwyl.com/Sylvain59650/lodash-object.svg)](http://hits.dwyl.com/Sylvain59650/lodash-object)
+</div>
+
  <div class="Note" style="color:orange;font-style:italic">
  
 The lastest version of this document is available on [Github > lodash-object](https://github.com/Sylvain59650/lodash-object/blob/master/README.md)
@@ -5,17 +18,6 @@ The lastest version of this document is available on [Github > lodash-object](ht
 
 </div>
 
-
-<div style="display:inline">
-
-[![Build Status](https://travis-ci.org/Sylvain59650/lodash-object.png?branch=master)](https://travis-ci.org/Sylvain59650/lodash-object)
-![Libraries.io for GitHub](https://img.shields.io/librariesio/github/Sylvain59650/lodash-object.svg?style=flat-square)
-![npm bundle size (minified)](https://img.shields.io/lodash-object/react.svg)
-![npm](https://img.shields.io/npm/l/lodash-object.svg)
-[![HitCount](http://hits.dwyl.com/Sylvain59650/lodash-object.svg)](http://hits.dwyl.com/Sylvain59650/lodash-object)
-</div>
-
-# lodash-object
 Wrapper for lodash for work with objects
 
 lodash-object takes lodash functions on tables, strings and mathematical calculations but allows to work in object..
