@@ -1,26 +1,29 @@
 {
   "name": "lodash-object",
-  "version": "4.17.7",
+  "version": "4.17.8",
   "description": "Wrapper for lodash for work with objects",
   "main": "distrib/lodash-object.js",
   "author": "sylvain59",
+  "maintainers": [
+    {
+      "name": "sylvain59",
+      "email": "slongepee@laposte.net"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash-core": "^0.8.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
-    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
-    "gulp-debug": "^3.2.0",
-    "gulp-uglify": "^3.0.0",
     "gulp-umd": "^0.2.1",
     "gulp-util": "^3.0.8",
-    "gulp-watch": "^5.0.0"
+    "gulp-watch": "^5.0.1"
   }
 }
