@@ -25,24 +25,26 @@ lodash-object takes lodash functions on tables, strings and mathematical calcula
 If you work with objects and manipulate tables, take a look at [linq-to-objects](https://www.npmjs.com/package/linq-to-objects).
 
 Instead of writing
-<code>
-
+```html
     var myArray = [1, 2, 3, 4];
     _.remove(myArray,function(n) { return n % 2 == 0; });
     var three = _.filter(myArray,function(x) {return x==3});
-</code>
+```
 
 you will write
 
-<code>
-  
-
+```html
     var myArray = [1, 2, 3, 4];
     myArray.remove(function(n) { return n % 2 == 0; });
     var three = myArray.filter(function(x) {return x==3});
-</code>
-
-
+```
+OR
+```html
+  with ES6
+   var myArray = [1, 2, 3, 4];
+    myArray.remove(n => n%2 == 0);
+    var three = myArray.filter(x => x == 3);
+```
 # Installation
 <code>
 
@@ -54,41 +56,36 @@ OR
 </code>
 
 # References in Node.js
-<code>
-
+```html
     require("lodash-object");
-</code>
-# References in browser 
-<code>
+```
 
-   &lt;script src="./node_modules/lodash/lodash.min.js"&gt;&lt;/script&gt;
-</code>
+# References in browser 
+
+```html
+   <script src="./node_modules/lodash/lodash.min.js"></script>
+```
 
 to extend the functionality of tables
- <code>
-
-  &lt;script src="./node_modules/lodash-object/distrib/Array.min.js"&gt;&lt;/script&gt;
-</code>
+```html
+  <script src="./node_modules/lodash-object/distrib/Array.min.js"></script>
+```
 
 
 to extend the functionality of strings
-<code>
-
-  &lt;script src="./node_modules/lodash-object/distrib/String.min.js"&gt;&lt;/script&gt;
-</code>
+```html
+  <script src="./node_modules/lodash-object/distrib/String.min.js"></script>
+```
 
 to extend the functionality of strings with rare functions
-<code>
-
-  &lt;script src="./node_modules/lodash-object/distrib/StringExtension.min.js"&gt;&lt;/script&gt;
-</code>
+```html
+  <script src="./node_modules/lodash-object/distrib/StringExtension.min.js"></script>
+```
 
 to extend the mathematical features
-<code>
-
-  &lt;script src="./node_modules/lodash-object/distrib/Math.min.js"&gt;&lt;/script&gt;
-</code>
-
+```html
+  <script  src="./node_modules/lodash-object/distrib/Math.min.js"></script>
+```
 
 These APIs have the same function names as those of Lodash. See [Lodash documentation](https://lodash.com/docs/4.17.5) for Lodash features.
 
